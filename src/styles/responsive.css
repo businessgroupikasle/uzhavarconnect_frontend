@@ -1,0 +1,44 @@
+/* Responsive helpers and safeguards */
+
+/* Prevent horizontal overflow across all viewports */
+html, body {
+  max-width: 100vw;
+  overflow-x: hidden;
+}
+
+/* Ensure images and media never overflow container */
+img, svg, video, canvas, audio, iframe, embed, object {
+  display: block;
+  max-width: 100%;
+}
+
+/* Fluid responsive container padding */
+.responsive-container {
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+@media (min-width: 640px) {
+  .responsive-container {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .responsive-container {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+}
+
+/* Touch-friendly touch targets on mobile */
+@media (max-width: 768px) {
+  button, a {
+    min-height: 40px;
+    touch-action: manipulation;
+  }
+}

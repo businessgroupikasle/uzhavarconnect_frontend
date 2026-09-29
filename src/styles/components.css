@@ -1,0 +1,88 @@
+/* Component-specific helper classes & transitions */
+
+/* Navbar Active Link Indicator */
+.nav-link-item {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.5rem 0.25rem;
+  font-weight: 500;
+  font-size: 0.975rem;
+  color: #374151; /* text-slate-700 */
+  transition: color 0.2s ease;
+}
+
+.nav-link-item:hover {
+  color: #15803d; /* green-700 */
+}
+
+.nav-link-item.active {
+  color: #15803d;
+  font-weight: 600;
+}
+
+.nav-link-item.active::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  right: 0;
+  height: 2.5px;
+  background-color: #15803d;
+  border-radius: 9999px;
+  animation: slideUnderline 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes slideUnderline {
+  from {
+    transform: scaleX(0);
+    opacity: 0;
+  }
+  to {
+    transform: scaleX(1);
+    opacity: 1;
+  }
+}
+
+/* Warm Amber CTA Button (Reference Style) */
+.btn-navbar-cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  background-color: #b87d2b;
+  color: #ffffff;
+  font-weight: 600;
+  font-size: 0.9375rem;
+  padding: 0.625rem 1.375rem;
+  border-radius: 9999px;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 2px 8px -1px rgba(184, 125, 43, 0.25);
+  white-space: nowrap;
+}
+
+.btn-navbar-cta:hover {
+  background-color: #a36c21;
+  box-shadow: 0 4px 14px -1px rgba(184, 125, 43, 0.35);
+  transform: translateY(-1px);
+}
+
+.btn-navbar-cta:active {
+  transform: translateY(0);
+  background-color: #925f1b;
+}
+
+/* Smooth modal/drawer animations */
+@keyframes drawerSlideIn {
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+.animate-drawer-in {
+  animation: drawerSlideIn 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
