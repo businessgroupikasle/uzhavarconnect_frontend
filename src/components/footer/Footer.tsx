@@ -60,140 +60,145 @@ export const Footer: React.FC = () => {
             </div>
           </div>
 
-          {/* 2. Middle Column: Quick Links (col-span-3) */}
-          <div className="md:col-span-3 lg:col-span-3 md:pl-2 lg:pl-6">
-            <h3 className="text-[#f0ad25] text-base sm:text-lg font-bold tracking-wide font-serif">
-              Quick Links
-            </h3>
-            {/* Gold Underline */}
-            <div className="w-8 h-[2.5px] bg-[#f0ad25] mt-1.5 mb-4 rounded-full" aria-hidden="true" />
+          {/* 2 & 3. Quick Links & Contact Details: 1 Row with 2 Columns on mobile */}
+          <div className="md:col-span-7 lg:col-span-8 grid grid-cols-2 gap-4 sm:gap-6 lg:gap-8 items-start">
             
-            <ul className="space-y-2.5 text-xs sm:text-sm font-normal text-white/85">
-              <li>
-                <Link to="/" className="hover:text-[#f0ad25] hover:translate-x-1 inline-block transition-all duration-200">
-                  Home
-                </Link>
-              </li>
-              <li>
-                <Link to="/about" className="hover:text-[#f0ad25] hover:translate-x-1 inline-block transition-all duration-200">
-                  About Us
-                </Link>
-              </li>
-              <li>
-                <Link to="/services" className="hover:text-[#f0ad25] hover:translate-x-1 inline-block transition-all duration-200">
-                  Our Services
-                </Link>
-              </li>
-              <li>
-                <Link to="/gallery" className="hover:text-[#f0ad25] hover:translate-x-1 inline-block transition-all duration-200">
-                  Project Gallery
-                </Link>
-              </li>
-              <li>
-                <Link to="/blog" className="hover:text-[#f0ad25] hover:translate-x-1 inline-block transition-all duration-200">
-                  Agri Insights & Blog
-                </Link>
-              </li>
-              <li>
-                <Link to="/book-a-service" className="hover:text-[#f0ad25] hover:translate-x-1 inline-block transition-all duration-200">
-                  Book a Consultation
-                </Link>
-              </li>
-              <li>
-                <Link to="/contact" className="hover:text-[#f0ad25] hover:translate-x-1 inline-block transition-all duration-200">
-                  Contact Us
-                </Link>
-              </li>
-            </ul>
-          </div>
-
-          {/* 3. Right Column: Contact Details (col-span-5) */}
-          <div className="md:col-span-4 lg:col-span-5 space-y-3.5">
-            <div>
-              <h3 className="text-[#f0ad25] text-base sm:text-lg font-bold tracking-wide font-serif">
-                Contact Details
+            {/* Quick Links */}
+            <div className="md:pl-2 lg:pl-6">
+              <h3 className="text-[#f0ad25] text-sm sm:text-base lg:text-lg font-bold tracking-wide font-serif">
+                Quick Links
               </h3>
               {/* Gold Underline */}
-              <div className="w-8 h-[2.5px] bg-[#f0ad25] mt-1.5 mb-4 rounded-full" aria-hidden="true" />
+              <div className="w-7 sm:w-8 h-[2px] sm:h-[2.5px] bg-[#f0ad25] mt-1 sm:mt-1.5 mb-3 sm:mb-4 rounded-full" aria-hidden="true" />
+              
+              <ul className="space-y-2 sm:space-y-2.5 text-xs sm:text-sm font-normal text-white/85">
+                <li>
+                  <Link to="/" className="hover:text-[#f0ad25] hover:translate-x-1 inline-block transition-all duration-200">
+                    Home
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/about" className="hover:text-[#f0ad25] hover:translate-x-1 inline-block transition-all duration-200">
+                    About Us
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/services" className="hover:text-[#f0ad25] hover:translate-x-1 inline-block transition-all duration-200">
+                    Our Services
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/gallery" className="hover:text-[#f0ad25] hover:translate-x-1 inline-block transition-all duration-200">
+                    Project Gallery
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/blog" className="hover:text-[#f0ad25] hover:translate-x-1 inline-block transition-all duration-200">
+                    Agri Insights & Blog
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/book-a-service" className="hover:text-[#f0ad25] hover:translate-x-1 inline-block transition-all duration-200">
+                    Book a Consultation
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/contact" className="hover:text-[#f0ad25] hover:translate-x-1 inline-block transition-all duration-200">
+                    Contact Us
+                  </Link>
+                </li>
+              </ul>
             </div>
 
-            <ul className="space-y-3 text-xs sm:text-sm text-white/90">
-              {/* Phone */}
-              <li>
-                <a
-                  href={`tel:${CONTACT_DETAILS.phone}`}
-                  className="flex items-center gap-3 hover:text-[#f0ad25] transition-colors group"
-                >
-                  <div className="w-8 h-8 rounded-full bg-emerald-900/60 border border-emerald-700/60 flex items-center justify-center shrink-0 group-hover:border-[#f0ad25] group-hover:scale-105 transition-all text-[#f0ad25]">
-                    <Phone className="w-4 h-4 fill-current" />
-                  </div>
-                  <div>
-                    <span className="block text-[11px] text-white/60 font-medium">Call Us:</span>
-                    <span className="font-semibold text-white group-hover:text-[#f0ad25] transition-colors">
-                      {CONTACT_DETAILS.phoneDisplay}
-                    </span>
-                  </div>
-                </a>
-              </li>
+            {/* Contact Details */}
+            <div className="space-y-3 sm:space-y-3.5">
+              <div>
+                <h3 className="text-[#f0ad25] text-sm sm:text-base lg:text-lg font-bold tracking-wide font-serif">
+                  Contact Details
+                </h3>
+                {/* Gold Underline */}
+                <div className="w-7 sm:w-8 h-[2px] sm:h-[2.5px] bg-[#f0ad25] mt-1 sm:mt-1.5 mb-3 sm:mb-4 rounded-full" aria-hidden="true" />
+              </div>
 
-              {/* WhatsApp */}
-              <li>
-                <a
-                  href={`https://wa.me/${CONTACT_DETAILS.whatsapp.replace(/\D/g, '')}?text=${encodeURIComponent(
-                    CONTACT_DETAILS.whatsappMessage
-                  )}`}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center gap-3 hover:text-[#25D366] transition-colors group"
-                >
-                  <div className="w-8 h-8 rounded-full bg-[#25D366]/20 border border-[#25D366]/50 flex items-center justify-center shrink-0 group-hover:scale-105 transition-all text-[#25D366]">
-                    <svg viewBox="0 0 24 24" className="w-4 h-4 fill-current" fill="currentColor">
-                      <path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0012.04 2zm0 18.15c-1.49 0-2.95-.4-4.22-1.16l-.3-.18-3.13.82.83-3.05-.2-.32a8.19 8.19 0 01-1.26-4.36c0-4.54 3.7-8.24 8.24-8.24 2.2 0 4.27.86 5.82 2.42a8.18 8.18 0 012.41 5.82c.01 4.54-3.69 8.25-8.19 8.25zm4.51-6.18c-.25-.12-1.47-.72-1.7-.8-.23-.08-.39-.12-.56.12-.17.25-.64.8-.79.97-.14.17-.29.19-.54.06-.25-.12-1.05-.39-2-1.23-.74-.66-1.24-1.47-1.38-1.72-.15-.25-.02-.38.11-.51.11-.11.25-.29.37-.43.12-.15.17-.25.25-.41.08-.17.04-.31-.02-.43-.06-.12-.56-1.35-.77-1.85-.2-.48-.41-.42-.56-.43h-.48c-.17 0-.43.06-.66.31-.22.25-.87.85-.87 2.07 0 1.22.89 2.4 1.01 2.57.12.17 1.75 2.67 4.24 3.74.59.26 1.05.41 1.41.52.59.19 1.13.16 1.56.1.48-.07 1.47-.6 1.68-1.18.21-.58.21-1.07.14-1.18-.06-.12-.22-.19-.47-.31z" />
-                    </svg>
-                  </div>
-                  <div>
-                    <span className="block text-[11px] text-white/60 font-medium">WhatsApp:</span>
-                    <span className="font-semibold text-white group-hover:text-[#25D366] transition-colors">
-                      {CONTACT_DETAILS.whatsappDisplay || CONTACT_DETAILS.phoneDisplay}
-                    </span>
-                  </div>
-                </a>
-              </li>
+              <ul className="space-y-2.5 sm:space-y-3 text-xs sm:text-sm text-white/90">
+                {/* Phone */}
+                <li>
+                  <a
+                    href={`tel:${CONTACT_DETAILS.phone}`}
+                    className="flex items-start sm:items-center gap-2 sm:gap-3 hover:text-[#f0ad25] transition-colors group"
+                  >
+                    <div className="w-6 h-6 sm:w-8 sm:h-8 rounded-full bg-emerald-900/60 border border-emerald-700/60 flex items-center justify-center shrink-0 group-hover:border-[#f0ad25] group-hover:scale-105 transition-all text-[#f0ad25] mt-0.5 sm:mt-0">
+                      <Phone className="w-3 h-3 sm:w-4 sm:h-4 fill-current" />
+                    </div>
+                    <div>
+                      <span className="block text-[10px] sm:text-[11px] text-white/60 font-medium leading-none mb-0.5">Call Us:</span>
+                      <span className="font-semibold text-white text-[11px] sm:text-sm group-hover:text-[#f0ad25] transition-colors">
+                        {CONTACT_DETAILS.phoneDisplay}
+                      </span>
+                    </div>
+                  </a>
+                </li>
 
-              {/* Email */}
-              <li>
-                <a
-                  href={`mailto:${CONTACT_DETAILS.email}`}
-                  className="flex items-center gap-3 hover:text-[#f0ad25] transition-colors group"
-                >
-                  <div className="w-8 h-8 rounded-full bg-emerald-900/60 border border-emerald-700/60 flex items-center justify-center shrink-0 group-hover:border-[#f0ad25] group-hover:scale-105 transition-all text-[#f0ad25]">
-                    <Mail className="w-4 h-4" />
-                  </div>
-                  <div>
-                    <span className="block text-[11px] text-white/60 font-medium">Email Us:</span>
-                    <span className="font-semibold text-white group-hover:text-[#f0ad25] transition-colors">
-                      {CONTACT_DETAILS.email}
-                    </span>
-                  </div>
-                </a>
-              </li>
+                {/* WhatsApp */}
+                <li>
+                  <a
+                    href={`https://wa.me/${CONTACT_DETAILS.whatsapp.replace(/\D/g, '')}?text=${encodeURIComponent(
+                      CONTACT_DETAILS.whatsappMessage
+                    )}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-start sm:items-center gap-2 sm:gap-3 hover:text-[#25D366] transition-colors group"
+                  >
+                    <div className="w-6 h-6 sm:w-8 sm:h-8 rounded-full bg-[#25D366]/20 border border-[#25D366]/50 flex items-center justify-center shrink-0 group-hover:scale-105 transition-all text-[#25D366] mt-0.5 sm:mt-0">
+                      <svg viewBox="0 0 24 24" className="w-3 h-3 sm:w-4 sm:h-4 fill-current" fill="currentColor">
+                        <path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0012.04 2zm0 18.15c-1.49 0-2.95-.4-4.22-1.16l-.3-.18-3.13.82.83-3.05-.2-.32a8.19 8.19 0 01-1.26-4.36c0-4.54 3.7-8.24 8.24-8.24 2.2 0 4.27.86 5.82 2.42a8.18 8.18 0 012.41 5.82c.01 4.54-3.69 8.25-8.19 8.25zm4.51-6.18c-.25-.12-1.47-.72-1.7-.8-.23-.08-.39-.12-.56.12-.17.25-.64.8-.79.97-.14.17-.29.19-.54.06-.25-.12-1.05-.39-2-1.23-.74-.66-1.24-1.47-1.38-1.72-.15-.25-.02-.38.11-.51.11-.11.25-.29.37-.43.12-.15.17-.25.25-.41.08-.17.04-.31-.02-.43-.06-.12-.56-1.35-.77-1.85-.2-.48-.41-.42-.56-.43h-.48c-.17 0-.43.06-.66.31-.22.25-.87.85-.87 2.07 0 1.22.89 2.4 1.01 2.57.12.17 1.75 2.67 4.24 3.74.59.26 1.05.41 1.41.52.59.19 1.13.16 1.56.1.48-.07 1.47-.6 1.68-1.18.21-.58.21-1.07.14-1.18-.06-.12-.22-.19-.47-.31z" />
+                      </svg>
+                    </div>
+                    <div>
+                      <span className="block text-[10px] sm:text-[11px] text-white/60 font-medium leading-none mb-0.5">WhatsApp:</span>
+                      <span className="font-semibold text-white text-[11px] sm:text-sm group-hover:text-[#25D366] transition-colors">
+                        {CONTACT_DETAILS.whatsappDisplay || CONTACT_DETAILS.phoneDisplay}
+                      </span>
+                    </div>
+                  </a>
+                </li>
 
-              {/* Office Address - Exactly 2 lines */}
-              <li className="flex items-start gap-3 pt-1">
-                <div className="w-8 h-8 rounded-full bg-emerald-900/60 border border-emerald-700/60 flex items-center justify-center shrink-0 text-[#f0ad25] mt-0.5">
-                  <MapPin className="w-4 h-4" />
-                </div>
-                <div className="text-white/90 text-xs sm:text-[13px] leading-relaxed">
-                  <span className="block text-[11px] text-white/60 font-medium mb-0.5">Office Address:</span>
-                  <p className="font-semibold text-white">
-                    No. 263/1B, SENTAMIL NAGAR PHASE 2, PAPPAMPATTI,
-                  </p>
-                  <p className="text-white/85">
-                    EDAYARPALAYAM, Coimbatore, Tamil Nadu - 641016
-                  </p>
-                </div>
-              </li>
-            </ul>
+                {/* Email */}
+                <li>
+                  <a
+                    href={`mailto:${CONTACT_DETAILS.email}`}
+                    className="flex items-start sm:items-center gap-2 sm:gap-3 hover:text-[#f0ad25] transition-colors group"
+                  >
+                    <div className="w-6 h-6 sm:w-8 sm:h-8 rounded-full bg-emerald-900/60 border border-emerald-700/60 flex items-center justify-center shrink-0 group-hover:border-[#f0ad25] group-hover:scale-105 transition-all text-[#f0ad25] mt-0.5 sm:mt-0">
+                      <Mail className="w-3 h-3 sm:w-4 sm:h-4" />
+                    </div>
+                    <div className="min-w-0">
+                      <span className="block text-[10px] sm:text-[11px] text-white/60 font-medium leading-none mb-0.5">Email Us:</span>
+                      <span className="font-semibold text-white text-[10.5px] sm:text-sm break-all group-hover:text-[#f0ad25] transition-colors">
+                        {CONTACT_DETAILS.email}
+                      </span>
+                    </div>
+                  </a>
+                </li>
+
+                {/* Office Address */}
+                <li className="flex items-start gap-2 sm:gap-3 pt-0.5">
+                  <div className="w-6 h-6 sm:w-8 sm:h-8 rounded-full bg-emerald-900/60 border border-emerald-700/60 flex items-center justify-center shrink-0 text-[#f0ad25] mt-0.5">
+                    <MapPin className="w-3 h-3 sm:w-4 sm:h-4" />
+                  </div>
+                  <div className="text-white/90 text-[10px] sm:text-[13px] leading-tight sm:leading-relaxed">
+                    <span className="block text-[10px] sm:text-[11px] text-white/60 font-medium mb-0.5">Office Address:</span>
+                    <p className="font-semibold text-white">
+                      No. 263/1B, SENTAMIL NAGAR PHASE 2, PAPPAMPATTI,
+                    </p>
+                    <p className="text-white/85">
+                      EDAYARPALAYAM, Coimbatore, Tamil Nadu - 641016
+                    </p>
+                  </div>
+                </li>
+              </ul>
+            </div>
+
           </div>
 
         </div>

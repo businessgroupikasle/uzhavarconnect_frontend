@@ -73,53 +73,47 @@ export const AboutPreview: React.FC = () => {
               Uzhavar Connect is an agricultural farm land development and services company focused on helping farmers create productive, sustainable and profitable farmland. We combine field knowledge with modern techniques to deliver practical solutions — from land preparation to long-term farm management support.
             </p>
 
-            {/* 4 Key Highlights Grid */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 pt-1">
-              <div className="flex items-center gap-2 p-2.5 rounded-xl bg-white border border-[#e2ede0] shadow-2xs">
-                <CheckCircle2 className="w-4 h-4 text-[#15803d] shrink-0" />
-                <span className="text-xs sm:text-[13px] font-medium text-slate-800">Turnkey Land Preparation</span>
+            {/* 4 Key Highlights Grid (2-column on all screen sizes) */}
+            <div className="grid grid-cols-2 gap-2 sm:gap-2.5 pt-1">
+              <div className="flex items-center gap-1.5 sm:gap-2 p-2 sm:p-2.5 rounded-xl bg-white border border-[#e2ede0] shadow-2xs">
+                <CheckCircle2 className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#15803d] shrink-0" />
+                <span className="text-[11.5px] sm:text-[13px] font-medium text-slate-800 leading-tight">Turnkey Land Preparation</span>
               </div>
-              <div className="flex items-center gap-2 p-2.5 rounded-xl bg-white border border-[#e2ede0] shadow-2xs">
-                <CheckCircle2 className="w-4 h-4 text-[#15803d] shrink-0" />
-                <span className="text-xs sm:text-[13px] font-medium text-slate-800">Precision Drip Irrigation</span>
+              <div className="flex items-center gap-1.5 sm:gap-2 p-2 sm:p-2.5 rounded-xl bg-white border border-[#e2ede0] shadow-2xs">
+                <CheckCircle2 className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#15803d] shrink-0" />
+                <span className="text-[11.5px] sm:text-[13px] font-medium text-slate-800 leading-tight">Precision Drip Irrigation</span>
               </div>
-              <div className="flex items-center gap-2 p-2.5 rounded-xl bg-white border border-[#e2ede0] shadow-2xs">
-                <CheckCircle2 className="w-4 h-4 text-[#15803d] shrink-0" />
-                <span className="text-xs sm:text-[13px] font-medium text-slate-800">Scientific Tree Plantation</span>
+              <div className="flex items-center gap-1.5 sm:gap-2 p-2 sm:p-2.5 rounded-xl bg-white border border-[#e2ede0] shadow-2xs">
+                <CheckCircle2 className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#15803d] shrink-0" />
+                <span className="text-[11.5px] sm:text-[13px] font-medium text-slate-800 leading-tight">Scientific Tree Plantation</span>
               </div>
-              <div className="flex items-center gap-2 p-2.5 rounded-xl bg-white border border-[#e2ede0] shadow-2xs">
-                <CheckCircle2 className="w-4 h-4 text-[#15803d] shrink-0" />
-                <span className="text-xs sm:text-[13px] font-medium text-slate-800">End-to-End AMC Support</span>
+              <div className="flex items-center gap-1.5 sm:gap-2 p-2 sm:p-2.5 rounded-xl bg-white border border-[#e2ede0] shadow-2xs">
+                <CheckCircle2 className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#15803d] shrink-0" />
+                <span className="text-[11.5px] sm:text-[13px] font-medium text-slate-800 leading-tight">End-to-End AMC Support</span>
               </div>
             </div>
 
-            {/* Balanced Bottom Row: CTA Button + Signature */}
-            <div className="flex flex-wrap items-end justify-between gap-4 pt-2">
+            {/* Balanced Bottom Row: CTA Button + Signature (Compact & aligned) */}
+            <div className="flex items-center justify-between gap-3 sm:gap-4 pt-1 sm:pt-2">
               <Link
                 to="/about"
-                className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-[#0e3922] hover:bg-[#155332] text-white text-xs sm:text-sm font-semibold transition-all duration-200 shadow-md hover:shadow-lg group"
+                className="inline-flex items-center gap-2 px-4 py-2.5 sm:px-5 sm:py-2.5 rounded-xl bg-[#0e3922] hover:bg-[#155332] text-white text-xs sm:text-sm font-semibold transition-all duration-200 shadow-md hover:shadow-lg group shrink-0"
               >
                 <span>Discover Our Story</span>
                 <ArrowRight className="w-4 h-4 text-[#f0ad25] group-hover:translate-x-1 transition-transform" />
               </Link>
 
-              {/* Decorative Leaf & Handwritten Slogan */}
-              <div className="flex flex-col items-end select-none pointer-events-none pr-1">
-                <img
-                  src="/assets/f0428fe6-7a9d-4007-b7c9-37234cc039e6.png"
-                  alt=""
-                  aria-hidden="true"
-                  className="w-16 sm:w-20 h-auto object-contain opacity-85 mb-0.5 rotate-6"
-                />
+              {/* Decorative Handwritten Slogan */}
+              <div className="flex flex-col items-end select-none pointer-events-none pr-1 shrink-0">
                 <div className="text-right">
-                  <span className="font-['Caveat',_cursive] text-xl sm:text-2xl font-bold text-[#1b5028] leading-none tracking-wide -rotate-3 inline-block">
+                  <span className="font-['Caveat',_cursive] text-base sm:text-2xl font-bold text-[#1b5028] leading-none tracking-wide -rotate-2 inline-block">
                     Land Today
                   </span>
                   <br />
-                  <span className="font-['Caveat',_cursive] text-xl sm:text-2xl font-bold text-[#1b5028] leading-none tracking-wide -rotate-3 inline-block mt-0.5">
+                  <span className="font-['Caveat',_cursive] text-base sm:text-2xl font-bold text-[#1b5028] leading-none tracking-wide -rotate-2 inline-block mt-0.5">
                     A Better Tomorrow
                   </span>
-                  <div className="w-28 sm:w-34 ml-auto -mt-0.5 -rotate-3">
+                  <div className="w-24 sm:w-34 ml-auto -mt-0.5 -rotate-2">
                     <svg viewBox="0 0 160 12" fill="none" className="w-full h-auto text-[#15803d]">
                       <path
                         d="M3 8 C45 2 115 2 157 8"

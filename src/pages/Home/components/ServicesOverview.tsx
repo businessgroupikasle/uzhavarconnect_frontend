@@ -69,8 +69,8 @@ export const ServicesOverview: React.FC = () => {
           </div>
         </div>
 
-        {/* Tablet & Mobile View (< 1024px): Responsive 1-col / 2-col / 3-col Grid */}
-        <div className="lg:hidden grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-5">
+        {/* Tablet & Mobile View (< 1024px): Responsive 2-col on mobile, 3-col on md */}
+        <div className="lg:hidden grid grid-cols-2 md:grid-cols-3 gap-3 sm:gap-4 md:gap-5">
           {SERVICES_DATA.map((service) => (
             <CompactServiceCard key={service.id} service={service} />
           ))}

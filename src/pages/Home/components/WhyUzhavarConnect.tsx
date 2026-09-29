@@ -46,27 +46,29 @@ export const WhyUzhavarConnect: React.FC = () => {
           </h2>
         </div>
 
-        {/* 4 Feature Columns in ONE horizontal row on desktop */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-0">
+        {/* 4 Feature Columns: 2-column grid on mobile/tablet, 4 in ONE row on desktop */}
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-x-3 gap-y-6 sm:gap-x-6 sm:gap-y-8 lg:gap-0">
           {WHY_FEATURES.map((feature, idx) => (
             <div
               key={feature.title}
-              className={`flex flex-col items-center text-center px-4 sm:px-6 ${
+              className={`flex flex-col items-center text-center px-2 sm:px-4 lg:px-6 ${
                 idx < WHY_FEATURES.length - 1 ? 'lg:border-r lg:border-[#d5ded4]' : ''
               }`}
             >
               {/* Simple Green Icon */}
-              <div className="mb-3.5 flex items-center justify-center">
-                {feature.icon}
+              <div className="mb-2 sm:mb-3.5 flex items-center justify-center">
+                {React.cloneElement(feature.icon as React.ReactElement<{ className?: string }>, {
+                  className: "w-8 h-8 sm:w-10 sm:h-10 text-[#15803d] stroke-[1.8]"
+                })}
               </div>
 
               {/* Small Heading */}
-              <h3 className="text-[15.5px] sm:text-base font-bold text-[#0c2e1b] mb-1.5 leading-snug">
+              <h3 className="text-[13.5px] sm:text-base font-bold text-[#0c2e1b] mb-1 sm:mb-1.5 leading-snug">
                 {feature.title}
               </h3>
 
               {/* Short Description */}
-              <p className="text-xs sm:text-[13px] text-slate-600 leading-relaxed max-w-[220px] mx-auto">
+              <p className="text-[11.5px] sm:text-[13px] text-slate-600 leading-relaxed max-w-[200px] sm:max-w-[220px] mx-auto">
                 {feature.description}
               </p>
             </div>
