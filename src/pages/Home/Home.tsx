@@ -10,8 +10,10 @@ import { Testimonials } from './components/Testimonials';
 
 export const Home: React.FC = () => {
   usePageSeo({
-    title: 'From Dry Land to Productive Farms',
-    description: 'Uzhavar Connect provides complete agricultural land development, drip irrigation, commercial tree plantations, and farmhouse development across Tamil Nadu.',
+    title: 'Uzhavar Connect | Agricultural Land Development & Farm Services',
+    overrideFullTitle: true,
+    description: 'Uzhavar Connect provides agricultural land development, farm layout planning, farm house development, irrigation and plantation services across Tamil Nadu.',
+    canonicalUrl: 'https://uzhavarconnect.com/',
   });
 
   return (

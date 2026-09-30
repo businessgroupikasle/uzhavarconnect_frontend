@@ -11,6 +11,7 @@ export const Blog: React.FC = () => {
   usePageSeo({
     title: 'Farming Knowledge & Land Development Guides',
     description: 'Expert agricultural guides on turning dry land into productive farms, drip irrigation ROI, timber tree plantations, and farmhouse architecture in Tamil Nadu.',
+    canonicalUrl: 'https://uzhavarconnect.com/blog',
   });
 
   return (

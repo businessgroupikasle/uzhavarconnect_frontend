@@ -15,6 +15,8 @@ export const BlogDetail: React.FC = () => {
   usePageSeo({
     title: post ? `${post.title} | Uzhavar Connect` : 'Article Not Found',
     description: post?.excerpt || 'Agricultural guide from Uzhavar Connect.',
+    canonicalUrl: post ? `https://uzhavarconnect.com/blog/${post.slug}` : 'https://uzhavarconnect.com/blog',
+    ogImage: post?.image ? `https://uzhavarconnect.com${post.image}` : undefined,
   });
 
   if (!post) {

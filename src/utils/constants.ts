@@ -5,10 +5,10 @@ export const COMPANY_TAGLINE = "Agriculture Farm Land Developer";
 export const COMPANY_MOTTO = "Grow Your Land. Grow Your Future.";
 
 export const CONTACT_DETAILS: ContactInfo = {
-  phone: "+917550119994",
-  phoneDisplay: "+91 755 011 9994",
-  whatsapp: "+917550119994",
-  whatsappDisplay: "+91 755 011 9994",
+  phone: "+918220111722",
+  phoneDisplay: "+91 82201 11722",
+  whatsapp: "+918220111722",
+  whatsappDisplay: "+91 82201 11722",
   whatsappMessage: "Hello Uzhavar Connect, I am interested in developing my agricultural farmland and would like a free consultation.",
   email: "info@uzhavarconnect.com",
   building: "No. 263/1B",

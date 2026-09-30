@@ -209,7 +209,7 @@ const farmhouseSvg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 
   <!-- Front Lawn and Pathway -->
   <path d="M0 500 Q500 480 1000 500 L1000 650 L0 650 Z" fill="url(#lawnGrad)"/>
   
-  <!-- Stone Paver Walkway -->
+  <!-- Stone Pathway -->
   <polygon points="505,505 565,505 640,650 430,650" fill="#e2e8f0" stroke="#cbd5e1" stroke-width="1.5"/>
   <g stroke="#94a3b8" stroke-width="2">
     <line x1="485" y1="530" x2="575" y2="530"/>

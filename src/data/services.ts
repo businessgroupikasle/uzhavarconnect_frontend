@@ -371,7 +371,7 @@ export const SERVICES_DATA: ServiceItem[] = [
     ],
     scopeOfWork: [
       'Compact 1BHK / 2-room staff quarters layout with kitchen and attached bathroom',
-      'Durable precast solid block or fly-ash brick masonry construction',
+      'Durable precast solid block or stone masonry construction',
       'GI sheet or insulated PUF sandwich panel roofing with heat insulation',
       'Plumbing, septic tank, and soak pit sanitation installation',
       'Secure lockable tractor shed, tool room, and fertilizer storage chamber',

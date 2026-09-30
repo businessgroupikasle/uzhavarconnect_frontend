@@ -12,6 +12,7 @@ export const About: React.FC = () => {
   usePageSeo({
     title: 'About Us | Agriculture Farm Land Developer',
     description: 'Learn about Uzhavar Connect, our vision, mission, expert agricultural engineering capabilities, and commitment to revitalizing agricultural land across Tamil Nadu.',
+    canonicalUrl: 'https://uzhavarconnect.com/about',
   });
 
   return (

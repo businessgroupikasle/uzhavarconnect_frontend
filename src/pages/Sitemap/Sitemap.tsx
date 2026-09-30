@@ -4,8 +4,14 @@ import { Map, Home, Wrench, Shield, ArrowRight } from 'lucide-react';
 import { SERVICES_DATA } from '../../data/services';
 import { ServiceItem } from '../../types';
 import { CONTACT_DETAILS } from '../../utils/constants';
+import { usePageSeo } from '../../utils/seo';
 
 export const Sitemap: React.FC = () => {
+  usePageSeo({
+    title: 'HTML Sitemap | Uzhavar Connect',
+    description: 'Easily navigate across all pages, services, infrastructure solutions, and legal documentation of Uzhavar Connect.',
+    canonicalUrl: 'https://uzhavarconnect.com/sitemap',
+  });
   return (
     <div className="bg-[#f8faf7] min-h-screen py-12 sm:py-16">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">

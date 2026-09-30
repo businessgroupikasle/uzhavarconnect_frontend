@@ -65,7 +65,7 @@ export const BLOG_POSTS_DATA: BlogPostItem[] = [
     content: [
       'A farm house should harmonize with its natural surroundings rather than replicating an urban concrete box. Designing for thermal comfort, low maintenance, and energy independence ensures a hassle-free weekend sanctuary.',
       'Vernacular Design Elements: Deep semi-open verandahs (Thinnai) shade exterior walls from harsh daytime sunlight. High pitched ceilings with traditional terracotta Mangalore tiles allow rising hot air to escape naturally through ridge vents, reducing interior temperature by 4 to 6 degrees Celsius without air conditioning.',
-      'Precast & Sustainable Masonry: Utilizing fly-ash blocks, compressed stabilized earth blocks (CSEB), or exposed wire-cut brickwork cuts plastering and painting maintenance while imparting timeless rustic character.',
+      'Precast & Sustainable Masonry: Utilizing compressed stabilized earth blocks (CSEB), precast blocks, or exposed stone masonry cuts plastering and painting maintenance while imparting timeless rustic character.',
       'Off-Grid Independence: A hybrid solar rooftop system (3kW to 5kW) with lithium battery storage provides 24/7 power for lights, refrigeration, and fans even during rural power outages. Rainwater collected from the pitched roof can be channeled straight into a groundwater recharge pit or filtered storage sump.'
     ],
     author: 'P. Anand (Rural Infrastructure Architect)',

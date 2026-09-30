@@ -7,6 +7,7 @@ export const PrivacyPolicy: React.FC = () => {
   usePageSeo({
     title: 'Privacy Policy | Uzhavar Connect',
     description: 'Privacy Policy for Uzhavar Connect agricultural land development and service management platform.',
+    canonicalUrl: 'https://uzhavarconnect.com/privacy-policy',
   });
 
   return (

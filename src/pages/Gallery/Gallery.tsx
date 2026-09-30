@@ -17,6 +17,7 @@ export const Gallery: React.FC = () => {
   usePageSeo({
     title: 'Project Gallery | Real Farmland Transformations | Uzhavar Connect',
     description: 'Explore land preparation, drip irrigation, high-density tree plantations, and rural farm infrastructure across Tamil Nadu.',
+    canonicalUrl: 'https://uzhavarconnect.com/gallery',
   });
 
   const [activeCategory, setActiveCategory] = useState<GalleryCategory>('All Images');

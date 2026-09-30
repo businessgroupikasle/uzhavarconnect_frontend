@@ -13,6 +13,8 @@ export const ServiceDetail: React.FC = () => {
   usePageSeo({
     title: service ? `${service.title} | Uzhavar Connect` : 'Service Not Found',
     description: service?.shortDescription || 'Agricultural service details from Uzhavar Connect.',
+    canonicalUrl: service ? `https://uzhavarconnect.com/services/${service.slug}` : 'https://uzhavarconnect.com/services',
+    ogImage: service?.heroImage ? `https://uzhavarconnect.com${service.heroImage}` : undefined,
   });
 
   if (!service) {

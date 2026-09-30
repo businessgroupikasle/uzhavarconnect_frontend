@@ -2,11 +2,13 @@ import React from 'react';
 import { usePageSeo } from '../../utils/seo';
 import { Button } from '../../components/buttons/Button';
 import { Home, Compass } from 'lucide-react';
+import { CONTACT_DETAILS } from '../../utils/constants';
 
 export const NotFound: React.FC = () => {
   usePageSeo({
     title: '404 - Page Not Found | Uzhavar Connect',
     description: 'The requested agricultural service or page could not be found.',
+    canonicalUrl: 'https://uzhavarconnect.com/404',
   });
 
   return (
@@ -54,8 +56,8 @@ export const NotFound: React.FC = () => {
 
         <div className="mt-6 pt-5 border-t border-slate-100 text-xs text-slate-400">
           Need immediate support? Call our helpline at{' '}
-          <a href="tel:+917550119994" className="font-bold text-emerald-700 underline">
-            75501 19994
+          <a href={`tel:${CONTACT_DETAILS.phone}`} className="font-bold text-emerald-700 underline">
+            {CONTACT_DETAILS.phoneDisplay}
           </a>
         </div>
 

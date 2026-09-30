@@ -15,6 +15,7 @@ export const BookService: React.FC = () => {
   usePageSeo({
     title: `Request ${matchedService.title} | Uzhavar Connect`,
     description: `Submit an enquiry for ${matchedService.title} with Uzhavar Connect. We provide complete agricultural land development and farm management.`,
+    canonicalUrl: 'https://uzhavarconnect.com/book-a-service',
   });
 
   return (

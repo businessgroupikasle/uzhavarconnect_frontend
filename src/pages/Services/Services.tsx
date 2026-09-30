@@ -9,6 +9,7 @@ export const Services: React.FC = () => {
   usePageSeo({
     title: 'Our Agricultural Services | Uzhavar Connect',
     description: 'Explore our complete agricultural services: land preparation, farm layout, drip irrigation, water tanks, tree plantations, farm maintenance, harvest support, and buyback assistance.',
+    canonicalUrl: 'https://uzhavarconnect.com/services',
   });
 
   return (

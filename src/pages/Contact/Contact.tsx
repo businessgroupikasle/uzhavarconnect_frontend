@@ -9,6 +9,7 @@ export const Contact: React.FC = () => {
   usePageSeo({
     title: 'Contact Us | Agricultural Land Development Consultation',
     description: 'Get in touch with Uzhavar Connect for free farmland feasibility studies, machine booking, drip irrigation estimates, and turnkey farming inquiries in Tamil Nadu.',
+    canonicalUrl: 'https://uzhavarconnect.com/contact',
   });
 
   return (

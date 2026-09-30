@@ -7,6 +7,7 @@ export const Terms: React.FC = () => {
   usePageSeo({
     title: 'Terms & Conditions | Uzhavar Connect',
     description: 'Terms and Conditions for agricultural land development and consultation services by Uzhavar Connect.',
+    canonicalUrl: 'https://uzhavarconnect.com/terms-and-conditions',
   });
 
   return (
