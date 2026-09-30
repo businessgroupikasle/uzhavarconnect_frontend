@@ -1,7 +1,8 @@
 {
   "name": "uzhavarconnect-frontend",
   "private": true,
-  "version": "1.0.0",
+  "version": "1.0.1",
+  "description": "Uzhavar Connect - Agricultural Land Development & Farm Services",
   "type": "module",
   "scripts": {
     "dev": "vite",

@@ -1,3 +1,4 @@
+// Tailwind CSS Configuration - Uzhavar Connect
 /** @type {import('tailwindcss').Config} */
 export default {
   content: [

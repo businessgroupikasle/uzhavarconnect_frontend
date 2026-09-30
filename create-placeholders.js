@@ -1,3 +1,4 @@
+// Uzhavar Connect - Asset generator utility
 import fs from 'fs';
 import path from 'path';
 
