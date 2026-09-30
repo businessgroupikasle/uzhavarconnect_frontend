@@ -59,6 +59,14 @@ export const NotFound: React.FC = () => {
           <a href={`tel:${CONTACT_DETAILS.phone}`} className="font-bold text-emerald-700 underline">
             {CONTACT_DETAILS.phoneDisplay}
           </a>
+          {CONTACT_DETAILS.phoneSecondary && (
+            <>
+              {' / '}
+              <a href={`tel:${CONTACT_DETAILS.phoneSecondary}`} className="font-bold text-emerald-700 underline">
+                {CONTACT_DETAILS.phoneSecondaryDisplay}
+              </a>
+            </>
+          )}
         </div>
 
       </div>

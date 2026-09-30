@@ -75,8 +75,12 @@ export interface EnquiryFormData {
 export interface ContactInfo {
   phone: string;
   phoneDisplay: string;
+  phoneSecondary?: string;
+  phoneSecondaryDisplay?: string;
   whatsapp: string;
   whatsappDisplay?: string;
+  whatsappSecondary?: string;
+  whatsappSecondaryDisplay?: string;
   whatsappMessage: string;
   email: string;
   address: string;
