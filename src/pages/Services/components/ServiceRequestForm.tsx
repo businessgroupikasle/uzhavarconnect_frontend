@@ -21,7 +21,6 @@ export const ServiceRequestForm: React.FC<ServiceRequestFormProps> = ({ currentS
     district: '',
     serviceSlug: currentServiceSlug,
     farmSize: '',
-    preferredTime: '',
     details: '',
     fileName: '',
   });
@@ -122,10 +121,30 @@ export const ServiceRequestForm: React.FC<ServiceRequestFormProps> = ({ currentS
 
     setIsSubmitting(true);
 
-    try {
-      const generatedRef = `UZH-${new Date().getFullYear()}-${Math.floor(10000 + Math.random() * 90000)}`;
-      setRefNumber(generatedRef);
+    const generatedRef = `UZH-${new Date().getFullYear()}-${Math.floor(10000 + Math.random() * 90000)}`;
+    setRefNumber(generatedRef);
 
+    const messageLines = [
+      `*New Service Request - Uzhavar Connect*`,
+      `📋 *Reference:* ${generatedRef}`,
+      `👤 *Name:* ${formData.fullName}`,
+      `📞 *Mobile:* ${formData.mobile}`,
+      `📍 *District:* ${formData.district}`,
+      `🌾 *Service:* ${matchedService.title}`,
+      formData.farmSize ? `📐 *Land Size:* ${formData.farmSize}` : null,
+      formData.details ? `📝 *Requirements:* ${formData.details}` : null,
+    ].filter(Boolean).join('\n');
+
+    const whatsappTarget = (CONTACT_DETAILS.whatsapp || '+917550119994').replace(/\D/g, '');
+    const whatsappUrl = `https://wa.me/${whatsappTarget}?text=${encodeURIComponent(messageLines)}`;
+
+    try {
+      window.open(whatsappUrl, '_blank');
+    } catch {
+      // In case window.open is blocked by browser
+    }
+
+    try {
       const baseUrl = import.meta.env.VITE_API_BASE_URL || '/api';
       const endpoint = `${baseUrl.replace(/\/$/, '')}/enquiries`;
 
@@ -151,6 +170,20 @@ export const ServiceRequestForm: React.FC<ServiceRequestFormProps> = ({ currentS
   };
 
   if (isSuccess) {
+    const messageLines = [
+      `*New Service Request - Uzhavar Connect*`,
+      `📋 *Reference:* ${refNumber}`,
+      `👤 *Name:* ${formData.fullName}`,
+      `📞 *Mobile:* ${formData.mobile}`,
+      `📍 *District:* ${formData.district}`,
+      `🌾 *Service:* ${matchedService.title}`,
+      formData.farmSize ? `📐 *Land Size:* ${formData.farmSize}` : null,
+      formData.details ? `📝 *Requirements:* ${formData.details}` : null,
+    ].filter(Boolean).join('\n');
+
+    const whatsappTarget = (CONTACT_DETAILS.whatsapp || '+917550119994').replace(/\D/g, '');
+    const whatsappUrl = `https://wa.me/${whatsappTarget}?text=${encodeURIComponent(messageLines)}`;
+
     return (
       <div className="bg-white rounded-2xl border border-[#cbe0c6] shadow-sm relative overflow-hidden p-6 sm:p-8">
         <div className="absolute top-0 inset-x-0 h-1.5 bg-[#1b5e20]" />
@@ -174,7 +207,7 @@ export const ServiceRequestForm: React.FC<ServiceRequestFormProps> = ({ currentS
 
           <div className="mt-6 flex flex-col sm:flex-row items-center justify-center gap-3">
             <a
-              href={`https://wa.me/${CONTACT_DETAILS.whatsapp.replace(/\D/g, '')}?text=${encodeURIComponent(`Hi Uzhavar Connect, I submitted an enquiry for ${matchedService.title} (Ref: ${refNumber})`)}`}
+              href={whatsappUrl}
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center justify-center gap-2 px-5 py-2.5 bg-[#15803d] hover:bg-[#166534] text-white font-semibold text-xs sm:text-sm rounded-xl transition-colors shadow-xs w-full sm:w-auto"
@@ -258,7 +291,7 @@ export const ServiceRequestForm: React.FC<ServiceRequestFormProps> = ({ currentS
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5 sm:gap-4">
           <div>
             <label className="text-[11px] sm:text-xs font-bold text-slate-800 tracking-wide mb-1 block">
-              Email <span className="text-slate-400 font-normal">(Optional)</span>
+              Email
             </label>
             <input
               type="email"
@@ -318,7 +351,7 @@ export const ServiceRequestForm: React.FC<ServiceRequestFormProps> = ({ currentS
 
           <div>
             <label className="text-[11px] sm:text-xs font-bold text-slate-800 tracking-wide mb-1 block">
-              Farm / Land Size <span className="text-slate-400 font-normal">(Optional)</span>
+              Farm / Land Size
             </label>
             <input
               type="text"
@@ -331,29 +364,10 @@ export const ServiceRequestForm: React.FC<ServiceRequestFormProps> = ({ currentS
           </div>
         </div>
 
-        {/* Row 4: Preferred Contact Time */}
+        {/* Row 4: Requirement Details */}
         <div>
           <label className="text-[11px] sm:text-xs font-bold text-slate-800 tracking-wide mb-1 block">
-            Preferred Contact Time <span className="text-slate-400 font-normal">(Optional)</span>
-          </label>
-          <select
-            name="preferredTime"
-            value={formData.preferredTime}
-            onChange={handleInputChange}
-            className="w-full rounded-lg border border-slate-300 focus:border-[#15803d] focus:ring-1 focus:ring-[#15803d] px-3.5 py-2 text-xs sm:text-sm outline-none text-slate-700 bg-white transition-colors"
-          >
-            <option value="">Select a time</option>
-            <option value="Morning (9:00 AM - 12:00 PM)">Morning (9:00 AM - 12:00 PM)</option>
-            <option value="Afternoon (12:00 PM - 4:00 PM)">Afternoon (12:00 PM - 4:00 PM)</option>
-            <option value="Evening (4:00 PM - 7:00 PM)">Evening (4:00 PM - 7:00 PM)</option>
-            <option value="Anytime">Anytime during business hours</option>
-          </select>
-        </div>
-
-        {/* Row 5: Requirement Details */}
-        <div>
-          <label className="text-[11px] sm:text-xs font-bold text-slate-800 tracking-wide mb-1 block">
-            Requirement Details <span className="text-slate-400 font-normal">(Optional)</span>
+            Requirement Details
           </label>
           <textarea
             name="details"
@@ -368,7 +382,7 @@ export const ServiceRequestForm: React.FC<ServiceRequestFormProps> = ({ currentS
         {/* Row 6: Photo / Document Upload */}
         <div>
           <label className="text-[11px] sm:text-xs font-bold text-slate-800 tracking-wide mb-1 block">
-            Photo / Document <span className="text-slate-400 font-normal">(Optional)</span>
+            Photo / Document
           </label>
 
           <input

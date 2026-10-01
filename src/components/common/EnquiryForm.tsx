@@ -27,7 +27,6 @@ export const EnquiryForm: React.FC<EnquiryFormProps> = ({
     district: '',
     service: initialService,
     farmSize: '',
-    preferredTime: '',
     details: '',
     fileName: '',
   });
@@ -134,11 +133,33 @@ export const EnquiryForm: React.FC<EnquiryFormProps> = ({
 
     setIsSubmitting(true);
 
+    const generatedRef = `UZH-${new Date().getFullYear()}-${Math.floor(10000 + Math.random() * 90000)}`;
+
+    const messageLines = [
+      `*New Enquiry - Uzhavar Connect*`,
+      `📋 *Reference:* ${generatedRef}`,
+      `👤 *Name:* ${formData.fullName}`,
+      `📞 *Mobile:* ${formData.mobile}`,
+      formData.email ? `✉️ *Email:* ${formData.email}` : null,
+      `📍 *Location/District:* ${formData.district}`,
+      `🌾 *Service:* ${formData.service}`,
+      formData.farmSize ? `📐 *Land Size:* ${formData.farmSize}` : null,
+      formData.details ? `📝 *Requirements:* ${formData.details}` : null,
+    ].filter(Boolean).join('\n');
+
+    const whatsappTarget = (CONTACT_DETAILS.whatsapp || '+917550119994').replace(/\D/g, '');
+    const whatsappUrl = `https://wa.me/${whatsappTarget}?text=${encodeURIComponent(messageLines)}`;
+
+    // Open WhatsApp directly
+    try {
+      window.open(whatsappUrl, '_blank');
+    } catch {
+      // In case window.open is blocked by browser
+    }
+
     try {
       const baseUrl = import.meta.env.VITE_API_BASE_URL || '/api';
       const endpoint = `${baseUrl.replace(/\/$/, '')}/enquiries`;
-
-      const generatedRef = `UZH-${new Date().getFullYear()}-${Math.floor(10000 + Math.random() * 90000)}`;
 
       try {
         await fetch(endpoint, {
@@ -176,7 +197,6 @@ export const EnquiryForm: React.FC<EnquiryFormProps> = ({
       district: '',
       service: '',
       farmSize: '',
-      preferredTime: '',
       details: '',
       fileName: '',
     });
@@ -187,9 +207,20 @@ export const EnquiryForm: React.FC<EnquiryFormProps> = ({
 
   // SUCCESS STATE UI
   if (submitSuccess) {
-    const whatsappText = encodeURIComponent(
-      `Hello Uzhavar Connect, I just submitted an enquiry (Ref: ${referenceId}) for ${formData.service} at ${formData.district}. Name: ${formData.fullName}, Phone: ${formData.mobile}.`
-    );
+    const messageLines = [
+      `*New Enquiry - Uzhavar Connect*`,
+      `📋 *Reference:* ${referenceId}`,
+      `👤 *Name:* ${formData.fullName}`,
+      `📞 *Mobile:* ${formData.mobile}`,
+      formData.email ? `✉️ *Email:* ${formData.email}` : null,
+      `📍 *Location/District:* ${formData.district}`,
+      `🌾 *Service:* ${formData.service}`,
+      formData.farmSize ? `📐 *Land Size:* ${formData.farmSize}` : null,
+      formData.details ? `📝 *Requirements:* ${formData.details}` : null,
+    ].filter(Boolean).join('\n');
+
+    const whatsappTarget = (CONTACT_DETAILS.whatsapp || '+917550119994').replace(/\D/g, '');
+    const whatsappUrl = `https://wa.me/${whatsappTarget}?text=${encodeURIComponent(messageLines)}`;
 
     return (
       <div className={`bg-white rounded-2xl sm:rounded-3xl p-6 sm:p-8 md:p-10 border border-[#dce8da] shadow-sm relative overflow-hidden text-center animate-in fade-in-50 duration-300 ${className}`}>
@@ -224,7 +255,7 @@ export const EnquiryForm: React.FC<EnquiryFormProps> = ({
         {/* Actions */}
         <div className="mt-6 flex flex-col sm:flex-row items-center justify-center gap-3">
           <a
-            href={`https://wa.me/${CONTACT_DETAILS.whatsapp.replace(/\D/g, '')}?text=${whatsappText}`}
+            href={whatsappUrl}
             target="_blank"
             rel="noopener noreferrer"
             className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-5 py-3 rounded-xl bg-[#25D366] hover:bg-[#20ba5a] text-white font-semibold text-xs sm:text-sm shadow-xs transition-all active:scale-95"
@@ -321,7 +352,7 @@ export const EnquiryForm: React.FC<EnquiryFormProps> = ({
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5 sm:gap-4">
           <div>
             <label htmlFor="email" className="text-[11px] sm:text-xs font-bold text-slate-800 tracking-wide mb-1 block">
-              Email <span className="text-slate-400 font-normal">(Optional)</span>
+              Email
             </label>
             <input
               type="email"
@@ -391,7 +422,7 @@ export const EnquiryForm: React.FC<EnquiryFormProps> = ({
 
           <div>
             <label htmlFor="farmSize" className="text-[11px] sm:text-xs font-bold text-slate-800 tracking-wide mb-1 block">
-              Farm / Land Size <span className="text-slate-400 font-normal">(Optional)</span>
+              Farm / Land Size
             </label>
             <input
               type="text"
@@ -405,30 +436,10 @@ export const EnquiryForm: React.FC<EnquiryFormProps> = ({
           </div>
         </div>
 
-        {/* Row 4: Preferred Contact Time (Optional) */}
-        <div>
-          <label htmlFor="preferredTime" className="text-[11px] sm:text-xs font-bold text-slate-800 tracking-wide mb-1 block">
-            Preferred Contact Time <span className="text-slate-400 font-normal">(Optional)</span>
-          </label>
-          <select
-            id="preferredTime"
-            name="preferredTime"
-            value={formData.preferredTime}
-            onChange={handleInputChange}
-            className="w-full rounded-lg border border-slate-300 focus:border-[#15803d] focus:ring-1 focus:ring-[#15803d] px-3.5 py-2 text-xs sm:text-sm outline-none text-slate-700 bg-white transition-colors"
-          >
-            <option value="">Select a time</option>
-            <option value="Morning (9:00 AM - 12:00 PM)">Morning (9:00 AM - 12:00 PM)</option>
-            <option value="Afternoon (12:00 PM - 4:00 PM)">Afternoon (12:00 PM - 4:00 PM)</option>
-            <option value="Evening (4:00 PM - 7:00 PM)">Evening (4:00 PM - 7:00 PM)</option>
-            <option value="Anytime">Anytime during business hours</option>
-          </select>
-        </div>
-
-        {/* Row 5: Requirement Details (Optional) */}
+        {/* Row 4: Requirement Details (Optional) */}
         <div>
           <label htmlFor="details" className="text-[11px] sm:text-xs font-bold text-slate-800 tracking-wide mb-1 block">
-            Requirement Details <span className="text-slate-400 font-normal">(Optional)</span>
+            Requirement Details
           </label>
           <textarea
             id="details"
@@ -444,7 +455,7 @@ export const EnquiryForm: React.FC<EnquiryFormProps> = ({
         {/* Row 6: Photo / Document (Optional) */}
         <div>
           <label className="text-[11px] sm:text-xs font-bold text-slate-800 tracking-wide mb-1 block">
-            Photo / Document <span className="text-slate-400 font-normal">(Optional)</span>
+            Photo / Document
           </label>
           <input
             type="file"
@@ -479,7 +490,7 @@ export const EnquiryForm: React.FC<EnquiryFormProps> = ({
                   Choose file
                 </span>
                 <p className="text-[11px] text-slate-500 mt-0.5">
-                  Upload photos or documents related to your land (Optional)
+                  Upload photos or documents related to your land
                 </p>
               </div>
             )}
