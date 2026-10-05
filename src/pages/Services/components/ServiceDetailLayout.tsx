@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { ServiceItem } from '../../../types';
 import { getServiceDetails, ServiceDetailExtended } from '../../../data/serviceDetailsConfig';
-import { ServiceRequestForm } from './ServiceRequestForm';
 import {
   FileText,
   MessagesSquare,
@@ -59,8 +58,8 @@ export const ServiceDetailLayout: React.FC<ServiceDetailLayoutProps> = ({ servic
         {/* Content Container */}
         <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
-          {/* Breadcrumb Navigation: Home / Services / Request Service */}
-          <div className="flex items-center gap-2 text-xs sm:text-sm text-white/80 mb-2 sm:mb-2.5 font-medium">
+          {/* Breadcrumb Navigation: Home / Services / [Service Title] */}
+          <div className="flex flex-wrap items-center gap-2 text-xs sm:text-sm text-white/80 mb-2 sm:mb-3 font-medium">
             <Link to="/" className="hover:text-white transition-colors">
               Home
             </Link>
@@ -69,28 +68,13 @@ export const ServiceDetailLayout: React.FC<ServiceDetailLayoutProps> = ({ servic
               Services
             </Link>
             <span className="text-white/50">/</span>
-            <span className="text-white/95">Request Service</span>
+            <span className="text-white font-semibold">{details.title || service.title}</span>
           </div>
 
-          {/* Small Eyebrow Label: LET'S GET STARTED */}
-
-
-
-          {/* Bottom-Right Handwritten Slogan: "Healthy Land Prosperous Farmers" */}
-          <div className="mt-4 md:mt-0 md:absolute md:right-8 lg:right-14 md:bottom-4 lg:bottom-6 pointer-events-none select-none text-right flex flex-col items-end pr-2 md:pr-0">
-
-            <div className="w-28 sm:w-44 ml-auto -mt-1 -rotate-3">
-              <svg viewBox="0 0 160 12" fill="none" className="w-full h-auto text-[#4ade80] drop-shadow-xs">
-                <path
-                  d="M3 8 C45 2 115 2 157 8"
-                  stroke="currentColor"
-                  strokeWidth="2.8"
-                  strokeLinecap="round"
-                />
-              </svg>
-            </div>
-          </div>
-
+          {/* Service Title Heading in Hero Banner */}
+          <h1 className="text-2xl sm:text-3xl lg:text-4xl font-serif font-bold text-white tracking-tight leading-tight">
+            {details.title || service.title}
+          </h1>
         </div>
       </section>
 
@@ -111,16 +95,14 @@ export const ServiceDetailLayout: React.FC<ServiceDetailLayoutProps> = ({ servic
             </Link>
           </div>
 
-          {/* ==================================================
-            2. MAIN SERVICE DETAIL SECTION (Two-Column Layout)
-           ================================================== */}
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-start">
+          {/* MAIN SERVICE DETAIL SECTION */}
+          <div className="max-w-4xl mx-auto">
 
-            {/* LEFT COLUMN: Large Service Image + Overview + Scope + Why Choose */}
-            <div className="lg:col-span-6 relative">
+            {/* Large Service Image + Overview + Scope + Why Choose */}
+            <div className="relative">
 
               {/* Large Rounded Service Image */}
-              <div className="w-full h-64 sm:h-72 md:h-80 lg:h-[340px] rounded-2xl overflow-hidden shadow-xs border border-[#e2ece0] bg-[#edf4ec] mb-6">
+              <div className="w-full h-72 sm:h-96 md:h-[420px] rounded-2xl overflow-hidden shadow-xs border border-[#e2ece0] bg-[#edf4ec] mb-8">
                 <img
                   src={details.image}
                   alt={details.title}
@@ -131,10 +113,10 @@ export const ServiceDetailLayout: React.FC<ServiceDetailLayoutProps> = ({ servic
 
               {/* Service Overview */}
               <div className="relative mb-6">
-                <h2 className="font-serif font-bold text-2xl sm:text-[26px] text-slate-900 tracking-tight leading-tight mb-2">
+                <h2 className="font-serif font-bold text-2xl sm:text-3xl text-slate-900 tracking-tight leading-tight mb-3">
                   Service Overview
                 </h2>
-                <p className="text-xs sm:text-sm md:text-[15px] text-slate-600 leading-relaxed max-w-xl font-normal">
+                <p className="text-sm sm:text-base text-slate-600 leading-relaxed font-normal">
                   {details.overview}
                 </p>
 
@@ -148,21 +130,21 @@ export const ServiceDetailLayout: React.FC<ServiceDetailLayoutProps> = ({ servic
               </div>
 
               {/* Subtle Divider Line */}
-              <div className="w-12 sm:w-16 h-[1.5px] bg-[#15803d]/40 mb-6" aria-hidden="true" />
+              <div className="w-12 sm:w-16 h-[1.5px] bg-[#15803d]/40 mb-8" aria-hidden="true" />
 
               {/* Scope of Work */}
-              <div className="relative mb-7">
-                <h3 className="font-serif font-bold text-2xl sm:text-[26px] text-slate-900 tracking-tight leading-tight mb-3 sm:mb-4">
+              <div className="relative mb-8">
+                <h3 className="font-serif font-bold text-2xl sm:text-3xl text-slate-900 tracking-tight leading-tight mb-4 sm:mb-5">
                   Scope of Work
                 </h3>
 
-                <div className="space-y-3 relative z-10">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5 relative z-10">
                   {details.scopeOfWork.map((item, idx) => (
-                    <div key={idx} className="flex items-center gap-3">
-                      <span className="w-5 h-5 rounded-full bg-[#1b5e20] text-white flex items-center justify-center shrink-0 text-xs font-bold shadow-2xs">
+                    <div key={idx} className="flex items-center gap-3 p-3.5 rounded-xl bg-white border border-[#e2ece0] shadow-2xs">
+                      <span className="w-6 h-6 rounded-full bg-[#1b5e20] text-white flex items-center justify-center shrink-0 text-xs font-bold shadow-2xs">
                         ✓
                       </span>
-                      <span className="text-xs sm:text-sm md:text-[15px] text-slate-700 font-medium">
+                      <span className="text-xs sm:text-sm text-slate-700 font-medium">
                         {item}
                       </span>
                     </div>
@@ -179,18 +161,18 @@ export const ServiceDetailLayout: React.FC<ServiceDetailLayoutProps> = ({ servic
               </div>
 
               {/* Why Choose / Why Prepare Your Land */}
-              <div className="relative">
-                <h3 className="font-serif font-bold text-2xl sm:text-[26px] text-slate-900 tracking-tight leading-tight mb-3 sm:mb-4">
+              <div className="relative mb-8">
+                <h3 className="font-serif font-bold text-2xl sm:text-3xl text-slate-900 tracking-tight leading-tight mb-4 sm:mb-5">
                   {details.whyTitle}
                 </h3>
 
-                <div className="space-y-3 relative z-10">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5 relative z-10">
                   {details.whyPoints.map((item, idx) => (
-                    <div key={idx} className="flex items-center gap-3">
-                      <span className="w-5 h-5 rounded-full bg-[#1b5e20] text-white flex items-center justify-center shrink-0 text-xs font-bold shadow-2xs">
+                    <div key={idx} className="flex items-center gap-3 p-3.5 rounded-xl bg-white border border-[#e2ece0] shadow-2xs">
+                      <span className="w-6 h-6 rounded-full bg-[#1b5e20] text-white flex items-center justify-center shrink-0 text-xs font-bold shadow-2xs">
                         ✓
                       </span>
-                      <span className="text-xs sm:text-sm md:text-[15px] text-slate-700 font-medium">
+                      <span className="text-xs sm:text-sm text-slate-700 font-medium">
                         {item}
                       </span>
                     </div>
@@ -206,11 +188,6 @@ export const ServiceDetailLayout: React.FC<ServiceDetailLayoutProps> = ({ servic
                 />
               </div>
 
-            </div>
-
-            {/* RIGHT COLUMN: Request This Service Form */}
-            <div className="lg:col-span-6 w-full lg:sticky lg:top-24">
-              <ServiceRequestForm currentServiceSlug={service.slug} />
             </div>
 
           </div>

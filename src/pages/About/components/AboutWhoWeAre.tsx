@@ -49,9 +49,17 @@ export const AboutWhoWeAre: React.FC = () => {
               </h2>
 
               {/* Description */}
-              <p className="text-slate-600 text-sm sm:text-base leading-relaxed">
-                Uzhavar Connect brings land development, irrigation, plantation, and farm care together. We support farmers, land owners and farm developers from initial planning through ongoing maintenance and harvest.
-              </p>
+              <div className="space-y-3.5 text-slate-600 text-sm sm:text-base leading-relaxed">
+                <p>
+                  <strong>Uzhavar Connect</strong> brings professional land engineering, precision drip irrigation, high-value timber & fruit plantations, and annual farm management under one trusted roof across Tamil Nadu and South India.
+                </p>
+                <p>
+                  We empower non-resident land owners, NRI farm investors, and progressive farmers by transforming barren, unmanaged plots into thriving, profitable agricultural eco-assets. From initial drone elevation surveys and laser land levelling to automated fertigation, tree planting, and monthly digital photo/video maintenance reports, our expert agronomists handle every single aspect.
+                </p>
+                <p>
+                  Our core philosophy centers on <em>sustainable soil restoration, maximum water efficiency, and transparent long-term value creation</em>—ensuring your farmland remains green, secure, and productive for generations to come.
+                </p>
+              </div>
             </div>
 
           </div>

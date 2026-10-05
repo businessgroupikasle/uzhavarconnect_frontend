@@ -19,7 +19,7 @@ const AGRICULTURAL_SERVICES: AgriculturalServiceItem[] = [
     title: 'Farm Layout & Planning',
     description: 'Practical layouts for efficient land use.',
     slug: 'farm-layout-and-planning',
-    image: '/assets/gallery/gallery-land-dev-fencing-work.jpg',
+    image: '/assets/services/farm-layout-planning.jpg',
   },
   {
     title: 'Drip Irrigation Installation',

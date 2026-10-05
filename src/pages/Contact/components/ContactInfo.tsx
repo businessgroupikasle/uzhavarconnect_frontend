@@ -109,14 +109,16 @@ export const ContactInfo: React.FC = () => {
           </div>
         </a>
 
-        {/* Card 4: Visit Us */}
+        {/* Card 4: Office Address:
+ */}
         <div className="flex items-start gap-3.5 p-3 sm:p-3.5 rounded-2xl bg-[#f0f6ef] border border-[#dce8da] shadow-2xs">
           <div className="w-11 h-11 rounded-full bg-[#16a34a] text-white flex items-center justify-center shrink-0 shadow-xs mt-0.5">
             <MapPin className="w-5 h-5" />
           </div>
           <div className="min-w-0">
             <span className="block text-xs sm:text-[13px] font-bold text-slate-900 leading-tight">
-              Visit Us
+              Office Address:
+
             </span>
             <div className="text-xs sm:text-[13px] text-slate-700 mt-1 leading-relaxed">
               <p className="font-semibold text-slate-900">{CONTACT_DETAILS.building}, {CONTACT_DETAILS.street}</p>

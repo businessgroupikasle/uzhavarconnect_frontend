@@ -31,17 +31,13 @@ export const AboutHero: React.FC = () => {
 
 
         {/* Breadcrumb Navigation */}
-        <div className="flex items-center gap-2 text-xs sm:text-sm text-white/80 mb-3 sm:mb-4 font-medium">
+        <div className="flex items-center gap-2 text-xs sm:text-sm text-white/80 font-medium">
           <Link to="/" className="hover:text-white transition-colors">
             Home
           </Link>
           <span className="text-white/50">/</span>
-          <span className="text-white/95">About Us</span>
+          <span className="text-white font-semibold">About Us</span>
         </div>
-
-
-
-        {/* Subtitle */}
 
 
         {/* Bottom-Right Handwritten Slogan: "Greener Lands Stronger Tomorrows" */}

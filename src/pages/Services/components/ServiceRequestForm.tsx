@@ -1,8 +1,8 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { SERVICES_DATA } from '../../../data/services';
 import { DISTRICTS_TAMIL_NADU, CONTACT_DETAILS } from '../../../utils/constants';
-import { Paperclip, CheckCircle2, Lock, ArrowRight, X } from 'lucide-react';
+import { CheckCircle2, Lock, ArrowRight } from 'lucide-react';
 
 interface ServiceRequestFormProps {
   currentServiceSlug: string;
@@ -10,7 +10,6 @@ interface ServiceRequestFormProps {
 
 export const ServiceRequestForm: React.FC<ServiceRequestFormProps> = ({ currentServiceSlug }) => {
   const navigate = useNavigate();
-  const fileInputRef = useRef<HTMLInputElement>(null);
 
   const matchedService = SERVICES_DATA.find((s) => s.slug === currentServiceSlug) || SERVICES_DATA[0];
 
@@ -50,8 +49,10 @@ export const ServiceRequestForm: React.FC<ServiceRequestFormProps> = ({ currentS
     const cleanMobile = formData.mobile.replace(/\D/g, '');
     if (!formData.mobile.trim()) {
       errs.mobile = 'Mobile number is required';
-    } else if (cleanMobile.length < 10) {
-      errs.mobile = 'Enter a valid 10-digit mobile number';
+    } else if (cleanMobile.length !== 10) {
+      errs.mobile = 'Please enter a 10-digit mobile number';
+    } else if (!/^[6-9]\d{9}$/.test(cleanMobile)) {
+      errs.mobile = 'Mobile number must start with 6, 7, 8, or 9';
     }
 
     if (!formData.district.trim()) {
@@ -70,7 +71,12 @@ export const ServiceRequestForm: React.FC<ServiceRequestFormProps> = ({ currentS
     e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>
   ) => {
     const { name, value } = e.target;
-    setFormData((prev) => ({ ...prev, [name]: value }));
+    if (name === 'mobile') {
+      const numericVal = value.replace(/\D/g, '').slice(0, 10);
+      setFormData((prev) => ({ ...prev, mobile: numericVal }));
+    } else {
+      setFormData((prev) => ({ ...prev, [name]: value }));
+    }
 
     // If changing the service dropdown, update the URL route so the whole page syncs!
     if (name === 'serviceSlug') {
@@ -83,32 +89,6 @@ export const ServiceRequestForm: React.FC<ServiceRequestFormProps> = ({ currentS
         delete updated[name];
         return updated;
       });
-    }
-  };
-
-  const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    if (e.target.files && e.target.files[0]) {
-      const file = e.target.files[0];
-      if (file.size > 10 * 1024 * 1024) {
-        setErrors((prev) => ({ ...prev, fileName: 'File size should be under 10MB' }));
-        return;
-      }
-      setFormData((prev) => ({ ...prev, fileName: file.name }));
-      if (errors.fileName) {
-        setErrors((prev) => {
-          const updated = { ...prev };
-          delete updated.fileName;
-          return updated;
-        });
-      }
-    }
-  };
-
-  const handleRemoveFile = (e: React.MouseEvent) => {
-    e.stopPropagation();
-    setFormData((prev) => ({ ...prev, fileName: '' }));
-    if (fileInputRef.current) {
-      fileInputRef.current.value = '';
     }
   };
 
@@ -129,10 +109,12 @@ export const ServiceRequestForm: React.FC<ServiceRequestFormProps> = ({ currentS
       `📋 *Reference:* ${generatedRef}`,
       `👤 *Name:* ${formData.fullName}`,
       `📞 *Mobile:* ${formData.mobile}`,
+      formData.email ? `✉️ *Email:* ${formData.email}` : null,
       `📍 *District:* ${formData.district}`,
       `🌾 *Service:* ${matchedService.title}`,
       formData.farmSize ? `📐 *Land Size:* ${formData.farmSize}` : null,
       formData.details ? `📝 *Requirements:* ${formData.details}` : null,
+      formData.fileName ? `📎 *Attached Photo/Document:* ${formData.fileName}` : null,
     ].filter(Boolean).join('\n');
 
     const whatsappTarget = (CONTACT_DETAILS.whatsapp || '+917550119994').replace(/\D/g, '');
@@ -144,6 +126,22 @@ export const ServiceRequestForm: React.FC<ServiceRequestFormProps> = ({ currentS
       // In case window.open is blocked by browser
     }
 
+    const enquiryRecord = {
+      ...formData,
+      referenceNumber: generatedRef,
+      serviceTitle: matchedService.title,
+      submittedAt: new Date().toISOString(),
+    };
+
+    // Save locally in browser localStorage
+    try {
+      const existing = JSON.parse(localStorage.getItem('uzhavar_enquiries') || '[]');
+      existing.unshift(enquiryRecord);
+      localStorage.setItem('uzhavar_enquiries', JSON.stringify(existing));
+    } catch {
+      // LocalStorage access fallback
+    }
+
     try {
       const baseUrl = import.meta.env.VITE_API_BASE_URL || '/api';
       const endpoint = `${baseUrl.replace(/\/$/, '')}/enquiries`;
@@ -152,12 +150,7 @@ export const ServiceRequestForm: React.FC<ServiceRequestFormProps> = ({ currentS
         await fetch(endpoint, {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({
-            ...formData,
-            referenceNumber: generatedRef,
-            serviceTitle: matchedService.title,
-            submittedAt: new Date().toISOString(),
-          }),
+          body: JSON.stringify(enquiryRecord),
         });
       } catch {
         // Fallback for offline/demo simulation
@@ -275,7 +268,10 @@ export const ServiceRequestForm: React.FC<ServiceRequestFormProps> = ({ currentS
               name="mobile"
               value={formData.mobile}
               onChange={handleInputChange}
-              placeholder="Enter mobile number"
+              maxLength={10}
+              inputMode="numeric"
+              pattern="[0-9]*"
+              placeholder="Enter 10-digit mobile number"
               className={`w-full rounded-lg border ${errors.mobile ? 'border-red-400 bg-red-50/20' : 'border-slate-300'
                 } focus:border-[#15803d] focus:ring-1 focus:ring-[#15803d] px-3.5 py-2 text-xs sm:text-sm outline-none placeholder:text-slate-400 transition-colors`}
             />
@@ -353,14 +349,18 @@ export const ServiceRequestForm: React.FC<ServiceRequestFormProps> = ({ currentS
             <label className="text-[11px] sm:text-xs font-bold text-slate-800 tracking-wide mb-1 block">
               Farm / Land Size
             </label>
-            <input
-              type="text"
+            <select
               name="farmSize"
               value={formData.farmSize}
               onChange={handleInputChange}
-              placeholder="e.g. 5 acres"
-              className="w-full rounded-lg border border-slate-300 focus:border-[#15803d] focus:ring-1 focus:ring-[#15803d] px-3.5 py-2 text-xs sm:text-sm outline-none placeholder:text-slate-400 transition-colors"
-            />
+              className="w-full rounded-lg border border-slate-300 focus:border-[#15803d] focus:ring-1 focus:ring-[#15803d] px-3.5 py-2 text-xs sm:text-sm outline-none text-slate-700 bg-white transition-colors"
+            >
+              <option value="">Select land size</option>
+              <option value="5 Cent to 1 Acre">5 Cent to 1 Acre</option>
+              <option value="1 to 5 Acres">1 to 5 Acres</option>
+              <option value="5 to 10 Acres">5 to 10 Acres</option>
+              <option value="10 Acres & Above">10 Acres & Above</option>
+            </select>
           </div>
         </div>
 
@@ -377,55 +377,6 @@ export const ServiceRequestForm: React.FC<ServiceRequestFormProps> = ({ currentS
             placeholder="Tell us about your requirements, land condition or any specific information..."
             className="w-full rounded-lg border border-slate-300 focus:border-[#15803d] focus:ring-1 focus:ring-[#15803d] px-3.5 py-2 text-xs sm:text-sm outline-none placeholder:text-slate-400 transition-colors resize-none"
           />
-        </div>
-
-        {/* Row 6: Photo / Document Upload */}
-        <div>
-          <label className="text-[11px] sm:text-xs font-bold text-slate-800 tracking-wide mb-1 block">
-            Photo / Document
-          </label>
-
-          <input
-            type="file"
-            ref={fileInputRef}
-            onChange={handleFileChange}
-            accept="image/*,.pdf,.doc,.docx"
-            className="hidden"
-          />
-
-          <div
-            onClick={() => fileInputRef.current?.click()}
-            className="border border-dashed border-slate-300 hover:border-[#15803d] rounded-xl p-3.5 sm:p-4 text-center cursor-pointer transition-colors bg-[#fbfdfa] hover:bg-emerald-50/20 group"
-          >
-            {formData.fileName ? (
-              <div className="flex items-center justify-center gap-2 text-xs sm:text-sm text-[#15803d] font-medium">
-                <CheckCircle2 className="w-4 h-4" />
-                <span className="truncate max-w-[200px] sm:max-w-xs">{formData.fileName}</span>
-                <button
-                  type="button"
-                  onClick={handleRemoveFile}
-                  className="p-1 hover:bg-slate-200 rounded-full text-slate-500"
-                >
-                  <X className="w-3.5 h-3.5" />
-                </button>
-              </div>
-            ) : (
-              <div className="flex flex-col items-center justify-center">
-                <div className="flex items-center gap-1.5 text-xs sm:text-sm font-semibold text-slate-800 group-hover:text-[#15803d] transition-colors">
-                  <Paperclip className="w-4 h-4 text-slate-600 group-hover:text-[#15803d]" />
-                  <span>Choose file</span>
-                </div>
-                <p className="text-[11px] text-slate-500 mt-0.5">
-                  Upload photos or documents (e.g. land photo, sketch, etc.)
-                </p>
-              </div>
-            )}
-          </div>
-          {errors.fileName && (
-            <span className="text-[11px] text-red-500 mt-1 block font-medium">
-              {errors.fileName}
-            </span>
-          )}
         </div>
 
         {/* Submit Button */}

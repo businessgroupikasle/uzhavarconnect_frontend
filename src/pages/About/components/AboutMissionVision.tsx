@@ -31,9 +31,23 @@ export const AboutMissionVision: React.FC = () => {
               <h3 className="text-2xl sm:text-[26px] font-bold text-[#0c2e1b] font-serif mb-2 leading-tight">
                 Our Mission
               </h3>
-              <p className="text-slate-600 text-sm sm:text-[14.5px] leading-relaxed">
-                Make agricultural development simpler through practical planning, coordinated execution and dependable farm support.
+              <p className="text-slate-600 text-sm leading-relaxed mb-3">
+                To simplify agricultural land development through scientific site planning, coordinated machinery execution, and dependable long-term farm care.
               </p>
+              <ul className="space-y-1.5 text-xs sm:text-sm text-slate-700 font-medium">
+                <li className="flex items-center gap-2">
+                  <span className="text-[#15803d] font-bold">✓</span>
+                  <span>Turnkey land levelling & scientific farm layout planning</span>
+                </li>
+                <li className="flex items-center gap-2">
+                  <span className="text-[#15803d] font-bold">✓</span>
+                  <span>Precision micro-irrigation saving up to 60% water</span>
+                </li>
+                <li className="flex items-center gap-2">
+                  <span className="text-[#15803d] font-bold">✓</span>
+                  <span>Hands-free monthly farm maintenance for NRI/absentee owners</span>
+                </li>
+              </ul>
             </div>
           </div>
 
@@ -59,9 +73,23 @@ export const AboutMissionVision: React.FC = () => {
               <h3 className="text-2xl sm:text-[26px] font-bold text-[#0c2e1b] font-serif mb-2 leading-tight">
                 Our Vision
               </h3>
-              <p className="text-slate-600 text-sm sm:text-[14.5px] leading-relaxed">
-                Help land owners build productive, well-managed farms for the future.
+              <p className="text-slate-600 text-sm leading-relaxed mb-3">
+                To lead the transformation of South Indian farmlands into sustainable, highly productive, and valuable ecological assets for future generations.
               </p>
+              <ul className="space-y-1.5 text-xs sm:text-sm text-slate-700 font-medium">
+                <li className="flex items-center gap-2">
+                  <span className="text-[#15803d] font-bold">✓</span>
+                  <span>Restoring degraded soil through organic bio-enrichment</span>
+                </li>
+                <li className="flex items-center gap-2">
+                  <span className="text-[#15803d] font-bold">✓</span>
+                  <span>Creating high-value timber & commercial fruit orchards</span>
+                </li>
+                <li className="flex items-center gap-2">
+                  <span className="text-[#15803d] font-bold">✓</span>
+                  <span>Direct market linkage & buyback support for farmers</span>
+                </li>
+              </ul>
             </div>
           </div>
 

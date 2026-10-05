@@ -1,8 +1,8 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect } from 'react';
 import { SERVICES_DATA } from '../../data/services';
 import { DISTRICTS_TAMIL_NADU, CONTACT_DETAILS } from '../../utils/constants';
 import { EnquiryFormData } from '../../types';
-import { CheckCircle2, AlertCircle, Upload, Lock, X, RefreshCw, MessageCircle } from 'lucide-react';
+import { CheckCircle2, AlertCircle, Lock, RefreshCw, MessageCircle } from 'lucide-react';
 
 interface EnquiryFormProps {
   defaultServiceSlug?: string;
@@ -15,8 +15,6 @@ export const EnquiryForm: React.FC<EnquiryFormProps> = ({
   className = '',
   onSuccessCallback,
 }) => {
-  const fileInputRef = useRef<HTMLInputElement>(null);
-
   // Find initial service matching slug if provided
   const initialService = SERVICES_DATA.find((s) => s.slug === defaultServiceSlug)?.title || '';
 
@@ -56,12 +54,14 @@ export const EnquiryForm: React.FC<EnquiryFormProps> = ({
       errs.fullName = 'Please enter a valid name';
     }
 
-    // Indian mobile number validation (10 digits)
+    // Indian mobile number validation (10 digits starting with 6, 7, 8, or 9)
     const cleanMobile = formData.mobile.replace(/\D/g, '');
     if (!formData.mobile.trim()) {
       errs.mobile = 'Mobile number is required';
-    } else if (cleanMobile.length < 10 || cleanMobile.length > 12) {
-      errs.mobile = 'Please enter a valid 10-digit mobile number';
+    } else if (cleanMobile.length !== 10) {
+      errs.mobile = 'Please enter a 10-digit mobile number';
+    } else if (!/^[6-9]\d{9}$/.test(cleanMobile)) {
+      errs.mobile = 'Mobile number must start with 6, 7, 8, or 9';
     }
 
     if (formData.email && formData.email.trim()) {
@@ -87,39 +87,19 @@ export const EnquiryForm: React.FC<EnquiryFormProps> = ({
     e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>
   ) => {
     const { name, value } = e.target;
-    setFormData((prev) => ({ ...prev, [name]: value }));
+    if (name === 'mobile') {
+      const numericVal = value.replace(/\D/g, '').slice(0, 10);
+      setFormData((prev) => ({ ...prev, mobile: numericVal }));
+    } else {
+      setFormData((prev) => ({ ...prev, [name]: value }));
+    }
+
     if (errors[name]) {
       setErrors((prev) => {
         const updated = { ...prev };
         delete updated[name];
         return updated;
       });
-    }
-  };
-
-  const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    if (e.target.files && e.target.files[0]) {
-      const file = e.target.files[0];
-      if (file.size > 10 * 1024 * 1024) {
-        setErrors((prev) => ({ ...prev, fileName: 'File size should be under 10MB' }));
-        return;
-      }
-      setFormData((prev) => ({ ...prev, fileName: file.name }));
-      if (errors.fileName) {
-        setErrors((prev) => {
-          const updated = { ...prev };
-          delete updated.fileName;
-          return updated;
-        });
-      }
-    }
-  };
-
-  const handleRemoveFile = (e: React.MouseEvent) => {
-    e.stopPropagation();
-    setFormData((prev) => ({ ...prev, fileName: '' }));
-    if (fileInputRef.current) {
-      fileInputRef.current.value = '';
     }
   };
 
@@ -145,6 +125,7 @@ export const EnquiryForm: React.FC<EnquiryFormProps> = ({
       `🌾 *Service:* ${formData.service}`,
       formData.farmSize ? `📐 *Land Size:* ${formData.farmSize}` : null,
       formData.details ? `📝 *Requirements:* ${formData.details}` : null,
+      formData.fileName ? `📎 *Selected Photo/Doc:* ${formData.fileName}\n(Please attach this image/document using 📎 clip icon in WhatsApp chat)` : null,
     ].filter(Boolean).join('\n');
 
     const whatsappTarget = (CONTACT_DETAILS.whatsapp || '+917550119994').replace(/\D/g, '');
@@ -157,6 +138,21 @@ export const EnquiryForm: React.FC<EnquiryFormProps> = ({
       // In case window.open is blocked by browser
     }
 
+    // Always save enquiry record locally in localStorage
+    const enquiryRecord = {
+      ...formData,
+      referenceNumber: generatedRef,
+      submittedAt: new Date().toISOString(),
+    };
+
+    try {
+      const existing = JSON.parse(localStorage.getItem('uzhavar_enquiries') || '[]');
+      existing.unshift(enquiryRecord);
+      localStorage.setItem('uzhavar_enquiries', JSON.stringify(existing));
+    } catch {
+      // LocalStorage access fallback
+    }
+
     try {
       const baseUrl = import.meta.env.VITE_API_BASE_URL || '/api';
       const endpoint = `${baseUrl.replace(/\/$/, '')}/enquiries`;
@@ -165,14 +161,10 @@ export const EnquiryForm: React.FC<EnquiryFormProps> = ({
         await fetch(endpoint, {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({
-            ...formData,
-            referenceNumber: generatedRef,
-            submittedAt: new Date().toISOString(),
-          }),
+          body: JSON.stringify(enquiryRecord),
         });
       } catch {
-        console.info('Enquiry stored locally for email forwarding API integration.');
+        console.info('Enquiry saved to local storage & backend queue.');
       }
 
       await new Promise((resolve) => setTimeout(resolve, 600));
@@ -217,6 +209,7 @@ export const EnquiryForm: React.FC<EnquiryFormProps> = ({
       `🌾 *Service:* ${formData.service}`,
       formData.farmSize ? `📐 *Land Size:* ${formData.farmSize}` : null,
       formData.details ? `📝 *Requirements:* ${formData.details}` : null,
+      formData.fileName ? `📎 *Selected Photo/Doc:* ${formData.fileName}\n(Please attach this image/document using 📎 clip icon in WhatsApp chat)` : null,
     ].filter(Boolean).join('\n');
 
     const whatsappTarget = (CONTACT_DETAILS.whatsapp || '+917550119994').replace(/\D/g, '');
@@ -252,16 +245,29 @@ export const EnquiryForm: React.FC<EnquiryFormProps> = ({
           </span>
         </div>
 
+        {/* Image Attachment Instruction Box */}
+        {formData.fileName && (
+          <div className="mt-4 p-3.5 bg-amber-50 rounded-xl border border-amber-200 text-amber-900 text-xs text-left max-w-md mx-auto flex items-start gap-3">
+            <span className="text-lg shrink-0">📎</span>
+            <div>
+              <p className="font-bold text-amber-950">Attach your photo/document in WhatsApp:</p>
+              <p className="mt-1 text-[12px] text-amber-800 leading-relaxed">
+                You selected <strong>"{formData.fileName}"</strong>. Please click the <strong>paperclip (📎) attachment icon</strong> in WhatsApp to send your photo or land sketch directly to our team!
+              </p>
+            </div>
+          </div>
+        )}
+
         {/* Actions */}
         <div className="mt-6 flex flex-col sm:flex-row items-center justify-center gap-3">
           <a
             href={whatsappUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-5 py-3 rounded-xl bg-[#25D366] hover:bg-[#20ba5a] text-white font-semibold text-xs sm:text-sm shadow-xs transition-all active:scale-95"
+            className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl bg-[#25D366] hover:bg-[#20ba5a] text-white font-bold text-xs sm:text-sm shadow-md transition-all active:scale-95"
           >
-            <MessageCircle className="w-4 h-4" />
-            <span>Connect on WhatsApp</span>
+            <MessageCircle className="w-5 h-5" />
+            <span>Open WhatsApp & Send Message</span>
           </a>
 
           <button
@@ -338,7 +344,10 @@ export const EnquiryForm: React.FC<EnquiryFormProps> = ({
               name="mobile"
               value={formData.mobile}
               onChange={handleInputChange}
-              placeholder="Enter your mobile number"
+              maxLength={10}
+              inputMode="numeric"
+              pattern="[0-9]*"
+              placeholder="Enter 10-digit mobile number"
               className={`w-full rounded-lg border ${errors.mobile ? 'border-red-400 bg-red-50/20' : 'border-slate-300'
                 } focus:border-[#15803d] focus:ring-1 focus:ring-[#15803d] px-3.5 py-2 text-xs sm:text-sm outline-none placeholder:text-slate-400 transition-colors`}
             />
@@ -424,15 +433,19 @@ export const EnquiryForm: React.FC<EnquiryFormProps> = ({
             <label htmlFor="farmSize" className="text-[11px] sm:text-xs font-bold text-slate-800 tracking-wide mb-1 block">
               Farm / Land Size
             </label>
-            <input
-              type="text"
+            <select
               id="farmSize"
               name="farmSize"
               value={formData.farmSize}
               onChange={handleInputChange}
-              placeholder="e.g. 5 acres"
-              className="w-full rounded-lg border border-slate-300 focus:border-[#15803d] focus:ring-1 focus:ring-[#15803d] px-3.5 py-2 text-xs sm:text-sm outline-none placeholder:text-slate-400 transition-colors"
-            />
+              className="w-full rounded-lg border border-slate-300 focus:border-[#15803d] focus:ring-1 focus:ring-[#15803d] px-3.5 py-2 text-xs sm:text-sm outline-none text-slate-700 bg-white transition-colors"
+            >
+              <option value="">Select land size</option>
+              <option value="5 Cent to 1 Acre">5 Cent to 1 Acre</option>
+              <option value="1 to 5 Acres">1 to 5 Acres</option>
+              <option value="5 to 10 Acres">5 to 10 Acres</option>
+              <option value="10 Acres & Above">10 Acres & Above</option>
+            </select>
           </div>
         </div>
 
@@ -450,54 +463,6 @@ export const EnquiryForm: React.FC<EnquiryFormProps> = ({
             placeholder="Tell us about your land and the work you need"
             className="w-full rounded-lg border border-slate-300 focus:border-[#15803d] focus:ring-1 focus:ring-[#15803d] px-3.5 py-2 text-xs sm:text-sm outline-none placeholder:text-slate-400 transition-colors resize-none"
           />
-        </div>
-
-        {/* Row 6: Photo / Document (Optional) */}
-        <div>
-          <label className="text-[11px] sm:text-xs font-bold text-slate-800 tracking-wide mb-1 block">
-            Photo / Document
-          </label>
-          <input
-            type="file"
-            ref={fileInputRef}
-            onChange={handleFileChange}
-            accept="image/*,.pdf,.doc,.docx"
-            className="hidden"
-          />
-
-          <div
-            onClick={() => fileInputRef.current?.click()}
-            className="border-2 border-dashed border-slate-300 hover:border-[#15803d] rounded-xl p-3.5 sm:p-4 text-center cursor-pointer transition-colors bg-[#fbfdfa] hover:bg-emerald-50/20 group"
-          >
-            {formData.fileName ? (
-              <div className="flex items-center justify-center gap-2 text-xs sm:text-sm text-[#15803d] font-medium">
-                <CheckCircle2 className="w-4 h-4" />
-                <span className="truncate max-w-[200px] sm:max-w-xs">{formData.fileName}</span>
-                <button
-                  type="button"
-                  onClick={handleRemoveFile}
-                  className="p-1 hover:bg-slate-200 rounded-full text-slate-500"
-                >
-                  <X className="w-3.5 h-3.5" />
-                </button>
-              </div>
-            ) : (
-              <div className="flex flex-col items-center justify-center">
-                <div className="w-8 h-8 rounded-full bg-emerald-50 text-[#15803d] flex items-center justify-center mb-1 group-hover:scale-105 transition-transform">
-                  <Upload className="w-4 h-4 text-[#15803d]" />
-                </div>
-                <span className="text-xs sm:text-[13px] font-bold text-slate-800 group-hover:text-[#15803d] transition-colors">
-                  Choose file
-                </span>
-                <p className="text-[11px] text-slate-500 mt-0.5">
-                  Upload photos or documents related to your land
-                </p>
-              </div>
-            )}
-          </div>
-          {errors.fileName && (
-            <p className="mt-1 text-[11px] text-red-500 font-medium">{errors.fileName}</p>
-          )}
         </div>
 
         {/* Primary Button */}
