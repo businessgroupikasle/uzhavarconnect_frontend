@@ -1,6 +1,17 @@
 <IfModule mod_rewrite.c>
   RewriteEngine On
   RewriteBase /
+
+  # 301 Permanent Redirects for Legacy URLs
+  RewriteRule ^join/?$ /contact [R=301,L]
+  RewriteRule ^construction/?$ /services/farm-house [R=301,L]
+  RewriteRule ^book-team/?$ /book-a-service [R=301,L]
+  RewriteRule ^manage-farm/?$ /services/end-to-end-farm-management [R=301,L]
+  RewriteRule ^farm-details/?$ /services/farm-layout-and-planning [R=301,L]
+  RewriteRule ^buy-inputs/?$ /services [R=301,L]
+  RewriteRule ^sell-produce/?$ /services/buyback-assistance [R=301,L]
+
+  # Standard SPA Routing Fallback
   RewriteRule ^index\.html$ - [L]
   RewriteCond %{REQUEST_FILENAME} !-f
   RewriteCond %{REQUEST_FILENAME} !-d

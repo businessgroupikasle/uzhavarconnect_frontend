@@ -27,11 +27,8 @@ export const AboutHero: React.FC = () => {
 
       {/* 3. Main Hero Content Container */}
       <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-
-
-
         {/* Breadcrumb Navigation */}
-        <div className="flex items-center gap-2 text-xs sm:text-sm text-white/80 font-medium">
+        <div className="flex items-center gap-2 text-xs sm:text-sm text-white/80 mb-2 font-medium">
           <Link to="/" className="hover:text-white transition-colors">
             Home
           </Link>
@@ -39,27 +36,15 @@ export const AboutHero: React.FC = () => {
           <span className="text-white font-semibold">About Us</span>
         </div>
 
+        {/* Main Heading */}
+        <h1 className="text-3xl sm:text-4xl lg:text-5xl font-serif font-bold text-white tracking-tight leading-tight">
+          About Uzhavar Connect
+        </h1>
 
-        {/* Bottom-Right Handwritten Slogan: "Greener Lands Stronger Tomorrows" */}
-        <div className="mt-6 md:mt-0 md:absolute md:right-8 lg:right-16 md:bottom-4 lg:bottom-6 pointer-events-none select-none text-right flex flex-col items-end pr-2 md:pr-0">
-          <span className="font-['Caveat',_cursive] text-2xl sm:text-3xl lg:text-[34px] font-bold text-white leading-none tracking-wide -rotate-3 inline-block drop-shadow-md">
-            Greener Lands
-          </span>
-          <span className="font-['Caveat',_cursive] text-2xl sm:text-3xl lg:text-[34px] font-bold text-white leading-none tracking-wide -rotate-3 inline-block mt-0.5 drop-shadow-md">
-            Stronger Tomorrows
-          </span>
-          <div className="w-36 sm:w-44 ml-auto -mt-1 -rotate-3">
-            <svg viewBox="0 0 160 12" fill="none" className="w-full h-auto text-[#4ade80] drop-shadow-sm">
-              <path
-                d="M3 8 C45 2 115 2 157 8"
-                stroke="currentColor"
-                strokeWidth="2.8"
-                strokeLinecap="round"
-              />
-            </svg>
-          </div>
-        </div>
-
+        {/* Subtitle */}
+        <p className="mt-2 text-xs sm:text-sm lg:text-base text-emerald-100/90 font-normal max-w-xl leading-relaxed">
+          Your land. Our shared purpose. Building productive, sustainable farmland for future generations.
+        </p>
       </div>
     </section>
   );

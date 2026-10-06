@@ -27,8 +27,8 @@ export const Blog: React.FC = () => {
         </div>
       </section>
 
-      {/* 2. Existing Blog UI (Visually Hidden via CSS - All Components, Data, and Structure Intact) */}
-      <div className="hidden" aria-hidden="true">
+      {/* 2. Agricultural Guides & Articles */}
+      <div>
         {/* 1. Hero Header */}
         <BlogHero />
 

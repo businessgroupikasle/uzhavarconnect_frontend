@@ -1,6 +1,6 @@
 // Uzhavar Connect - Main Application
 import React, { useEffect } from 'react';
-import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom';
+import { BrowserRouter, Routes, Route, useLocation, Navigate } from 'react-router-dom';
 import { Navbar } from './components/navbar/Navbar';
 import { Footer } from './components/footer/Footer';
 import { FloatingActions } from './components/common/FloatingActions';
@@ -53,6 +53,16 @@ export const App: React.FC = () => {
             <Route path="/privacy-policy" element={<PrivacyPolicy />} />
             <Route path="/terms-and-conditions" element={<Terms />} />
             <Route path="/sitemap" element={<Sitemap />} />
+
+            {/* Legacy & Alias Route Redirects */}
+            <Route path="/join" element={<Navigate to="/contact" replace />} />
+            <Route path="/construction" element={<Navigate to="/services/farm-house" replace />} />
+            <Route path="/book-team" element={<Navigate to="/book-a-service" replace />} />
+            <Route path="/manage-farm" element={<Navigate to="/services/end-to-end-farm-management" replace />} />
+            <Route path="/farm-details" element={<Navigate to="/services/farm-layout-and-planning" replace />} />
+            <Route path="/buy-inputs" element={<Navigate to="/services" replace />} />
+            <Route path="/sell-produce" element={<Navigate to="/services/buyback-assistance" replace />} />
+
             <Route path="*" element={<NotFound />} />
           </Routes>
         </main>

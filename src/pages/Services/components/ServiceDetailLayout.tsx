@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { ServiceItem } from '../../../types';
 import { getServiceDetails, ServiceDetailExtended } from '../../../data/serviceDetailsConfig';
+import { CONTACT_DETAILS } from '../../../utils/constants';
+import { ServiceRequestForm } from './ServiceRequestForm';
 import {
   FileText,
   MessagesSquare,
@@ -10,7 +12,9 @@ import {
   ChevronDown,
   ChevronUp,
   Plus,
-  Minus
+  Minus,
+  Phone,
+  MessageCircle
 } from 'lucide-react';
 
 interface ServiceDetailLayoutProps {
@@ -29,16 +33,16 @@ export const ServiceDetailLayout: React.FC<ServiceDetailLayoutProps> = ({ servic
   };
 
   return (
-    <div className="bg-[#f8faf7] text-slate-800">
+    <div className="bg-[#f8faf7] min-h-screen">
       {/* ==================================================
           1. HEADER / HERO SECTION (Consultation / Service Enquiry)
          ================================================== */}
-      <section className="relative overflow-hidden w-full bg-[#072415] text-white py-8 sm:py-11 lg:py-13 flex items-center">
+      <section className="relative overflow-hidden w-full bg-[#072415] text-white py-10 sm:py-12 lg:py-14 flex items-center">
         {/* Background Farmland Landscape */}
         <img
           src="/assets/hero-farm.png"
           alt="Agricultural Farmland Landscape"
-          className="absolute inset-0 w-full h-full object-cover object-[center_35%] pointer-events-none select-none"
+          className="absolute inset-0 w-full h-full object-cover object-[center_35%] pointer-events-none select-none opacity-40"
         />
 
         {/* Dark-Green Overlay for Text Legibility */}
@@ -57,9 +61,8 @@ export const ServiceDetailLayout: React.FC<ServiceDetailLayoutProps> = ({ servic
 
         {/* Content Container */}
         <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-
           {/* Breadcrumb Navigation: Home / Services / [Service Title] */}
-          <div className="flex flex-wrap items-center gap-2 text-xs sm:text-sm text-white/80 mb-2 sm:mb-3 font-medium">
+          <div className="flex flex-wrap items-center gap-2 text-xs sm:text-sm text-white/80 mb-2 font-medium">
             <Link to="/" className="hover:text-white transition-colors">
               Home
             </Link>
@@ -78,31 +81,18 @@ export const ServiceDetailLayout: React.FC<ServiceDetailLayoutProps> = ({ servic
         </div>
       </section>
 
-      {/* Main Body with Back Button and Content */}
+      {/* Main Body Content */}
       <div className="py-6 sm:py-8 lg:py-10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
-          {/* ==================================================
-              2. BACK TO ALL SERVICES
-             ================================================== */}
-          <div className="mb-4 sm:mb-6">
-            <Link
-              to="/services"
-              className="inline-flex items-center gap-1.5 text-xs sm:text-sm font-semibold text-[#15803d] hover:text-[#0e3922] transition-colors focus:outline-none"
-            >
-              <span className="font-bold text-base leading-none">←</span>
-              <span>Back to All Services</span>
-            </Link>
-          </div>
+          {/* MAIN SERVICE DETAIL 2-COLUMN GRID SECTION */}
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-start mb-10">
 
-          {/* MAIN SERVICE DETAIL SECTION */}
-          <div className="max-w-4xl mx-auto">
-
-            {/* Large Service Image + Overview + Scope + Why Choose */}
-            <div className="relative">
+            {/* LEFT COLUMN: Service Details (Image, Overview, Scope of Work, Why Choose) */}
+            <div className="lg:col-span-7 space-y-8">
 
               {/* Large Rounded Service Image */}
-              <div className="w-full h-72 sm:h-96 md:h-[420px] rounded-2xl overflow-hidden shadow-xs border border-[#e2ece0] bg-[#edf4ec] mb-8">
+              <div className="w-full h-64 sm:h-80 md:h-[380px] rounded-2xl overflow-hidden shadow-xs border border-[#e2ece0] bg-[#edf4ec]">
                 <img
                   src={details.image}
                   alt={details.title}
@@ -112,7 +102,7 @@ export const ServiceDetailLayout: React.FC<ServiceDetailLayoutProps> = ({ servic
               </div>
 
               {/* Service Overview */}
-              <div className="relative mb-6">
+              <div className="relative">
                 <h2 className="font-serif font-bold text-2xl sm:text-3xl text-slate-900 tracking-tight leading-tight mb-3">
                   Service Overview
                 </h2>
@@ -130,10 +120,10 @@ export const ServiceDetailLayout: React.FC<ServiceDetailLayoutProps> = ({ servic
               </div>
 
               {/* Subtle Divider Line */}
-              <div className="w-12 sm:w-16 h-[1.5px] bg-[#15803d]/40 mb-8" aria-hidden="true" />
+              <div className="w-12 sm:w-16 h-[1.5px] bg-[#15803d]/40" aria-hidden="true" />
 
               {/* Scope of Work */}
-              <div className="relative mb-8">
+              <div className="relative">
                 <h3 className="font-serif font-bold text-2xl sm:text-3xl text-slate-900 tracking-tight leading-tight mb-4 sm:mb-5">
                   Scope of Work
                 </h3>
@@ -161,7 +151,7 @@ export const ServiceDetailLayout: React.FC<ServiceDetailLayoutProps> = ({ servic
               </div>
 
               {/* Why Choose / Why Prepare Your Land */}
-              <div className="relative mb-8">
+              <div className="relative">
                 <h3 className="font-serif font-bold text-2xl sm:text-3xl text-slate-900 tracking-tight leading-tight mb-4 sm:mb-5">
                   {details.whyTitle}
                 </h3>
@@ -188,6 +178,39 @@ export const ServiceDetailLayout: React.FC<ServiceDetailLayoutProps> = ({ servic
                 />
               </div>
 
+            </div>
+
+            {/* RIGHT COLUMN: Service Request Form & Direct Contact Sidebar */}
+            <div className="lg:col-span-5 lg:sticky lg:top-24 space-y-6">
+              <ServiceRequestForm currentServiceSlug={service.slug} />
+
+              {/* Quick Direct Helpline Card */}
+              <div className="bg-[#f0f6ef] rounded-2xl p-5 border border-[#dce8da] space-y-3">
+                <h4 className="font-serif font-bold text-base text-[#0e3922]">Need Instant Support?</h4>
+                <p className="text-xs text-slate-600 leading-relaxed">
+                  Speak directly with our chief agricultural engineers regarding your farmland feasibility:
+                </p>
+                <div className="flex flex-col gap-2.5 pt-1">
+                  <a
+                    href={`tel:${CONTACT_DETAILS.phone}`}
+                    className="inline-flex items-center gap-2.5 text-xs sm:text-sm font-bold text-[#15803d] hover:underline"
+                  >
+                    <Phone className="w-4 h-4" />
+                    <span>Call: {CONTACT_DETAILS.phoneDisplay}</span>
+                  </a>
+                  <a
+                    href={`https://wa.me/${CONTACT_DETAILS.whatsapp.replace(/\D/g, '')}?text=${encodeURIComponent(
+                      CONTACT_DETAILS.whatsappMessage
+                    )}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2.5 text-xs sm:text-sm font-bold text-[#25D366] hover:underline"
+                  >
+                    <MessageCircle className="w-4 h-4" />
+                    <span>Chat on WhatsApp</span>
+                  </a>
+                </div>
+              </div>
             </div>
 
           </div>
