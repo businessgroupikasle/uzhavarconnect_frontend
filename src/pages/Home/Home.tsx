@@ -2,6 +2,7 @@ import React from 'react';
 import { usePageSeo } from '../../utils/seo';
 import { Hero } from './components/Hero';
 import { ServicesOverview } from './components/ServicesOverview';
+import { AmcBanner } from './components/AmcBanner';
 import { ServiceIllustrations } from './components/ServiceIllustrations';
 import { WhyUzhavarConnect } from './components/WhyUzhavarConnect';
 import { HowItWorks } from './components/HowItWorks';
@@ -23,6 +24,9 @@ export const Home: React.FC = () => {
 
       {/* 2. Services Overview */}
       <ServicesOverview />
+
+      {/* 2.5. Worry-Free Farm Maintenance (AMC) Banner */}
+      <AmcBanner />
 
       {/* 3. Service Illustrations */}
       <ServiceIllustrations />

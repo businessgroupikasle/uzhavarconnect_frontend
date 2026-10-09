@@ -37,7 +37,7 @@ export const ServicesPremiumCTA: React.FC = () => {
           {/* Golden Button */}
           <div className="mt-5 sm:mt-6">
             <Link
-              to="/book-a-service?service=end-to-end-farm-management"
+              to="/contact"
               className="inline-flex items-center gap-2 px-6 py-2.5 sm:py-3 bg-[#b37d2e] hover:bg-[#9d691e] active:scale-[0.98] text-white font-semibold text-xs sm:text-sm rounded-xl shadow-md hover:shadow-lg transition-all duration-200 group"
             >
               <span>Enquire Now</span>

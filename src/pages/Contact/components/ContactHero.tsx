@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Breadcrumbs } from '../../../components/common/Breadcrumbs';
 
 export const ContactHero: React.FC = () => {
   return (
@@ -26,25 +26,16 @@ export const ContactHero: React.FC = () => {
       />
 
       {/* 3. Main Hero Content Container */}
-      <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Breadcrumb Navigation */}
-        <div className="flex items-center gap-2 text-xs sm:text-sm text-white/80 mb-2 font-medium">
-          <Link to="/" className="hover:text-white transition-colors">
-            Home
-          </Link>
-          <span className="text-white/50">/</span>
-          <span className="text-white font-semibold">Contact</span>
-        </div>
-
+      <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center flex flex-col items-center">
         {/* Main Heading */}
         <h1 className="text-3xl sm:text-4xl lg:text-5xl font-serif font-bold text-white tracking-tight leading-tight">
           Contact Us
         </h1>
 
-        {/* Subtitle */}
-        <p className="mt-2 text-xs sm:text-sm lg:text-base text-emerald-100/90 font-normal max-w-xl leading-relaxed">
-          Get in touch for free farmland feasibility studies, machine booking, and turnkey farm inquiries.
-        </p>
+        {/* Breadcrumb Navigation Pill */}
+        <div className="mt-3.5">
+          <Breadcrumbs items={[{ label: 'Contact' }]} />
+        </div>
       </div>
     </section>
   );

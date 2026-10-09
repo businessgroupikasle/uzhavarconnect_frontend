@@ -28,7 +28,7 @@ export const GalleryCTA: React.FC = () => {
         {/* Center / Right CTA Button & Sprout Graphic */}
         <div className="flex items-center gap-6 sm:gap-10 shrink-0">
           <Link
-            to="/book-a-service"
+            to="/contact"
             className="inline-flex items-center gap-2 px-6 sm:px-7 py-3 sm:py-3.5 bg-[#b37d2e] hover:bg-[#9d691e] active:scale-[0.98] text-white font-semibold text-xs sm:text-sm md:text-base rounded-xl shadow-md hover:shadow-lg transition-all duration-200 group cursor-pointer"
           >
             <span>Request a Consultation</span>

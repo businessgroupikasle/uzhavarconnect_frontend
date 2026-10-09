@@ -3,7 +3,6 @@ import { usePageSeo } from '../../utils/seo';
 import { EnquiryForm } from '../../components/common/EnquiryForm';
 import { ContactHero } from './components/ContactHero';
 import { ContactInfo } from './components/ContactInfo';
-import { ContactFindUs } from './components/ContactFindUs';
 
 export const Contact: React.FC = () => {
   usePageSeo({
@@ -35,9 +34,6 @@ export const Contact: React.FC = () => {
           </div>
         </div>
       </section>
-
-      {/* 3. Find Us Section */}
-      <ContactFindUs />
     </div>
   );
 };

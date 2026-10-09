@@ -41,3 +41,18 @@
 ::-webkit-scrollbar-thumb:hover {
   background: #166534;
 }
+
+.custom-dropdown-scrollbar::-webkit-scrollbar {
+  width: 6px;
+}
+.custom-dropdown-scrollbar::-webkit-scrollbar-track {
+  background: #f8faf7;
+}
+.custom-dropdown-scrollbar::-webkit-scrollbar-thumb {
+  background: #86efac;
+  border-radius: 3px;
+}
+.custom-dropdown-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: #15803d;
+}
+

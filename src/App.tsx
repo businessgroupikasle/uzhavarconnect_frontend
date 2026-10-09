@@ -13,7 +13,6 @@ import { Gallery } from './pages/Gallery/Gallery';
 import { Blog } from './pages/Blog/Blog';
 import { BlogDetail } from './pages/Blog/BlogDetail';
 import { Contact } from './pages/Contact/Contact';
-import { BookService } from './pages/BookService/BookService';
 import { PrivacyPolicy } from './pages/Legal/PrivacyPolicy';
 import { Terms } from './pages/Legal/Terms';
 import { Sitemap } from './pages/Sitemap/Sitemap';
@@ -49,7 +48,7 @@ export const App: React.FC = () => {
             <Route path="/blog" element={<Blog />} />
             <Route path="/blog/:slug" element={<BlogDetail />} />
             <Route path="/contact" element={<Contact />} />
-            <Route path="/book-a-service" element={<BookService />} />
+            <Route path="/book-a-service" element={<Navigate to="/contact" replace />} />
             <Route path="/privacy-policy" element={<PrivacyPolicy />} />
             <Route path="/terms-and-conditions" element={<Terms />} />
             <Route path="/sitemap" element={<Sitemap />} />
@@ -57,7 +56,7 @@ export const App: React.FC = () => {
             {/* Legacy & Alias Route Redirects */}
             <Route path="/join" element={<Navigate to="/contact" replace />} />
             <Route path="/construction" element={<Navigate to="/services/farm-house" replace />} />
-            <Route path="/book-team" element={<Navigate to="/book-a-service" replace />} />
+            <Route path="/book-team" element={<Navigate to="/contact" replace />} />
             <Route path="/manage-farm" element={<Navigate to="/services/end-to-end-farm-management" replace />} />
             <Route path="/farm-details" element={<Navigate to="/services/farm-layout-and-planning" replace />} />
             <Route path="/buy-inputs" element={<Navigate to="/services" replace />} />

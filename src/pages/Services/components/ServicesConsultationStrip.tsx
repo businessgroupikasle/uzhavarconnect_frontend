@@ -33,7 +33,7 @@ export const ServicesConsultationStrip: React.FC = () => {
         {/* Right Column: Button */}
         <div className="relative z-10 w-full md:w-auto shrink-0 pl-2 sm:pl-4 md:pl-0">
           <Link
-            to="/book-a-service"
+            to="/contact"
             className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 sm:px-7 py-3 bg-[#b37d2e] hover:bg-[#9d691e] active:scale-[0.98] text-white font-semibold text-xs sm:text-sm rounded-xl shadow-sm hover:shadow transition-all duration-200 group"
           >
             <span>Request a Consultation</span>

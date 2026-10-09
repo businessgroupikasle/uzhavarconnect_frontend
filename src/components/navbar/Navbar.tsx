@@ -85,7 +85,7 @@ export const Navbar: React.FC = () => {
             {/* 3. Right: CTA Button (Matches Reference Image) */}
             <div className="hidden lg:flex items-center">
               <Link
-                to="/book-a-service"
+                to="/contact"
                 className="inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-full bg-[#b87d2b] hover:bg-[#a26b20] active:bg-[#925f1b] text-white font-medium text-sm shadow-sm hover:shadow transition-all duration-200 group focus:ring-2 focus:ring-[#b87d2b] focus:ring-offset-2"
               >
                 <span>Book a Service</span>
@@ -97,7 +97,7 @@ export const Navbar: React.FC = () => {
             <div className="flex lg:hidden items-center gap-3">
               {/* Optional Tablet CTA for screens 640px - 1023px */}
               <Link
-                to="/book-a-service"
+                to="/contact"
                 className="hidden sm:inline-flex items-center gap-1.5 px-4 py-2 rounded-full bg-[#b87d2b] hover:bg-[#a26b20] text-white font-medium text-xs shadow-sm transition-all"
               >
                 <span>Book Service</span>

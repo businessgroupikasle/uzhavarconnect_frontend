@@ -144,7 +144,7 @@ export const BlogDetail: React.FC = () => {
               </p>
             </div>
             <Button
-              to="/book-a-service"
+              to="/contact"
               size="md"
               className="shrink-0"
             >

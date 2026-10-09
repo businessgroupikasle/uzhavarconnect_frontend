@@ -82,7 +82,7 @@ export const ServiceCard: React.FC<ServiceCardProps> = ({ service, featured = fa
         </Link>
 
         <Link
-          to={`/book-a-service?service=${service.slug}`}
+          to="/contact"
           className="text-xs font-semibold px-3 py-1.5 rounded-full bg-slate-50 text-slate-700 hover:bg-emerald-50 hover:text-emerald-800 transition-colors"
         >
           Book Now

@@ -3,6 +3,8 @@ import { SERVICES_DATA } from '../../data/services';
 import { DISTRICTS_TAMIL_NADU, CONTACT_DETAILS } from '../../utils/constants';
 import { EnquiryFormData } from '../../types';
 import { CheckCircle2, AlertCircle, Lock, RefreshCw, MessageCircle } from 'lucide-react';
+import { CustomSelect } from './CustomSelect';
+
 
 interface EnquiryFormProps {
   defaultServiceSlug?: string;
@@ -382,21 +384,15 @@ export const EnquiryForm: React.FC<EnquiryFormProps> = ({
             <label htmlFor="district" className="text-[11px] sm:text-xs font-bold text-slate-800 tracking-wide mb-1 block">
               Location / District <span className="text-red-500">*</span>
             </label>
-            <select
+            <CustomSelect
               id="district"
               name="district"
               value={formData.district}
               onChange={handleInputChange}
-              className={`w-full rounded-lg border ${errors.district ? 'border-red-400 bg-red-50/20' : 'border-slate-300'
-                } focus:border-[#15803d] focus:ring-1 focus:ring-[#15803d] px-3.5 py-2 text-xs sm:text-sm outline-none text-slate-700 bg-white transition-colors`}
-            >
-              <option value="">Enter your location or district</option>
-              {DISTRICTS_TAMIL_NADU.map((district) => (
-                <option key={district} value={district}>
-                  {district}
-                </option>
-              ))}
-            </select>
+              options={DISTRICTS_TAMIL_NADU}
+              placeholder="Enter your location or district"
+              error={errors.district}
+            />
             {errors.district && (
               <p className="mt-1 text-[11px] text-red-500 font-medium">{errors.district}</p>
             )}
@@ -409,21 +405,15 @@ export const EnquiryForm: React.FC<EnquiryFormProps> = ({
             <label htmlFor="service" className="text-[11px] sm:text-xs font-bold text-slate-800 tracking-wide mb-1 block">
               Service <span className="text-red-500">*</span>
             </label>
-            <select
+            <CustomSelect
               id="service"
               name="service"
               value={formData.service}
               onChange={handleInputChange}
-              className={`w-full rounded-lg border ${errors.service ? 'border-red-400 bg-red-50/20' : 'border-slate-300'
-                } focus:border-[#15803d] focus:ring-1 focus:ring-[#15803d] px-3.5 py-2 text-xs sm:text-sm outline-none text-slate-800 bg-white font-medium transition-colors`}
-            >
-              <option value="">Select a service</option>
-              {SERVICES_DATA.map((service) => (
-                <option key={service.id} value={service.title}>
-                  {service.title}
-                </option>
-              ))}
-            </select>
+              options={SERVICES_DATA.map((s) => ({ label: s.title, value: s.title }))}
+              placeholder="Select a service"
+              error={errors.service}
+            />
             {errors.service && (
               <p className="mt-1 text-[11px] text-red-500 font-medium">{errors.service}</p>
             )}
@@ -433,19 +423,19 @@ export const EnquiryForm: React.FC<EnquiryFormProps> = ({
             <label htmlFor="farmSize" className="text-[11px] sm:text-xs font-bold text-slate-800 tracking-wide mb-1 block">
               Farm / Land Size
             </label>
-            <select
+            <CustomSelect
               id="farmSize"
               name="farmSize"
               value={formData.farmSize}
               onChange={handleInputChange}
-              className="w-full rounded-lg border border-slate-300 focus:border-[#15803d] focus:ring-1 focus:ring-[#15803d] px-3.5 py-2 text-xs sm:text-sm outline-none text-slate-700 bg-white transition-colors"
-            >
-              <option value="">Select land size</option>
-              <option value="5 Cent to 1 Acre">5 Cent to 1 Acre</option>
-              <option value="1 to 5 Acres">1 to 5 Acres</option>
-              <option value="5 to 10 Acres">5 to 10 Acres</option>
-              <option value="10 Acres & Above">10 Acres & Above</option>
-            </select>
+              options={[
+                '5 Cent to 1 Acre',
+                '1 to 5 Acres',
+                '5 to 10 Acres',
+                '10 Acres & Above',
+              ]}
+              placeholder="Select land size"
+            />
           </div>
         </div>
 

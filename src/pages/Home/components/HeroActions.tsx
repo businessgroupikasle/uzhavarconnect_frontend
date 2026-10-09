@@ -7,7 +7,7 @@ export const HeroActions: React.FC = () => {
     <div className="mt-5 sm:mt-6 flex flex-col sm:flex-row items-stretch sm:items-center gap-3 sm:gap-4 w-full sm:w-auto">
       {/* Primary Golden CTA Button */}
       <Button
-        to="/book-a-service"
+        to="/contact"
         variant="primary"
         size="md"
         icon={<ArrowRight className="w-4 h-4 ml-1 transition-transform group-hover:translate-x-1" />}

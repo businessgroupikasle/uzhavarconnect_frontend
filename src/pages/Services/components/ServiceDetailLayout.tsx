@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
 import { ServiceItem } from '../../../types';
+
 import { getServiceDetails, ServiceDetailExtended } from '../../../data/serviceDetailsConfig';
-import { CONTACT_DETAILS } from '../../../utils/constants';
-import { ServiceRequestForm } from './ServiceRequestForm';
+import { Breadcrumbs } from '../../../components/common/Breadcrumbs';
+
 import {
   FileText,
   MessagesSquare,
@@ -12,9 +12,7 @@ import {
   ChevronDown,
   ChevronUp,
   Plus,
-  Minus,
-  Phone,
-  MessageCircle
+  Minus
 } from 'lucide-react';
 
 interface ServiceDetailLayoutProps {
@@ -60,24 +58,21 @@ export const ServiceDetailLayout: React.FC<ServiceDetailLayoutProps> = ({ servic
         />
 
         {/* Content Container */}
-        <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          {/* Breadcrumb Navigation: Home / Services / [Service Title] */}
-          <div className="flex flex-wrap items-center gap-2 text-xs sm:text-sm text-white/80 mb-2 font-medium">
-            <Link to="/" className="hover:text-white transition-colors">
-              Home
-            </Link>
-            <span className="text-white/50">/</span>
-            <Link to="/services" className="hover:text-white transition-colors">
-              Services
-            </Link>
-            <span className="text-white/50">/</span>
-            <span className="text-white font-semibold">{details.title || service.title}</span>
-          </div>
-
+        <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center flex flex-col items-center">
           {/* Service Title Heading in Hero Banner */}
           <h1 className="text-2xl sm:text-3xl lg:text-4xl font-serif font-bold text-white tracking-tight leading-tight">
             {details.title || service.title}
           </h1>
+
+          {/* Breadcrumb Navigation Pill: Home / Services / [Service Title] */}
+          <div className="mt-3.5">
+            <Breadcrumbs
+              items={[
+                { label: 'Services', href: '/services' },
+                { label: details.title || service.title },
+              ]}
+            />
+          </div>
         </div>
       </section>
 
@@ -85,14 +80,14 @@ export const ServiceDetailLayout: React.FC<ServiceDetailLayoutProps> = ({ servic
       <div className="py-6 sm:py-8 lg:py-10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
-          {/* MAIN SERVICE DETAIL 2-COLUMN GRID SECTION */}
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-start mb-10">
+          {/* MAIN SERVICE DETAIL SECTION */}
+          <div className="max-w-4xl mx-auto mb-10">
 
-            {/* LEFT COLUMN: Service Details (Image, Overview, Scope of Work, Why Choose) */}
-            <div className="lg:col-span-7 space-y-8">
+            {/* Service Details (Image, Overview, Scope of Work, Why Choose) */}
+            <div className="space-y-8">
 
               {/* Large Rounded Service Image */}
-              <div className="w-full h-64 sm:h-80 md:h-[380px] rounded-2xl overflow-hidden shadow-xs border border-[#e2ece0] bg-[#edf4ec]">
+              <div className="w-full h-64 sm:h-80 md:h-[420px] rounded-2xl overflow-hidden shadow-xs border border-[#e2ece0] bg-[#edf4ec]">
                 <img
                   src={details.image}
                   alt={details.title}
@@ -178,39 +173,6 @@ export const ServiceDetailLayout: React.FC<ServiceDetailLayoutProps> = ({ servic
                 />
               </div>
 
-            </div>
-
-            {/* RIGHT COLUMN: Service Request Form & Direct Contact Sidebar */}
-            <div className="lg:col-span-5 lg:sticky lg:top-24 space-y-6">
-              <ServiceRequestForm currentServiceSlug={service.slug} />
-
-              {/* Quick Direct Helpline Card */}
-              <div className="bg-[#f0f6ef] rounded-2xl p-5 border border-[#dce8da] space-y-3">
-                <h4 className="font-serif font-bold text-base text-[#0e3922]">Need Instant Support?</h4>
-                <p className="text-xs text-slate-600 leading-relaxed">
-                  Speak directly with our chief agricultural engineers regarding your farmland feasibility:
-                </p>
-                <div className="flex flex-col gap-2.5 pt-1">
-                  <a
-                    href={`tel:${CONTACT_DETAILS.phone}`}
-                    className="inline-flex items-center gap-2.5 text-xs sm:text-sm font-bold text-[#15803d] hover:underline"
-                  >
-                    <Phone className="w-4 h-4" />
-                    <span>Call: {CONTACT_DETAILS.phoneDisplay}</span>
-                  </a>
-                  <a
-                    href={`https://wa.me/${CONTACT_DETAILS.whatsapp.replace(/\D/g, '')}?text=${encodeURIComponent(
-                      CONTACT_DETAILS.whatsappMessage
-                    )}`}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2.5 text-xs sm:text-sm font-bold text-[#25D366] hover:underline"
-                  >
-                    <MessageCircle className="w-4 h-4" />
-                    <span>Chat on WhatsApp</span>
-                  </a>
-                </div>
-              </div>
             </div>
 
           </div>

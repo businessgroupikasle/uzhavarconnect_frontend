@@ -96,7 +96,7 @@ export const MobileMenu: React.FC<MobileMenuProps> = ({ isOpen, onClose }) => {
         <div className="pt-6 border-t border-slate-100 space-y-3">
           {/* Prominent CTA matching reference button */}
           <Link
-            to="/book-a-service"
+            to="/contact"
             onClick={onClose}
             className="flex items-center justify-center gap-2 w-full py-3.5 px-5 rounded-full bg-[#b87d2b] hover:bg-[#a26b20] text-white font-semibold text-base shadow-sm transition-colors text-center"
           >

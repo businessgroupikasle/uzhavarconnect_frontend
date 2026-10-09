@@ -2,6 +2,52 @@ import { ServiceItem } from '../types';
 
 export const SERVICES_DATA: ServiceItem[] = [
   {
+    id: '6',
+    slug: 'farm-maintenance-amc',
+    title: 'Farm Maintenance (AMC)',
+    shortDescription: 'Professional annual maintenance contracts: periodic weeding, pruning, spray schedules, fertigation, and farm supervision.',
+    fullDescription: 'Hassle-free farm upkeep for NRI land owners, busy professionals, and commercial farm investors. Our dedicated agricultural supervisor and mobile labor teams handle systematic weed management, canopy pruning, pest surveillance, fertilizer dosing, and drip maintenance, sending you detailed digital photo & video reports every month.',
+    iconName: 'Wrench',
+    heroImage: '/assets/services/farm-maintenance-amc.svg',
+    galleryImages: [
+      '/assets/journey-3.svg',
+      '/assets/gallery/project-1.svg',
+      '/assets/services/farm-maintenance-amc.svg',
+    ],
+    scopeOfWork: [
+      'Periodic mechanical de-weeding and tractor rotavation between tree lines',
+      'Customized organic and inorganic nutrition schedules through drip fertigation',
+      'Proactive pest and fungal disease management through IPM (Integrated Pest Management)',
+      'Canopy management, sanitary tree pruning, and suckers de-shooting',
+      'Borewell pump inspection, drip filter backwashing, and emitter descaling',
+      'Monthly geo-tagged photo/video inspection report sent directly to your phone'
+    ],
+    benefits: [
+      'Eliminates the stress of hiring and managing daily casual laborers',
+      'Guarantees your trees grow at peak vigor without neglect or stunted growth',
+      'Peace of mind for absentee owners knowing a trustworthy team is on-site',
+      'Early detection and rapid containment of pest outbreaks before yield damage'
+    ],
+    processSteps: [
+      { step: 1, title: 'Farm Health Audit', description: 'Comprehensive inspection of existing trees, soil nutrition, and irrigation health.' },
+      { step: 2, title: 'Custom AMC Calendar Formulation', description: 'Preparing 12-month calendar detailing monthly actions and fertilizer doses.' },
+      { step: 3, title: 'Scheduled Bi-Weekly / Monthly Visits', description: 'Deploying our skilled crew with machinery and organic inputs.' },
+      { step: 4, title: 'Digital Health Report & Video Call', description: 'Sharing drone shots, growth metrics, and upcoming task notifications.' }
+    ],
+    faqs: [
+      {
+        question: 'Can I choose between monthly or quarterly maintenance visits?',
+        answer: 'Yes, we provide flexible AMC packages ranging from bi-weekly visits for active vegetable crops to monthly visits for mature orchards.'
+      },
+      {
+        question: 'How do I know what work was carried out while I am away?',
+        answer: 'Every visit is logged in a digital report with before/after photos, GPS timestamps, and supervisor notes sent to your WhatsApp and email.'
+      }
+    ],
+    category: 'management',
+    highlightBadge: 'Popular'
+  },
+  {
     id: '1',
     slug: 'land-preparation-and-development',
     title: 'Land Preparation & Development Works',
@@ -138,8 +184,7 @@ export const SERVICES_DATA: ServiceItem[] = [
         answer: 'We use premium Virgin UV-stabilized materials with an expected lifespan of 8 to 12 years with routine filter backwashing.'
       }
     ],
-    category: 'infrastructure',
-    highlightBadge: 'Popular'
+    category: 'infrastructure'
   },
   {
     id: '4',
@@ -230,51 +275,6 @@ export const SERVICES_DATA: ServiceItem[] = [
     ],
     category: 'cultivation',
     highlightBadge: 'High ROI'
-  },
-  {
-    id: '6',
-    slug: 'farm-maintenance-amc',
-    title: 'Farm Maintenance (AMC)',
-    shortDescription: 'Professional annual maintenance contracts: periodic weeding, pruning, spray schedules, fertigation, and farm supervision.',
-    fullDescription: 'Hassle-free farm upkeep for NRI land owners, busy professionals, and commercial farm investors. Our dedicated agricultural supervisor and mobile labor teams handle systematic weed management, canopy pruning, pest surveillance, fertilizer dosing, and drip maintenance, sending you detailed digital photo & video reports every month.',
-    iconName: 'Wrench',
-    heroImage: '/assets/services/farm-maintenance-amc.svg',
-    galleryImages: [
-      '/assets/journey-3.svg',
-      '/assets/gallery/project-1.svg',
-      '/assets/services/farm-maintenance-amc.svg',
-    ],
-    scopeOfWork: [
-      'Periodic mechanical de-weeding and tractor rotavation between tree lines',
-      'Customized organic and inorganic nutrition schedules through drip fertigation',
-      'Proactive pest and fungal disease management through IPM (Integrated Pest Management)',
-      'Canopy management, sanitary tree pruning, and suckers de-shooting',
-      'Borewell pump inspection, drip filter backwashing, and emitter descaling',
-      'Monthly geo-tagged photo/video inspection report sent directly to your phone'
-    ],
-    benefits: [
-      'Eliminates the stress of hiring and managing daily casual laborers',
-      'Guarantees your trees grow at peak vigor without neglect or stunted growth',
-      'Peace of mind for absentee owners knowing a trustworthy team is on-site',
-      'Early detection and rapid containment of pest outbreaks before yield damage'
-    ],
-    processSteps: [
-      { step: 1, title: 'Farm Health Audit', description: 'Comprehensive inspection of existing trees, soil nutrition, and irrigation health.' },
-      { step: 2, title: 'Custom AMC Calendar Formulation', description: 'Preparing 12-month calendar detailing monthly actions and fertilizer doses.' },
-      { step: 3, title: 'Scheduled Bi-Weekly / Monthly Visits', description: 'Deploying our skilled crew with machinery and organic inputs.' },
-      { step: 4, title: 'Digital Health Report & Video Call', description: 'Sharing drone shots, growth metrics, and upcoming task notifications.' }
-    ],
-    faqs: [
-      {
-        question: 'Can I choose between monthly or quarterly maintenance visits?',
-        answer: 'Yes, we provide flexible AMC packages ranging from bi-weekly visits for active vegetable crops to monthly visits for mature orchards.'
-      },
-      {
-        question: 'How do I know what work was carried out while I am away?',
-        answer: 'Every visit is logged in a digital report with before/after photos, GPS timestamps, and supervisor notes sent to your WhatsApp and email.'
-      }
-    ],
-    category: 'management'
   },
   {
     id: '7',

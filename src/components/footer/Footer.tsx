@@ -98,7 +98,7 @@ export const Footer: React.FC = () => {
                   </Link>
                 </li>
                 <li>
-                  <Link to="/book-a-service" className="hover:text-[#f0ad25] hover:translate-x-1 inline-block transition-all duration-200">
+                  <Link to="/contact" className="hover:text-[#f0ad25] hover:translate-x-1 inline-block transition-all duration-200">
                     Book a Consultation
                   </Link>
                 </li>
