@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" width="100%" height="100%">
+  <defs>
+    <linearGradient id="j4Sky" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#38bdf8"/><stop offset="100%" stop-color="#fef08a"/></linearGradient>
+    <linearGradient id="j4Grass" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#22c55e"/><stop offset="100%" stop-color="#14532d"/></linearGradient>
+  </defs>
+  <rect width="400" height="400" fill="url(#j4Sky)"/>
+  <path d="M0 260 Q200 240 400 260 L400 400 L0 400 Z" fill="url(#j4Grass)"/>
+  <!-- Orchard Fruit Tree -->
+  <path d="M200 320 L200 180" stroke="#78350f" stroke-width="22" stroke-linecap="round"/>
+  <!-- Lush Canopy -->
+  <circle cx="160" cy="140" r="70" fill="#15803d"/>
+  <circle cx="240" cy="130" r="75" fill="#16a34a"/>
+  <circle cx="200" cy="90" r="65" fill="#22c55e"/>
+  <!-- Rich Fruit Yield (Mangoes / Citrus) -->
+  <circle cx="150" cy="120" r="14" fill="#eab308"/>
+  <circle cx="180" cy="150" r="13" fill="#f59e0b"/>
+  <circle cx="220" cy="115" r="15" fill="#ea580c"/>
+  <circle cx="250" cy="145" r="13" fill="#eab308"/>
+  <circle cx="190" cy="85" r="12" fill="#fbbf24"/>
+  <circle cx="130" cy="160" r="11" fill="#ea580c"/>
+  <!-- Harvest Crate with Fresh Produce -->
+  <g transform="translate(140, 290)">
+    <rect x="0" y="20" width="120" height="70" rx="5" fill="#d97706" stroke="#92400e" stroke-width="3"/>
+    <line x1="0" y1="42" x2="120" y2="42" stroke="#92400e" stroke-width="2"/>
+    <line x1="0" y1="65" x2="120" y2="65" stroke="#92400e" stroke-width="2"/>
+    <!-- Stacked produce in crate -->
+    <circle cx="25" cy="15" r="16" fill="#ea580c"/>
+    <circle cx="55" cy="12" r="17" fill="#eab308"/>
+    <circle cx="85" cy="14" r="16" fill="#f59e0b"/>
+    <circle cx="40" cy="0" r="14" fill="#fbbf24"/>
+    <circle cx="70" cy="-2" r="15" fill="#ea580c"/>
+  </g>
+</svg>

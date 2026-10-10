@@ -5,11 +5,18 @@ export const ContactHero: React.FC = () => {
   return (
     <section className="relative overflow-hidden w-full bg-[#072415] text-white py-10 sm:py-14 lg:py-16 flex items-center">
       {/* 1. Full-Width Farmland/Mountain Background Image */}
-      <img
-        src="/assets/hero-farm.png"
-        alt="Farmland Landscape with Coconut Trees and Mountains"
-        className="absolute inset-0 w-full h-full object-cover object-[center_35%] pointer-events-none select-none"
-      />
+      <picture className="absolute inset-0 w-full h-full pointer-events-none select-none">
+        <source srcSet="/assets/hero-farm.webp" type="image/webp" />
+        <img
+          src="/assets/hero-farm.png"
+          alt="Farmland Landscape with Coconut Trees and Mountains"
+          width={1600}
+          height={900}
+          loading="eager"
+          decoding="async"
+          className="w-full h-full object-cover object-[center_35%]"
+        />
+      </picture>
 
       {/* 2. Natural Dark Green Overlay for Text Readability */}
       <div

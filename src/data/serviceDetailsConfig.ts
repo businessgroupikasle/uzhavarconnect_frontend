@@ -20,7 +20,7 @@ export const SERVICE_DETAILS_MAP: Record<string, ServiceDetailExtended> = {
   'land-preparation-and-development': {
     slug: 'land-preparation-and-development',
     title: 'Land Preparation & Development Works',
-    image: '/assets/illustrations/land-preparation.png',
+    image: '/assets/illustrations/land-preparation.webp',
     overview: 'Uzhavar Connect provides comprehensive, professional land preparation and site development services across Tamil Nadu. Proper groundwork is the foundational pillar of any successful agricultural venture. Whether transforming barren land, clearing overgrown scrub vegetation, or preparing fields for high-density fruit orchards, our team utilizes heavy-duty machinery—including laser land levelers, heavy rotavators, disc harrows, and JCB excavators. We carefully analyze soil depth, natural drainage slopes, and elevation contours to ensure your soil structure, water retention, and root penetration are optimized right from day one.',
     scopeOfWork: [
       'Comprehensive site clearing, removal of deep-rooted weeds, bushes, and rocks',
@@ -41,9 +41,9 @@ export const SERVICE_DETAILS_MAP: Record<string, ServiceDetailExtended> = {
     ],
     visualsSubtitle: 'On-ground field images of our land development machinery and finished plots.',
     visuals: [
-      { title: 'Laser Land Levelling & Grading', image: '/assets/services/visuals/visual-land-levelling.jpg' },
-      { title: 'Tractor Ploughing & Rotavator Tillage', image: '/assets/services/visuals/visual-ploughing.jpg' },
-      { title: 'Fully Prepared & Aerated Field', image: '/assets/services/visuals/visual-prepared-field.jpg' },
+      { title: 'Laser Land Levelling & Grading', image: '/assets/services/visuals/visual-land-levelling.webp' },
+      { title: 'Tractor Ploughing & Rotavator Tillage', image: '/assets/services/visuals/visual-ploughing.webp' },
+      { title: 'Fully Prepared & Aerated Field', image: '/assets/services/visuals/visual-prepared-field.webp' },
     ],
     faqs: [
       {
@@ -68,7 +68,7 @@ export const SERVICE_DETAILS_MAP: Record<string, ServiceDetailExtended> = {
   'farm-layout-and-planning': {
     slug: 'farm-layout-and-planning',
     title: 'Farm Layout & Planning',
-    image: '/assets/services/farm-layout-planning.jpg',
+    image: '/assets/services/farm-layout-planning.webp',
     overview: 'Scientific farm layout and spatial planning is essential for maximizing farmland productivity, resource management, and accessibility. At Uzhavar Connect, our experienced agronomists and land survey engineers design tailored architectural master blueprints for agricultural properties. We integrate elevation contours, internal tractor access roads, plot block divisions, borewell placement, HDPE farm ponds, drip mainlines, and boundary security fencing. Our designs are engineered specifically for absentee landowners, NRI farm investors, and progressive farmers across South India.',
     scopeOfWork: [
       'Drone aerial survey, contour mapping, and boundary demarcation',
@@ -89,9 +89,9 @@ export const SERVICE_DETAILS_MAP: Record<string, ServiceDetailExtended> = {
     ],
     visualsSubtitle: 'Sample blueprints, boundary plans, and aerial farm design maps.',
     visuals: [
-      { title: 'Perimeter Fencing & Boundary Markings', image: '/assets/gallery/gallery-land-dev-fencing-work.jpg' },
-      { title: 'Farm Road & Crop Block Zoning Plan', image: '/assets/hero-farm.png' },
-      { title: 'Irrigation Pipeline & Hydro-Station Layout', image: '/assets/drip-farm-stage.jpg' },
+      { title: 'Perimeter Fencing & Boundary Markings', image: '/assets/gallery/gallery-land-dev-fencing-work.webp' },
+      { title: 'Farm Road & Crop Block Zoning Plan', image: '/assets/hero-farm.webp' },
+      { title: 'Irrigation Pipeline & Hydro-Station Layout', image: '/assets/drip-farm-stage.webp' },
     ],
     faqs: [
       {
@@ -112,7 +112,7 @@ export const SERVICE_DETAILS_MAP: Record<string, ServiceDetailExtended> = {
   'drip-irrigation-installation': {
     slug: 'drip-irrigation-installation',
     title: 'Drip Irrigation Installation',
-    image: '/assets/gallery/gallery-irrigation-4zone-manifold.jpg',
+    image: '/assets/gallery/gallery-irrigation-4zone-manifold.webp',
     overview: 'Uzhavar Connect delivers state-of-the-art micro-irrigation and precision fertigation systems designed for crop-specific root zone hydration. Water scarcity is a critical challenge in modern agriculture; our drip irrigation solutions save up to 60% of irrigation water while delivering soluble nutrients straight to plant roots. We utilize ISI-certified heavy-duty HDPE mainlines, pressure-compensating inline drippers, disc & screen filter assemblies, automatic solenoid valves, and venturi fertigation systems to ensure maximum yield with minimal labor.',
     scopeOfWork: [
       'Hydraulic calculation and crop-specific emitter discharge designing (2LPH/4LPH)',
@@ -133,9 +133,9 @@ export const SERVICE_DETAILS_MAP: Record<string, ServiceDetailExtended> = {
     ],
     visualsSubtitle: 'Photos of our 4-zone solenoid manifolds, filtration units, and drip laterals.',
     visuals: [
-      { title: '4-Zone Automated Solenoid Manifold', image: '/assets/gallery/gallery-irrigation-4zone-manifold.jpg' },
-      { title: 'Head Unit Filtration & Venturi Setup', image: '/assets/drip-farm-stage.jpg' },
-      { title: 'In-Field Drip Lateral Root Zone Hydration', image: '/assets/services/service-drip-irrigation.jpg' },
+      { title: '4-Zone Automated Solenoid Manifold', image: '/assets/gallery/gallery-irrigation-4zone-manifold.webp' },
+      { title: 'Head Unit Filtration & Venturi Setup', image: '/assets/drip-farm-stage.webp' },
+      { title: 'In-Field Drip Lateral Root Zone Hydration', image: '/assets/services/service-drip-irrigation.webp' },
     ],
     faqs: [
       {
@@ -156,7 +156,7 @@ export const SERVICE_DETAILS_MAP: Record<string, ServiceDetailExtended> = {
   'water-tank-works': {
     slug: 'water-tank-works',
     title: 'Water Tank & Farm Pond Works',
-    image: '/assets/gallery/gallery-land-dev-circular-tank.jpg',
+    image: '/assets/gallery/gallery-land-dev-circular-tank.webp',
     overview: 'Uninterrupted water availability is the lifeline of any successful farm. UzhavarConnect constructs durable agricultural water storage systems including RCC circular storage tanks, masonry sumps, and high-density polyethylene (HDPE) geomembrane farm ponds. Our water storage structures harvest rainwater runoff during monsoon seasons and store borewell yield, safeguarding your crops against acute summer droughts and power fluctuations.',
     scopeOfWork: [
       'Site elevation selection and hydraulic gravity-flow design',
@@ -177,9 +177,9 @@ export const SERVICE_DETAILS_MAP: Record<string, ServiceDetailExtended> = {
     ],
     visualsSubtitle: 'Recent RCC circular tanks and lined farm pond installations.',
     visuals: [
-      { title: 'Excavation & Slope Grading', image: '/assets/services/visuals/visual-land-levelling.jpg' },
-      { title: 'Reinforced Circular RCC Water Tank', image: '/assets/gallery/gallery-land-dev-circular-tank.jpg' },
-      { title: 'High-Capacity HDPE Farm Pond', image: '/assets/drip-farm-stage.jpg' },
+      { title: 'Excavation & Slope Grading', image: '/assets/services/visuals/visual-land-levelling.webp' },
+      { title: 'Reinforced Circular RCC Water Tank', image: '/assets/gallery/gallery-land-dev-circular-tank.webp' },
+      { title: 'High-Capacity HDPE Farm Pond', image: '/assets/drip-farm-stage.webp' },
     ],
     faqs: [
       {
@@ -196,7 +196,7 @@ export const SERVICE_DETAILS_MAP: Record<string, ServiceDetailExtended> = {
   'all-types-of-tree-plantation': {
     slug: 'all-types-of-tree-plantation',
     title: 'All Types of Tree Plantation',
-    image: '/assets/gallery/gallery-plantation-grafted-sapling.jpg',
+    image: '/assets/gallery/gallery-plantation-grafted-sapling.webp',
     overview: 'Uzhavar Connect provides end-to-end commercial tree plantation services, specializing in high-value timber, commercial fruit orchards, and dense bio-fencing greenbelts across Tamil Nadu. We supply certified, disease-resistant grafted saplings from trusted government-recognized nurseries. Our agronomists carefully analyze your regional climate, soil pH, and water availability to select optimal species such as Mahogany, Teak, Red Sanders, Coconut, Guava, Mango, Amla, and Avocado.',
     scopeOfWork: [
       'Soil sample testing and crop-suitability recommendation report',
@@ -217,9 +217,9 @@ export const SERVICE_DETAILS_MAP: Record<string, ServiceDetailExtended> = {
     ],
     visualsSubtitle: 'Images of our sapling supply, pit preparation, and established orchards.',
     visuals: [
-      { title: 'Mechanized Pit Digging & Alignment', image: '/assets/illustrations/land-preparation.png' },
-      { title: 'Certified Grafted Saplings Ready for Planting', image: '/assets/gallery/gallery-plantation-grafted-sapling.jpg' },
-      { title: 'Thriving Commercial Fruit Orchard', image: '/assets/services/premium-farm-orchard.jpg' },
+      { title: 'Mechanized Pit Digging & Alignment', image: '/assets/illustrations/land-preparation.webp' },
+      { title: 'Certified Grafted Saplings Ready for Planting', image: '/assets/gallery/gallery-plantation-grafted-sapling.webp' },
+      { title: 'Thriving Commercial Fruit Orchard', image: '/assets/services/premium-farm-orchard.webp' },
     ],
     faqs: [
       {
@@ -236,7 +236,7 @@ export const SERVICE_DETAILS_MAP: Record<string, ServiceDetailExtended> = {
   'farm-maintenance-amc': {
     slug: 'farm-maintenance-amc',
     title: 'Farm Maintenance (AMC)',
-    image: '/assets/gallery/gallery-land-dev-landscape-path.jpg',
+    image: '/assets/gallery/gallery-land-dev-landscape-path.webp',
     overview: 'Uzhavar Connect offers comprehensive Annual Maintenance Contract (AMC) packages tailored for non-resident farmland owners, busy professionals, and commercial orchard investors. Maintaining a farm remotely can be challenging. Our dedicated mobile farm maintenance teams visit your property on a structured monthly or bi-weekly schedule to carry out mechanical inter-cultivation, weed management, canopy pruning, organic pest sprays, drip line flushing, and soil fertilization.',
     scopeOfWork: [
       'Periodic mechanical de-weeding and tractor rotavation between tree rows',
@@ -257,9 +257,9 @@ export const SERVICE_DETAILS_MAP: Record<string, ServiceDetailExtended> = {
     ],
     visualsSubtitle: 'Operational photos of our maintenance teams and inter-crop rotavation.',
     visuals: [
-      { title: 'Pathway & Landscape Upkeep', image: '/assets/gallery/gallery-land-dev-landscape-path.jpg' },
-      { title: 'Drip Line Maintenance & Filter Flushing', image: '/assets/gallery/gallery-irrigation-4zone-manifold.jpg' },
-      { title: 'Field Crop Inspection & Soil Testing', image: '/assets/who-we-are.png' },
+      { title: 'Pathway & Landscape Upkeep', image: '/assets/gallery/gallery-land-dev-landscape-path.webp' },
+      { title: 'Drip Line Maintenance & Filter Flushing', image: '/assets/gallery/gallery-irrigation-4zone-manifold.webp' },
+      { title: 'Field Crop Inspection & Soil Testing', image: '/assets/who-we-are.webp' },
     ],
     faqs: [
       {
@@ -276,7 +276,7 @@ export const SERVICE_DETAILS_MAP: Record<string, ServiceDetailExtended> = {
   'harvest-support': {
     slug: 'harvest-support',
     title: 'Harvest Support Services',
-    image: '/assets/services/service-harvest-support.jpg',
+    image: '/assets/services/service-harvest-support.webp',
     overview: 'Uzhavar Connect provides efficient harvesting and post-harvest management services to minimize crop damage and maximize farm-gate returns. Finding skilled seasonal labor during peak harvest time is one of the biggest challenges for farmers. We deploy trained agricultural labor crews equipped with modern harvesting tools, fruit pickers, grading tables, and weighing scales to ensure your harvest is completed swiftly at peak crop maturity.',
     scopeOfWork: [
       'Deployment of experienced, trained harvest labor crews',
@@ -296,9 +296,9 @@ export const SERVICE_DETAILS_MAP: Record<string, ServiceDetailExtended> = {
     ],
     visualsSubtitle: 'Field harvesting operations and sorting/grading in progress.',
     visuals: [
-      { title: 'Field Harvesting Operations', image: '/assets/services/service-harvest-support.jpg' },
-      { title: 'On-Field Quality Sorting & Grading', image: '/assets/services/service-buyback.jpg' },
-      { title: 'Crating & Truck Loading', image: '/assets/services/service-harvest-support.jpg' },
+      { title: 'Field Harvesting Operations', image: '/assets/services/service-harvest-support.webp' },
+      { title: 'On-Field Quality Sorting & Grading', image: '/assets/services/service-buyback.webp' },
+      { title: 'Crating & Truck Loading', image: '/assets/services/service-harvest-support.webp' },
     ],
     faqs: [
       {
@@ -311,7 +311,7 @@ export const SERVICE_DETAILS_MAP: Record<string, ServiceDetailExtended> = {
   'buyback-assistance': {
     slug: 'buyback-assistance',
     title: 'Buyback Assistance & Market Linkage',
-    image: '/assets/services/service-buyback.jpg',
+    image: '/assets/services/service-buyback.webp',
     overview: 'Uzhavar Connect connects farmers directly with wholesale agricultural buyers, food processors, timber merchants, and exporters across South India. Securing fair market prices without middleman exploitation is vital for profitable farming. Through our buyback facilitation network, we assist in establishing pre-harvest agreements for timber crops (Mahogany, Teak) and commercial fruit produce (Guava, Coconut, Mango, Lemon), ensuring transparent weighing and direct payment to your bank account.',
     scopeOfWork: [
       'Pre-harvest buyer matching and demand alignment',
@@ -331,9 +331,9 @@ export const SERVICE_DETAILS_MAP: Record<string, ServiceDetailExtended> = {
     ],
     visualsSubtitle: 'Market packaging, quality checks, and buyer loading.',
     visuals: [
-      { title: 'Quality Check & Produce Inspection', image: '/assets/services/service-buyback.jpg' },
-      { title: 'Standardized Market Packaging', image: '/assets/services/visuals/visual-prepared-field.jpg' },
-      { title: 'Direct Buyer Farm-Gate Transport', image: '/assets/services/service-buyback.jpg' },
+      { title: 'Quality Check & Produce Inspection', image: '/assets/services/service-buyback.webp' },
+      { title: 'Standardized Market Packaging', image: '/assets/services/visuals/visual-prepared-field.webp' },
+      { title: 'Direct Buyer Farm-Gate Transport', image: '/assets/services/service-buyback.webp' },
     ],
     faqs: [
       {
@@ -365,9 +365,9 @@ export const SERVICE_DETAILS_MAP: Record<string, ServiceDetailExtended> = {
     ],
     visualsSubtitle: 'Civil foundation and completed caretaker quarters.',
     visuals: [
-      { title: 'Foundation & Masonry Construction', image: '/assets/illustrations/land-preparation.png' },
-      { title: 'Roofing & Finishing Work', image: '/assets/services/visuals/visual-prepared-field.jpg' },
-      { title: 'Completed Farm Caretaker Unit', image: '/assets/services/service-water-tank.jpg' },
+      { title: 'Foundation & Masonry Construction', image: '/assets/illustrations/land-preparation.webp' },
+      { title: 'Roofing & Finishing Work', image: '/assets/services/visuals/visual-prepared-field.webp' },
+      { title: 'Completed Farm Caretaker Unit', image: '/assets/services/service-water-tank.webp' },
     ],
     faqs: [
       {
@@ -399,9 +399,9 @@ export const SERVICE_DETAILS_MAP: Record<string, ServiceDetailExtended> = {
     ],
     visualsSubtitle: 'Architectural elevations and surrounding farmhouse landscapes.',
     visuals: [
-      { title: 'Site Planning & Landscape Integration', image: '/assets/who-we-are.png' },
-      { title: 'Country Veranda & Architectural Elevation', image: '/assets/hero-farm.png' },
-      { title: 'Integrated Farmhouse & Fruit Orchard', image: '/assets/services/premium-farm-orchard.jpg' },
+      { title: 'Site Planning & Landscape Integration', image: '/assets/who-we-are.webp' },
+      { title: 'Country Veranda & Architectural Elevation', image: '/assets/hero-farm.webp' },
+      { title: 'Integrated Farmhouse & Fruit Orchard', image: '/assets/services/premium-farm-orchard.webp' },
     ],
     faqs: [
       {
@@ -414,7 +414,7 @@ export const SERVICE_DETAILS_MAP: Record<string, ServiceDetailExtended> = {
   'end-to-end-farm-management': {
     slug: 'end-to-end-farm-management',
     title: 'End-to-End Farm Management Services',
-    image: '/assets/services/premium-farm-orchard.jpg',
+    image: '/assets/services/premium-farm-orchard.webp',
     overview: 'Uzhavar Connect offers flagship Turnkey End-to-End Farm Management services for absentee landowners, NRI investors, and commercial farm developers across Tamil Nadu. We take full responsibility for transforming raw land into a thriving, revenue-generating agricultural estate. From initial land survey, clearing, and levelling to farm layout design, drip installation, high-density tree planting, ongoing maintenance, and harvest marketing—our agronomists handle every single aspect under one accountable umbrella.',
     scopeOfWork: [
       'Complete single-window farm setup from raw land to mature harvest',
@@ -435,9 +435,9 @@ export const SERVICE_DETAILS_MAP: Record<string, ServiceDetailExtended> = {
     ],
     visualsSubtitle: 'Groundwork to mature thriving orchard development.',
     visuals: [
-      { title: 'Phase 1: Groundwork & Land Levelling', image: '/assets/services/visuals/visual-land-levelling.jpg' },
-      { title: 'Phase 2: Drip Irrigation & Orchard Planting', image: '/assets/illustrations/tree-plantation.png' },
-      { title: 'Phase 3: Mature Productive Revenue Farmland', image: '/assets/services/premium-farm-orchard.jpg' },
+      { title: 'Phase 1: Groundwork & Land Levelling', image: '/assets/services/visuals/visual-land-levelling.webp' },
+      { title: 'Phase 2: Drip Irrigation & Orchard Planting', image: '/assets/illustrations/tree-plantation.webp' },
+      { title: 'Phase 3: Mature Productive Revenue Farmland', image: '/assets/services/premium-farm-orchard.webp' },
     ],
     faqs: [
       {

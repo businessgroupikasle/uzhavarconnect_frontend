@@ -242,11 +242,12 @@ export const ServiceRequestForm: React.FC<ServiceRequestFormProps> = ({ currentS
         {/* Row 1: Full Name & Mobile Number */}
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5 sm:gap-4">
           <div>
-            <label className="text-[11px] sm:text-xs font-bold text-slate-800 tracking-wide mb-1 block">
+            <label htmlFor="req-fullName" className="text-[11px] sm:text-xs font-bold text-slate-800 tracking-wide mb-1 block">
               Full Name <span className="text-red-500">*</span>
             </label>
             <input
               type="text"
+              id="req-fullName"
               name="fullName"
               value={formData.fullName}
               onChange={handleInputChange}
@@ -262,11 +263,12 @@ export const ServiceRequestForm: React.FC<ServiceRequestFormProps> = ({ currentS
           </div>
 
           <div>
-            <label className="text-[11px] sm:text-xs font-bold text-slate-800 tracking-wide mb-1 block">
+            <label htmlFor="req-mobile" className="text-[11px] sm:text-xs font-bold text-slate-800 tracking-wide mb-1 block">
               Mobile Number <span className="text-red-500">*</span>
             </label>
             <input
               type="tel"
+              id="req-mobile"
               name="mobile"
               value={formData.mobile}
               onChange={handleInputChange}
@@ -288,11 +290,12 @@ export const ServiceRequestForm: React.FC<ServiceRequestFormProps> = ({ currentS
         {/* Row 2: Email & Location / District */}
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5 sm:gap-4">
           <div>
-            <label className="text-[11px] sm:text-xs font-bold text-slate-800 tracking-wide mb-1 block">
+            <label htmlFor="req-email" className="text-[11px] sm:text-xs font-bold text-slate-800 tracking-wide mb-1 block">
               Email
             </label>
             <input
               type="email"
+              id="req-email"
               name="email"
               value={formData.email}
               onChange={handleInputChange}
@@ -302,10 +305,11 @@ export const ServiceRequestForm: React.FC<ServiceRequestFormProps> = ({ currentS
           </div>
 
           <div>
-            <label className="text-[11px] sm:text-xs font-bold text-slate-800 tracking-wide mb-1 block">
+            <label htmlFor="req-district" className="text-[11px] sm:text-xs font-bold text-slate-800 tracking-wide mb-1 block">
               Location / District <span className="text-red-500">*</span>
             </label>
             <CustomSelect
+              id="req-district"
               name="district"
               value={formData.district}
               onChange={handleInputChange}
@@ -324,10 +328,11 @@ export const ServiceRequestForm: React.FC<ServiceRequestFormProps> = ({ currentS
         {/* Row 3: Service & Farm / Land Size */}
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5 sm:gap-4">
           <div>
-            <label className="text-[11px] sm:text-xs font-bold text-slate-800 tracking-wide mb-1 block">
+            <label htmlFor="req-serviceSlug" className="text-[11px] sm:text-xs font-bold text-slate-800 tracking-wide mb-1 block">
               Service <span className="text-red-500">*</span>
             </label>
             <CustomSelect
+              id="req-serviceSlug"
               name="serviceSlug"
               value={formData.serviceSlug}
               onChange={handleInputChange}
@@ -337,10 +342,11 @@ export const ServiceRequestForm: React.FC<ServiceRequestFormProps> = ({ currentS
           </div>
 
           <div>
-            <label className="text-[11px] sm:text-xs font-bold text-slate-800 tracking-wide mb-1 block">
+            <label htmlFor="req-farmSize" className="text-[11px] sm:text-xs font-bold text-slate-800 tracking-wide mb-1 block">
               Farm / Land Size
             </label>
             <CustomSelect
+              id="req-farmSize"
               name="farmSize"
               value={formData.farmSize}
               onChange={handleInputChange}
@@ -357,10 +363,11 @@ export const ServiceRequestForm: React.FC<ServiceRequestFormProps> = ({ currentS
 
         {/* Row 4: Requirement Details */}
         <div>
-          <label className="text-[11px] sm:text-xs font-bold text-slate-800 tracking-wide mb-1 block">
+          <label htmlFor="req-details" className="text-[11px] sm:text-xs font-bold text-slate-800 tracking-wide mb-1 block">
             Requirement Details
           </label>
           <textarea
+            id="req-details"
             name="details"
             rows={3}
             value={formData.details}
@@ -370,12 +377,12 @@ export const ServiceRequestForm: React.FC<ServiceRequestFormProps> = ({ currentS
           />
         </div>
 
-        {/* Submit Button */}
+        {/* Submit Button with WCAG AA compliant contrast */}
         <div className="pt-1">
           <button
             type="submit"
             disabled={isSubmitting}
-            className="w-full py-3 sm:py-3.5 px-6 bg-[#b37d2e] hover:bg-[#9d691e] active:scale-[0.98] disabled:opacity-75 text-white font-semibold text-sm sm:text-base rounded-xl shadow-sm hover:shadow transition-all duration-200 flex items-center justify-center gap-2 group cursor-pointer"
+            className="w-full py-3 sm:py-3.5 px-6 bg-[#946116] hover:bg-[#7e510e] active:scale-[0.98] disabled:opacity-75 text-white font-semibold text-sm sm:text-base rounded-xl shadow-sm hover:shadow transition-all duration-200 flex items-center justify-center gap-2 group cursor-pointer"
           >
             {isSubmitting ? (
               <span>Submitting Enquiry...</span>

@@ -12,12 +12,19 @@ export const ContactInfo: React.FC = () => {
             Get in touch
           </h2>
           {/* Small Decorative Sprout Leaf Graphic */}
-          <img
-            src="/assets/decorative-leaf.png"
-            alt=""
-            aria-hidden="true"
-            className="w-7 h-7 sm:w-8 sm:h-8 object-contain pointer-events-none select-none opacity-90 -rotate-12"
-          />
+          <picture>
+            <source srcSet="/assets/decorative-leaf.webp" type="image/webp" />
+            <img
+              src="/assets/decorative-leaf.png"
+              alt=""
+              aria-hidden="true"
+              width={32}
+              height={32}
+              loading="lazy"
+              decoding="async"
+              className="w-7 h-7 sm:w-8 sm:h-8 object-contain pointer-events-none select-none opacity-90 -rotate-12"
+            />
+          </picture>
         </div>
 
       </div>
@@ -132,11 +139,18 @@ export const ContactInfo: React.FC = () => {
       {/* 3. Farmer & Specialist Image from Reference Design */}
       <div className="pt-1">
         <div className="overflow-hidden rounded-2xl sm:rounded-3xl border border-[#dce8da] shadow-xs relative bg-[#eef6ee]">
-          <img
-            src="/assets/contact-farmer.png"
-            alt="Better Conversations, Brighter Tomorrows - Uzhavar Connect Field Advisory"
-            className="w-full h-auto object-cover select-none pointer-events-none"
-          />
+          <picture>
+            <source srcSet="/assets/contact-farmer.webp" type="image/webp" />
+            <img
+              src="/assets/contact-farmer.png"
+              alt="Better Conversations, Brighter Tomorrows - Uzhavar Connect Field Advisory"
+              width={600}
+              height={400}
+              loading="lazy"
+              decoding="async"
+              className="w-full h-auto object-cover select-none pointer-events-none"
+            />
+          </picture>
         </div>
       </div>
     </div>

@@ -7,12 +7,19 @@ export const AmcBanner: React.FC = () => {
       <div className="relative rounded-2xl sm:rounded-3xl overflow-hidden bg-[#0c371e] text-white shadow-xl h-[300px] flex flex-col md:flex-row items-stretch">
         
         {/* Decorative leaf near bottom-left */}
-        <img
-          src="/assets/f0428fe6-7a9d-4007-b7c9-37234cc039e6.png"
-          alt=""
-          aria-hidden="true"
-          className="absolute -bottom-4 -left-4 w-28 sm:w-36 h-auto pointer-events-none select-none opacity-20 -scale-x-100 z-0"
-        />
+        <picture>
+          <source srcSet="/assets/f0428fe6-7a9d-4007-b7c9-37234cc039e6.webp" type="image/webp" />
+          <img
+            src="/assets/f0428fe6-7a9d-4007-b7c9-37234cc039e6.png"
+            alt=""
+            aria-hidden="true"
+            loading="lazy"
+            decoding="async"
+            width={144}
+            height={144}
+            className="absolute -bottom-4 -left-4 w-28 sm:w-36 h-auto pointer-events-none select-none opacity-20 -scale-x-100 z-0"
+          />
+        </picture>
 
         {/* Left Content Area */}
         <div className="relative z-10 flex-1 p-5 sm:p-7 lg:p-8 flex flex-col justify-center max-w-xl">
@@ -34,11 +41,11 @@ export const AmcBanner: React.FC = () => {
             Regular care keeps your farm healthy, productive and profitable.
           </p>
 
-          {/* Golden Button */}
+          {/* Golden Button with WCAG AA compliance (4.88:1) */}
           <div className="mt-4 sm:mt-5">
             <Link
               to="/contact"
-              className="inline-flex items-center gap-2 px-5 py-2 sm:py-2.5 bg-[#b37d2e] hover:bg-[#9d691e] active:scale-[0.98] text-white font-semibold text-xs sm:text-sm rounded-xl shadow-md hover:shadow-lg transition-all duration-200 group"
+              className="inline-flex items-center gap-2 px-5 py-2 sm:py-2.5 bg-[#946116] hover:bg-[#7e510e] active:scale-[0.98] text-white font-semibold text-xs sm:text-sm rounded-xl shadow-md hover:shadow-lg transition-all duration-200 group"
             >
               <span>Enquire Now</span>
               <span className="transition-transform duration-200 group-hover:translate-x-1 font-bold">
@@ -50,11 +57,18 @@ export const AmcBanner: React.FC = () => {
 
         {/* Right Image */}
         <div className="relative md:w-3/5 lg:w-[52%] h-full overflow-hidden">
-          <img
-            src="/assets/amc-banner-supervisor.jpg"
-            alt="Farm Maintenance"
-            className="w-full h-full object-cover object-[center_35%]"
-          />
+          <picture>
+            <source srcSet="/assets/amc-banner-supervisor.webp" type="image/webp" />
+            <img
+              src="/assets/amc-banner-supervisor.jpg"
+              alt="Farm Maintenance"
+              loading="lazy"
+              decoding="async"
+              width={700}
+              height={300}
+              className="w-full h-full object-cover object-[center_35%]"
+            />
+          </picture>
           {/* Smooth gradient transition into solid dark green on the left */}
           <div className="hidden md:block absolute inset-y-0 left-0 w-36 bg-gradient-to-r from-[#0c371e] via-[#0c371e]/75 to-transparent pointer-events-none" />
           <div className="md:hidden absolute inset-0 bg-gradient-to-t from-[#0c371e] via-transparent to-transparent pointer-events-none" />

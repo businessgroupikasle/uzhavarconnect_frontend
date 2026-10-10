@@ -297,12 +297,19 @@ export const EnquiryForm: React.FC<EnquiryFormProps> = ({
           <h2 className="text-2xl sm:text-3xl font-bold font-serif text-[#0e3922] tracking-tight">
             Send us your enquiry
           </h2>
-          <img
-            src="/assets/decorative-leaf.png"
-            alt=""
-            aria-hidden="true"
-            className="w-7 h-7 sm:w-8 sm:h-8 object-contain pointer-events-none select-none opacity-90 -rotate-12"
-          />
+          <picture>
+            <source srcSet="/assets/decorative-leaf.webp" type="image/webp" />
+            <img
+              src="/assets/decorative-leaf.png"
+              alt=""
+              aria-hidden="true"
+              loading="lazy"
+              decoding="async"
+              width={32}
+              height={32}
+              className="w-7 h-7 sm:w-8 sm:h-8 object-contain pointer-events-none select-none opacity-90 -rotate-12"
+            />
+          </picture>
         </div>
 
       </div>
@@ -460,7 +467,7 @@ export const EnquiryForm: React.FC<EnquiryFormProps> = ({
           <button
             type="submit"
             disabled={isSubmitting}
-            className="w-full py-3 sm:py-3.5 px-6 bg-[#b37d2e] hover:bg-[#9d691e] active:scale-[0.99] disabled:opacity-75 text-white font-semibold text-sm sm:text-base rounded-xl shadow-xs hover:shadow transition-all duration-200 flex items-center justify-center gap-2 cursor-pointer group"
+            className="w-full py-3 sm:py-3.5 px-6 bg-[#946116] hover:bg-[#7e510e] active:scale-[0.99] disabled:opacity-75 text-white font-semibold text-sm sm:text-base rounded-xl shadow-xs hover:shadow transition-all duration-200 flex items-center justify-center gap-2 cursor-pointer group"
           >
             {isSubmitting ? (
               <span>Sending Enquiry...</span>

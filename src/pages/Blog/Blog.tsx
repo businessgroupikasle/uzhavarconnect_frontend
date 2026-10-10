@@ -19,11 +19,18 @@ export const Blog: React.FC = () => {
       {/* 1. Dedicated Visual Brand Section — Only Visible Element */}
       <section className="w-full flex items-center justify-center py-6 sm:py-8 md:py-10 overflow-hidden">
         <div className="w-[95%] sm:w-[90%] max-w-[1100px] lg:max-w-[1200px] mx-auto flex items-center justify-center">
-          <img
-            src="/assets/60660d89-1d5c-44f4-b57a-10b5417a3fec.png"
-            alt="Uzhavar Connect - Coming Soon"
-            className="w-full max-w-[1100px] lg:max-w-[1200px] h-auto object-contain mx-auto select-none"
-          />
+          <picture>
+            <source srcSet="/assets/60660d89-1d5c-44f4-b57a-10b5417a3fec.webp" type="image/webp" />
+            <img
+              src="/assets/60660d89-1d5c-44f4-b57a-10b5417a3fec.png"
+              alt="Uzhavar Connect - Coming Soon"
+              loading="lazy"
+              decoding="async"
+              width={1100}
+              height={500}
+              className="w-full max-w-[1100px] lg:max-w-[1200px] h-auto object-contain mx-auto select-none"
+            />
+          </picture>
         </div>
       </section>
 

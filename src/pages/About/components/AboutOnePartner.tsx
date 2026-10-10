@@ -53,12 +53,18 @@ export const AboutOnePartner: React.FC = () => {
           {/* Left Column: Farmland Image with Drip Irrigation and "Healthy Land Brighter Futures" */}
           <div className="lg:col-span-6">
             <div className="relative rounded-3xl overflow-hidden shadow-md shadow-slate-900/10 border-4 border-white group">
-              <img
-                src="/assets/drip-farm-stage.jpg"
-                alt="Farmland with drip irrigation - Healthy Land Brighter Futures"
-                loading="lazy"
-                className="w-full h-[280px] sm:h-[360px] md:h-[400px] lg:h-[420px] object-cover object-center group-hover:scale-105 transition-transform duration-500"
-              />
+              <picture>
+                <source srcSet="/assets/drip-farm-stage.webp" type="image/webp" />
+                <img
+                  src="/assets/drip-farm-stage.jpg"
+                  alt="Farmland with drip irrigation - Healthy Land Brighter Futures"
+                  width={800}
+                  height={500}
+                  loading="lazy"
+                  decoding="async"
+                  className="w-full h-[280px] sm:h-[360px] md:h-[400px] lg:h-[420px] object-cover object-center group-hover:scale-105 transition-transform duration-500"
+                />
+              </picture>
             </div>
           </div>
 

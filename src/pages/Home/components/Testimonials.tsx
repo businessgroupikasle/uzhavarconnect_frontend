@@ -11,34 +11,48 @@ export const Testimonials: React.FC = () => {
         
         {/* Left Decorative Leaf Illustration */}
         <div className="absolute left-2 sm:left-6 md:left-10 lg:left-16 xl:left-24 top-1/2 -translate-y-1/2 pointer-events-none select-none z-0">
-          <img
-            src="/assets/f0428fe6-7a9d-4007-b7c9-37234cc039e6.png"
-            alt=""
-            aria-hidden="true"
-            className="w-20 sm:w-28 md:w-36 lg:w-44 h-auto object-contain opacity-30 sm:opacity-75 rotate-6"
-          />
+          <picture>
+            <source srcSet="/assets/f0428fe6-7a9d-4007-b7c9-37234cc039e6.webp" type="image/webp" />
+            <img
+              src="/assets/f0428fe6-7a9d-4007-b7c9-37234cc039e6.png"
+              alt=""
+              aria-hidden="true"
+              loading="lazy"
+              decoding="async"
+              width={176}
+              height={176}
+              className="w-20 sm:w-28 md:w-36 lg:w-44 h-auto object-contain opacity-30 sm:opacity-75 rotate-6"
+            />
+          </picture>
         </div>
 
         {/* Right Decorative Leaf Illustration (Mirrored) */}
         <div className="absolute right-2 sm:right-6 md:right-10 lg:right-16 xl:right-24 top-1/2 -translate-y-1/2 pointer-events-none select-none z-0">
-          <img
-            src="/assets/f0428fe6-7a9d-4007-b7c9-37234cc039e6.png"
-            alt=""
-            aria-hidden="true"
-            className="w-20 sm:w-28 md:w-36 lg:w-44 h-auto object-contain opacity-30 sm:opacity-75 -scale-x-100 rotate-6"
-          />
+          <picture>
+            <source srcSet="/assets/f0428fe6-7a9d-4007-b7c9-37234cc039e6.webp" type="image/webp" />
+            <img
+              src="/assets/f0428fe6-7a9d-4007-b7c9-37234cc039e6.png"
+              alt=""
+              aria-hidden="true"
+              loading="lazy"
+              decoding="async"
+              width={176}
+              height={176}
+              className="w-20 sm:w-28 md:w-36 lg:w-44 h-auto object-contain opacity-30 sm:opacity-75 -scale-x-100 rotate-6"
+            />
+          </picture>
         </div>
 
         {/* Centered Content Container */}
         <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           
-          {/* Eyebrow Label with flanking horizontal rules */}
+          {/* Eyebrow Label with flanking horizontal rules (WCAG AA Compliant contrast) */}
           <div className="inline-flex items-center justify-center gap-3 sm:gap-4 mb-2.5">
-            <span className="w-8 sm:w-12 h-[1px] bg-[#15803d]/45" aria-hidden="true" />
-            <span className="text-xs sm:text-[13px] font-bold tracking-[0.2em] text-[#15803d] uppercase">
+            <span className="w-8 sm:w-12 h-[1px] bg-[#166534]/50" aria-hidden="true" />
+            <span className="text-xs sm:text-[13px] font-bold tracking-[0.2em] text-[#166534] uppercase">
               TESTIMONIALS
             </span>
-            <span className="w-8 sm:w-12 h-[1px] bg-[#15803d]/45" aria-hidden="true" />
+            <span className="w-8 sm:w-12 h-[1px] bg-[#166534]/50" aria-hidden="true" />
           </div>
 
           {/* Main Heading */}
@@ -84,12 +98,19 @@ export const Testimonials: React.FC = () => {
           Directly connected with NO gap
           ======================================================== */}
       <section className="relative overflow-hidden w-full bg-[#082315] py-12 sm:py-16 lg:py-20 text-center">
-        {/* Full-Width Agricultural Farm Background Image */}
-        <img
-          src="/assets/hero-farm.png"
-          alt="Lush green agricultural farmland"
-          className="absolute inset-0 w-full h-full object-cover object-[center_35%] pointer-events-none select-none"
-        />
+        {/* Full-Width Agricultural Farm Background Image (WebP with Fallback) */}
+        <picture>
+          <source srcSet="/assets/hero-farm.webp" type="image/webp" />
+          <img
+            src="/assets/hero-farm.png"
+            alt="Lush green agricultural farmland"
+            loading="lazy"
+            decoding="async"
+            width={1600}
+            height={600}
+            className="absolute inset-0 w-full h-full object-cover object-[center_35%] pointer-events-none select-none"
+          />
+        </picture>
 
         {/* Natural Dark-Green Overlay for optimal text readability */}
         <div 
@@ -113,11 +134,11 @@ export const Testimonials: React.FC = () => {
             Partner with Uzhavar Connect for expert agricultural development and farm management services.
           </p>
 
-          {/* Gold/Orange Rounded CTA Button */}
+          {/* Gold/Orange Rounded CTA Button with WCAG AA compliance (4.88:1) */}
           <div className="mt-5 sm:mt-6 flex justify-center">
             <Link
               to="/contact"
-              className="inline-flex items-center justify-center gap-2 bg-[#b87d2b] hover:bg-[#a26b20] active:bg-[#925f1b] text-white font-semibold text-sm sm:text-base px-7 sm:px-9 py-3 sm:py-3.5 rounded-2xl shadow-lg transition-all duration-200 hover:scale-[1.02] active:scale-[0.98]"
+              className="inline-flex items-center justify-center gap-2 bg-[#946116] hover:bg-[#7e510e] active:bg-[#684107] text-white font-semibold text-sm sm:text-base px-7 sm:px-9 py-3 sm:py-3.5 rounded-2xl shadow-lg transition-all duration-200 hover:scale-[1.02] active:scale-[0.98]"
             >
               <span>Request a Consultation</span>
               <span className="text-lg">→</span>

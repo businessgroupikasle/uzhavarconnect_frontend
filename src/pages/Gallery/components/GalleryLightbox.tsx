@@ -116,6 +116,8 @@ export const GalleryLightbox: React.FC<GalleryLightboxProps> = ({
         <img
           src={item.image}
           alt={item.title}
+          loading="lazy"
+          decoding="async"
           className="max-h-[72vh] sm:max-h-[76vh] max-w-[88vw] object-contain rounded-xl shadow-2xl"
         />
 

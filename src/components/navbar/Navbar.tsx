@@ -40,11 +40,16 @@ export const Navbar: React.FC = () => {
                 className="flex items-center group focus:outline-none"
                 aria-label="Uzhavar Connect Homepage"
               >
-                <img
-                  src="/assets/logo.jpeg"
-                  alt="Uzhavar Connect - Agriculture Farm Land Developer"
-                  className="h-11 sm:h-[50px] lg:h-[56px] w-auto object-contain transition-transform group-hover:scale-[1.02]"
-                />
+                <picture>
+                  <source srcSet="/assets/logo.webp" type="image/webp" />
+                  <img
+                    src="/assets/logo.jpeg"
+                    alt="Uzhavar Connect - Agriculture Farm Land Developer"
+                    width={180}
+                    height={56}
+                    className="h-11 sm:h-[50px] lg:h-[56px] w-auto object-contain transition-transform group-hover:scale-[1.02]"
+                  />
+                </picture>
               </Link>
             </div>
 
@@ -82,11 +87,11 @@ export const Navbar: React.FC = () => {
               ))}
             </nav>
 
-            {/* 3. Right: CTA Button (Matches Reference Image) */}
+            {/* 3. Right: CTA Button (Matches Reference Image with Accessible WCAG AA Contrast) */}
             <div className="hidden lg:flex items-center">
               <Link
                 to="/contact"
-                className="inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-full bg-[#b87d2b] hover:bg-[#a26b20] active:bg-[#925f1b] text-white font-medium text-sm shadow-sm hover:shadow transition-all duration-200 group focus:ring-2 focus:ring-[#b87d2b] focus:ring-offset-2"
+                className="inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-full bg-[#946116] hover:bg-[#7e510e] active:bg-[#684107] text-white font-medium text-sm shadow-sm hover:shadow transition-all duration-200 group focus:ring-2 focus:ring-[#946116] focus:ring-offset-2"
               >
                 <span>Book a Service</span>
                 <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-0.5" />
@@ -98,7 +103,7 @@ export const Navbar: React.FC = () => {
               {/* Optional Tablet CTA for screens 640px - 1023px */}
               <Link
                 to="/contact"
-                className="hidden sm:inline-flex items-center gap-1.5 px-4 py-2 rounded-full bg-[#b87d2b] hover:bg-[#a26b20] text-white font-medium text-xs shadow-sm transition-all"
+                className="hidden sm:inline-flex items-center gap-1.5 px-4 py-2 rounded-full bg-[#946116] hover:bg-[#7e510e] text-white font-medium text-xs shadow-sm transition-all"
               >
                 <span>Book Service</span>
                 <ArrowRight className="w-3.5 h-3.5" />

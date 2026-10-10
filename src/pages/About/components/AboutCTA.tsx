@@ -5,11 +5,18 @@ export const AboutCTA: React.FC = () => {
   return (
     <section className="relative overflow-hidden w-full bg-[#082315] py-14 sm:py-18 lg:py-20 text-white">
       {/* 1. Full-Width Farmland/Mountain Background Image */}
-      <img
-        src="/assets/hero-farm.png"
-        alt="Lush Agricultural Farmland"
-        className="absolute inset-0 w-full h-full object-cover object-[center_35%] pointer-events-none select-none"
-      />
+      <picture className="absolute inset-0 w-full h-full pointer-events-none select-none">
+        <source srcSet="/assets/hero-farm.webp" type="image/webp" />
+        <img
+          src="/assets/hero-farm.png"
+          alt="Lush Agricultural Farmland"
+          width={1600}
+          height={900}
+          loading="lazy"
+          decoding="async"
+          className="w-full h-full object-cover object-[center_35%]"
+        />
+      </picture>
 
       {/* 2. Natural Dark-Green Overlay for optimal text readability */}
       <div
@@ -31,14 +38,11 @@ export const AboutCTA: React.FC = () => {
             next chapter.
           </h2>
 
-          {/* Subtitle */}
-
-
           {/* Warm Golden/Brown CTA Button */}
           <div className="mt-6 sm:mt-7 flex items-center">
             <Link
               to="/contact"
-              className="inline-flex items-center justify-center gap-2 bg-[#b87d2b] hover:bg-[#a26b20] active:bg-[#925f1b] text-white font-semibold text-sm sm:text-base px-7 sm:px-8 py-3 sm:py-3.5 rounded-2xl shadow-lg transition-all duration-200 hover:scale-[1.02] active:scale-[0.98]"
+              className="inline-flex items-center justify-center gap-2 bg-[#946116] hover:bg-[#784e0e] text-white font-semibold text-sm sm:text-base px-7 sm:px-8 py-3 sm:py-3.5 rounded-2xl shadow-lg transition-all duration-200 hover:scale-[1.02] active:scale-[0.98]"
             >
               <span>Request a Consultation</span>
               <span className="text-lg">→</span>

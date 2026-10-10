@@ -104,11 +104,11 @@ export const SERVICES_DATA: ServiceItem[] = [
     shortDescription: 'Master zoning, internal farm roads, fencing layout, plot divisions, and water distribution network design.',
     fullDescription: 'Professional farm architectural blueprints designed by experienced agronomists and land surveyors. We formulate a master plan that maximizes acreage utility, ensures optimal sunlight and wind protection, places borewells and pump houses at hydraulic sweet spots, and provides wide tractor-friendly internal access roads.',
     iconName: 'Map',
-    heroImage: '/assets/services/farm-layout-planning.jpg',
+    heroImage: '/assets/services/farm-layout-planning.webp',
     galleryImages: [
-      '/assets/services/farm-layout-planning.jpg',
+      '/assets/services/farm-layout-planning.webp',
       '/assets/gallery/project-1.svg',
-      '/assets/gallery/gallery-land-dev-fencing-work.jpg',
+      '/assets/gallery/gallery-land-dev-fencing-work.webp',
     ],
     scopeOfWork: [
       'Drone aerial survey, cadastral boundary demarcation, and contour mapping',

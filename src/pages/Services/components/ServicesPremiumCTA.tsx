@@ -7,12 +7,19 @@ export const ServicesPremiumCTA: React.FC = () => {
       <div className="relative rounded-2xl sm:rounded-3xl overflow-hidden bg-[#0c371e] text-white shadow-xl min-h-[220px] sm:min-h-[250px] flex flex-col md:flex-row items-stretch">
         
         {/* Decorative leaf near bottom-left */}
-        <img
-          src="/assets/f0428fe6-7a9d-4007-b7c9-37234cc039e6.png"
-          alt=""
-          aria-hidden="true"
-          className="absolute -bottom-4 -left-4 w-28 sm:w-36 h-auto pointer-events-none select-none opacity-20 -scale-x-100 z-0"
-        />
+        <picture className="absolute -bottom-4 -left-4 pointer-events-none select-none z-0">
+          <source srcSet="/assets/f0428fe6-7a9d-4007-b7c9-37234cc039e6.webp" type="image/webp" />
+          <img
+            src="/assets/f0428fe6-7a9d-4007-b7c9-37234cc039e6.png"
+            alt=""
+            aria-hidden="true"
+            width={144}
+            height={144}
+            loading="lazy"
+            decoding="async"
+            className="w-28 sm:w-36 h-auto opacity-20 -scale-x-100"
+          />
+        </picture>
 
         {/* Left Content Area */}
         <div className="relative z-10 flex-1 p-6 sm:p-8 lg:p-10 flex flex-col justify-center max-w-xl">
@@ -38,7 +45,7 @@ export const ServicesPremiumCTA: React.FC = () => {
           <div className="mt-5 sm:mt-6">
             <Link
               to="/contact"
-              className="inline-flex items-center gap-2 px-6 py-2.5 sm:py-3 bg-[#b37d2e] hover:bg-[#9d691e] active:scale-[0.98] text-white font-semibold text-xs sm:text-sm rounded-xl shadow-md hover:shadow-lg transition-all duration-200 group"
+              className="inline-flex items-center gap-2 px-6 py-2.5 sm:py-3 bg-[#946116] hover:bg-[#784e0e] active:scale-[0.98] text-white font-semibold text-xs sm:text-sm rounded-xl shadow-md hover:shadow-lg transition-all duration-200 group"
             >
               <span>Enquire Now</span>
               <span className="transition-transform duration-200 group-hover:translate-x-1 font-bold">
@@ -50,11 +57,18 @@ export const ServicesPremiumCTA: React.FC = () => {
 
         {/* Right Orchard Image with handwritten cursive text */}
         <div className="relative md:w-3/5 lg:w-[52%] min-h-[190px] sm:min-h-[220px] md:min-h-full overflow-hidden">
-          <img
-            src="/assets/services/premium-farm-orchard.jpg"
-            alt="End to End Farm Management Orchard"
-            className="w-full h-full object-cover object-[center_40%]"
-          />
+          <picture>
+            <source srcSet="/assets/services/premium-farm-orchard.webp" type="image/webp" />
+            <img
+              src="/assets/services/premium-farm-orchard.jpg"
+              alt="End to End Farm Management Orchard"
+              width={700}
+              height={450}
+              loading="lazy"
+              decoding="async"
+              className="w-full h-full object-cover object-[center_40%]"
+            />
+          </picture>
           {/* Subtle blend to match the dark green on the left */}
           <div className="hidden md:block absolute inset-y-0 left-0 w-28 bg-gradient-to-r from-[#0c371e] via-[#0c371e]/70 to-transparent pointer-events-none" />
           <div className="md:hidden absolute inset-0 bg-gradient-to-t from-[#0c371e] via-transparent to-transparent pointer-events-none" />

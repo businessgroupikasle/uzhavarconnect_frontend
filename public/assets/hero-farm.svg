@@ -1,0 +1,118 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" width="100%" height="100%" preserveAspectRatio="xMidYMid slice">
+  <defs>
+    <linearGradient id="skyGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#4ea8de" />
+      <stop offset="55%" stop-color="#90e0ef" />
+      <stop offset="85%" stop-color="#fdf0d5" />
+      <stop offset="100%" stop-color="#e9edc9" />
+    </linearGradient>
+    <radialGradient id="sunGlow" cx="82%" cy="25%" r="35%">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="1" />
+      <stop offset="25%" stop-color="#fef08a" stop-opacity="0.9" />
+      <stop offset="60%" stop-color="#fbbf24" stop-opacity="0.4" />
+      <stop offset="100%" stop-color="#fef08a" stop-opacity="0" />
+    </radialGradient>
+    <linearGradient id="mountain1" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#3a5a40" />
+      <stop offset="100%" stop-color="#588157" />
+    </linearGradient>
+    <linearGradient id="mountain2" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#344e41" />
+      <stop offset="100%" stop-color="#283618" />
+    </linearGradient>
+    <linearGradient id="cropGrad1" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#52b788" />
+      <stop offset="100%" stop-color="#2d6a4f" />
+    </linearGradient>
+    <linearGradient id="cropGrad2" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#74c69d" />
+      <stop offset="100%" stop-color="#1b4332" />
+    </linearGradient>
+    <linearGradient id="soilRow" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#99582a" />
+      <stop offset="100%" stop-color="#6f1d1b" />
+    </linearGradient>
+  </defs>
+
+  <!-- Sky -->
+  <rect width="1600" height="900" fill="url(#skyGrad)" />
+  
+  <!-- Sun & Rays -->
+  <circle cx="1300" cy="220" r="280" fill="url(#sunGlow)" />
+  <circle cx="1300" cy="220" r="45" fill="#FFFBEB" />
+
+  <!-- Far Mountains (Western Ghats style) -->
+  <path d="M0 460 Q320 320 640 430 T1280 380 Q1440 330 1600 420 L1600 900 L0 900 Z" fill="url(#mountain1)" opacity="0.6" />
+  <path d="M-50 490 Q220 360 520 450 T1100 410 Q1380 370 1650 480 L1650 900 L-50 900 Z" fill="url(#mountain2)" opacity="0.8" />
+
+  <!-- Midground Hills and Forest Lines -->
+  <path d="M0 540 Q400 480 850 530 T1600 500 L1600 900 L0 900 Z" fill="#2d6a4f" />
+  
+  <!-- Distant Village & Trees -->
+  <g fill="#1b4332" opacity="0.9">
+    <circle cx="350" cy="510" r="25" />
+    <circle cx="380" cy="515" r="20" />
+    <circle cx="410" cy="508" r="28" />
+    <circle cx="920" cy="520" r="22" />
+    <circle cx="950" cy="515" r="30" />
+    <circle cx="980" cy="525" r="24" />
+    <circle cx="1400" cy="495" r="32" />
+    <circle cx="1440" cy="502" r="28" />
+  </g>
+
+  <!-- Terraced Cultivated Fields with Perspective Rows -->
+  <path d="M0 580 Q800 540 1600 570 L1600 900 L0 900 Z" fill="url(#cropGrad1)" />
+  
+  <!-- Curved Plantation Rows -->
+  <g stroke="#1b4332" stroke-width="6" opacity="0.45" fill="none">
+    <path d="M-100 620 Q700 570 1700 610" />
+    <path d="M-100 660 Q700 610 1700 650" />
+    <path d="M-100 710 Q700 655 1700 700" />
+    <path d="M-100 765 Q700 705 1700 755" />
+    <path d="M-100 825 Q700 760 1700 815" />
+    <path d="M-100 890 Q700 820 1700 880" />
+  </g>
+  <g stroke="#95d5b2" stroke-width="4" opacity="0.7" fill="none">
+    <path d="M-100 635 Q700 585 1700 625" />
+    <path d="M-100 680 Q700 630 1700 670" />
+    <path d="M-100 735 Q700 680 1700 725" />
+    <path d="M-100 795 Q700 735 1700 785" />
+    <path d="M-100 860 Q700 795 1700 850" />
+  </g>
+
+  <!-- Coconut / Areca Nut Palm Trees Silhouettes on Side -->
+  <g transform="translate(1420, 260) scale(1.1)">
+    <!-- Trunk -->
+    <path d="M70 380 Q60 220 85 80" stroke="#4a3525" stroke-width="12" stroke-linecap="round" fill="none"/>
+    <!-- Palm fronds -->
+    <g stroke="#1b4332" stroke-width="5" fill="none">
+      <path d="M85 80 Q140 30 190 60" />
+      <path d="M85 80 Q130 0 170 10" />
+      <path d="M85 80 Q80 -30 95 -60" />
+      <path d="M85 80 Q40 0 0 20" />
+      <path d="M85 80 Q10 40 -30 75" />
+      <path d="M85 80 Q70 110 90 140" />
+    </g>
+    <!-- Detailed leaflets -->
+    <path d="M190 60 Q130 50 85 80 Q140 10 170 10" fill="#2d6a4f" opacity="0.8"/>
+    <path d="M95 -60 Q70 10 85 80 Q30 20 0 20" fill="#40916c" opacity="0.8"/>
+  </g>
+
+  <g transform="translate(1500, 310) scale(0.9)">
+    <path d="M50 360 Q70 200 45 70" stroke="#4a3525" stroke-width="11" fill="none"/>
+    <path d="M45 70 Q100 20 140 50 Q110 5 45 70 Q0 30 -20 60" fill="#2d6a4f" opacity="0.85"/>
+  </g>
+
+  <g transform="translate(30, 280) scale(1)">
+    <path d="M60 400 Q80 230 50 80" stroke="#4a3525" stroke-width="12" stroke-linecap="round" fill="none"/>
+    <path d="M50 80 Q110 20 160 50 Q110 -10 50 80 Q-20 10 -40 50" fill="#2d6a4f" opacity="0.85"/>
+  </g>
+
+  <!-- Foreground lush tea / crop bushes -->
+  <g fill="#1b4332">
+    <ellipse cx="200" cy="910" rx="260" ry="90" fill="#1b4332"/>
+    <ellipse cx="580" cy="920" rx="300" ry="95" fill="#2d6a4f"/>
+    <ellipse cx="1000" cy="915" rx="320" ry="100" fill="#1b4332"/>
+    <ellipse cx="1450" cy="925" rx="280" ry="90" fill="#2d6a4f"/>
+  </g>
+</svg>

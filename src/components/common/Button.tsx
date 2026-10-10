@@ -34,10 +34,10 @@ export const Button: React.FC<ButtonProps> = ({
   };
 
   const variantStyles = {
-    // Golden / warm amber primary button matching reference
-    primary: 'bg-[#b87d2b] hover:bg-[#a26b20] active:bg-[#925f1b] text-white shadow-md shadow-black/20 hover:shadow-lg border border-transparent focus:ring-[#b87d2b]',
+    // Golden / warm amber primary button matching reference with WCAG AA compliance (4.88:1)
+    primary: 'bg-[#946116] hover:bg-[#7e510e] active:bg-[#684107] text-white shadow-md shadow-black/20 hover:shadow-lg border border-transparent focus:ring-[#946116]',
     // Translucent dark with golden/amber border matching reference
-    secondary: 'bg-[#062413]/70 hover:bg-[#0a301a]/85 active:bg-[#041a0d] text-white border border-[#b87d2b] shadow-sm hover:shadow-md focus:ring-[#b87d2b]',
+    secondary: 'bg-[#062413]/70 hover:bg-[#0a301a]/85 active:bg-[#041a0d] text-white border border-[#946116] shadow-sm hover:shadow-md focus:ring-[#946116]',
     // Green brand button
     green: 'bg-[#15803d] hover:bg-[#166534] text-white shadow-md hover:shadow-lg focus:ring-emerald-700',
     // Clean outline

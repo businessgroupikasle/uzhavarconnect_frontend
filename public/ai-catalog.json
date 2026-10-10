@@ -1,0 +1,34 @@
+{
+  "specVersion": "1.0",
+  "host": {
+    "displayName": "Uzhavar Connect",
+    "identifier": "did:web:uzhavarconnect.com"
+  },
+  "entries": [
+    {
+      "identifier": "urn:air:uzhavarconnect.com:services:catalog",
+      "displayName": "Uzhavar Connect Agricultural Land Services",
+      "type": "application/agent-card+json",
+      "url": "https://uzhavarconnect.com/ai-catalog.json",
+      "description": "Comprehensive agricultural land development, farm layout planning, and maintenance services across Tamil Nadu.",
+      "representativeQueries": [
+        "agricultural land development in Tamil Nadu",
+        "farm layout planning and fencing contractor",
+        "drip irrigation system installation",
+        "annual farm maintenance services"
+      ]
+    },
+    {
+      "identifier": "urn:air:uzhavarconnect.com:skills:llms-txt",
+      "displayName": "Uzhavar Connect Knowledge Base",
+      "type": "text/markdown; profile=\"urn:air:agent-skills\"",
+      "url": "https://uzhavarconnect.com/llms.txt",
+      "description": "Detailed agricultural service guidelines, specifications, and booking workflow for autonomous AI agents.",
+      "representativeQueries": [
+        "book farm development consultation",
+        "farmhouse construction specifications",
+        "commercial timber tree plantation buyback"
+      ]
+    }
+  ]
+}

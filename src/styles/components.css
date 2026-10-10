@@ -51,26 +51,26 @@
   align-items: center;
   justify-content: center;
   gap: 0.5rem;
-  background-color: #b87d2b;
+  background-color: #946116;
   color: #ffffff;
   font-weight: 600;
   font-size: 0.9375rem;
   padding: 0.625rem 1.375rem;
   border-radius: 9999px;
   transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
-  box-shadow: 0 2px 8px -1px rgba(184, 125, 43, 0.25);
+  box-shadow: 0 2px 8px -1px rgba(148, 97, 22, 0.25);
   white-space: nowrap;
 }
 
 .btn-navbar-cta:hover {
-  background-color: #a36c21;
-  box-shadow: 0 4px 14px -1px rgba(184, 125, 43, 0.35);
+  background-color: #7e510e;
+  box-shadow: 0 4px 14px -1px rgba(148, 97, 22, 0.35);
   transform: translateY(-1px);
 }
 
 .btn-navbar-cta:active {
   transform: translateY(0);
-  background-color: #925f1b;
+  background-color: #684107;
 }
 
 /* Smooth modal/drawer animations */

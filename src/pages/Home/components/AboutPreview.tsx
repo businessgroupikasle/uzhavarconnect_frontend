@@ -23,12 +23,18 @@ export const AboutPreview: React.FC = () => {
 
               {/* Farmer Image Card with balanced height matching content */}
               <div className="relative rounded-3xl overflow-hidden shadow-xl shadow-emerald-950/15 border-4 border-white group h-[380px] sm:h-[430px] lg:h-[460px] bg-slate-100">
-                <img
-                  src="/assets/farmer-portrait.jpg"
-                  alt="Farmer in Agricultural Land - Uzhavar Connect"
-                  loading="lazy"
-                  className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-700"
-                />
+                <picture>
+                  <source srcSet="/assets/farmer-portrait.webp" type="image/webp" />
+                  <img
+                    src="/assets/farmer-portrait.jpg"
+                    alt="Farmer in Agricultural Land - Uzhavar Connect"
+                    loading="lazy"
+                    decoding="async"
+                    width={480}
+                    height={460}
+                    className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-700"
+                  />
+                </picture>
 
                 {/* Subtle gradient shadow at the bottom of the photo */}
                 <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-60" />

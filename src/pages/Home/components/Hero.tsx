@@ -5,12 +5,19 @@ export const Hero: React.FC = () => {
   return (
     <section className="relative overflow-hidden w-full py-12 sm:py-16 lg:py-20 flex items-center bg-[#072415]">
       
-      {/* 1. Full-Width Agricultural Farmland Background Image */}
-      <img
-        src="/assets/hero-farm.png"
-        alt="Productive Agricultural Farmland Landscape"
-        className="absolute inset-0 w-full h-full object-cover object-right md:object-[center_35%] pointer-events-none select-none"
-      />
+      {/* 1. Full-Width Agricultural Farmland Background Image (Optimized WebP with Fallback & Priority Hint) */}
+      <picture>
+        <source srcSet="/assets/hero-farm.webp" type="image/webp" />
+        <img
+          src="/assets/hero-farm.png"
+          alt="Productive Agricultural Farmland Landscape"
+          fetchPriority="high"
+          decoding="async"
+          width={1600}
+          height={900}
+          className="absolute inset-0 w-full h-full object-cover object-right md:object-[center_35%] pointer-events-none select-none"
+        />
+      </picture>
 
       {/* 2. Soft Dark-Green Gradient Overlay for Text Readability & Agricultural Atmosphere */}
       <div 

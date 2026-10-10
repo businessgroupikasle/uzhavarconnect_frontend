@@ -42,13 +42,13 @@ export const HowItWorks: React.FC = () => {
         
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-6 sm:mb-8">
-          {/* Small centered label with flanking horizontal rules */}
+          {/* Small centered label with flanking horizontal rules (WCAG AA Compliant contrast) */}
           <div className="inline-flex items-center justify-center gap-3 sm:gap-4 mb-2.5">
-            <span className="w-8 sm:w-12 h-[1px] bg-[#15803d]/45" aria-hidden="true" />
-            <span className="text-xs sm:text-[13px] font-bold tracking-[0.2em] text-[#15803d] uppercase">
+            <span className="w-8 sm:w-12 h-[1px] bg-[#166534]/50" aria-hidden="true" />
+            <span className="text-xs sm:text-[13px] font-bold tracking-[0.2em] text-[#166534] uppercase">
               HOW IT WORKS
             </span>
-            <span className="w-8 sm:w-12 h-[1px] bg-[#15803d]/45" aria-hidden="true" />
+            <span className="w-8 sm:w-12 h-[1px] bg-[#166534]/50" aria-hidden="true" />
           </div>
 
           {/* Large centered heading */}

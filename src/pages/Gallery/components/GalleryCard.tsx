@@ -24,8 +24,11 @@ export const GalleryCard: React.FC<GalleryCardProps> = ({
       <img
         src={item.image}
         alt={item.title}
-        className={`w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 ${imageClassName}`}
+        width={400}
+        height={300}
+        decoding="async"
         loading="lazy"
+        className={`w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 ${imageClassName}`}
       />
 
       {/* Dark gradient overlay for bottom text */}

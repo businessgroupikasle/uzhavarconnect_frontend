@@ -125,6 +125,14 @@ export const CustomSelect: React.FC<CustomSelectProps> = ({
 
   return (
     <div className={`relative w-full ${className}`} ref={containerRef}>
+      {/* Hidden input for agentic browsing, form serialization, and automated testing */}
+      <input
+        type="hidden"
+        name={name}
+        value={value}
+        data-testid={`select-${name}`}
+      />
+
       {/* Select Trigger Button */}
       <button
         type="button"
@@ -132,6 +140,7 @@ export const CustomSelect: React.FC<CustomSelectProps> = ({
         disabled={disabled}
         aria-haspopup="listbox"
         aria-expanded={isOpen}
+        aria-controls={`${selectId}-listbox`}
         onClick={() => !disabled && setIsOpen((prev) => !prev)}
         onKeyDown={handleKeyDown}
         className={`w-full rounded-lg border text-left flex items-center justify-between px-3.5 py-2 text-xs sm:text-sm transition-all duration-200 outline-none bg-white ${
@@ -175,8 +184,10 @@ export const CustomSelect: React.FC<CustomSelectProps> = ({
 
           {/* Options List */}
           <div
+            id={`${selectId}-listbox`}
             ref={optionsListRef}
             role="listbox"
+            aria-labelledby={selectId}
             tabIndex={-1}
             className="max-h-60 overflow-y-auto py-1 custom-dropdown-scrollbar"
           >

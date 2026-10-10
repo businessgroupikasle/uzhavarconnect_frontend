@@ -3,3 +3,7 @@ User-agent: *
 Allow: /
 
 Sitemap: https://uzhavarconnect.com/sitemap.xml
+# LLMs and AI Agents
+# https://uzhavarconnect.com/llms.txt
+# https://uzhavarconnect.com/ai-catalog.json
+

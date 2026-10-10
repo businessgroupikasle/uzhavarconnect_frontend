@@ -13,12 +13,19 @@ export const AboutMissionVision: React.FC = () => {
           <div className="relative overflow-hidden bg-white/90 sm:bg-white rounded-3xl p-6 sm:p-8 border border-[#dce8dc] shadow-sm flex flex-col sm:flex-row items-start gap-5 group hover:shadow-md transition-all duration-300">
             {/* Lower-Left Decorative Leaf */}
             <div className="absolute -bottom-4 -left-4 pointer-events-none select-none z-0">
-              <img
-                src="/assets/f0428fe6-7a9d-4007-b7c9-37234cc039e6.png"
-                alt=""
-                aria-hidden="true"
-                className="w-20 sm:w-24 h-auto object-contain opacity-40 rotate-45"
-              />
+              <picture>
+                <source srcSet="/assets/f0428fe6-7a9d-4007-b7c9-37234cc039e6.webp" type="image/webp" />
+                <img
+                  src="/assets/f0428fe6-7a9d-4007-b7c9-37234cc039e6.png"
+                  alt=""
+                  aria-hidden="true"
+                  width={96}
+                  height={96}
+                  loading="lazy"
+                  decoding="async"
+                  className="w-20 sm:w-24 h-auto object-contain opacity-40 rotate-45"
+                />
+              </picture>
             </div>
 
             {/* Circular Dark Green Icon Container */}
@@ -55,12 +62,19 @@ export const AboutMissionVision: React.FC = () => {
           <div className="relative overflow-hidden bg-white/90 sm:bg-white rounded-3xl p-6 sm:p-8 border border-[#dce8dc] shadow-sm flex flex-col sm:flex-row items-start gap-5 group hover:shadow-md transition-all duration-300">
             {/* Right Side Decorative Leaf */}
             <div className="absolute -right-4 top-1/2 -translate-y-1/2 pointer-events-none select-none z-0">
-              <img
-                src="/assets/f0428fe6-7a9d-4007-b7c9-37234cc039e6.png"
-                alt=""
-                aria-hidden="true"
-                className="w-20 sm:w-24 h-auto object-contain opacity-40 -scale-x-100 rotate-12"
-              />
+              <picture>
+                <source srcSet="/assets/f0428fe6-7a9d-4007-b7c9-37234cc039e6.webp" type="image/webp" />
+                <img
+                  src="/assets/f0428fe6-7a9d-4007-b7c9-37234cc039e6.png"
+                  alt=""
+                  aria-hidden="true"
+                  width={96}
+                  height={96}
+                  loading="lazy"
+                  decoding="async"
+                  className="w-20 sm:w-24 h-auto object-contain opacity-40 -scale-x-100 rotate-12"
+                />
+              </picture>
             </div>
 
             {/* Circular Dark Green Icon Container */}

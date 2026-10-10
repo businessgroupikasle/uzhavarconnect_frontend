@@ -36,46 +36,112 @@
     <link rel="manifest" href="/site.webmanifest" />
     <meta name="theme-color" content="#0e3922" />
 
-    <!-- Google Fonts -->
+    <!-- Preload Critical LCP Hero Image -->
+    <link rel="preload" as="image" href="/assets/hero-farm.webp" type="image/webp" fetchpriority="high" />
+
+    <!-- Google Fonts Preconnect and Preload -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400&display=swap" rel="stylesheet">
+    <link rel="preload" href="https://fonts.gstatic.com/s/poppins/v24/pxiEyp8kv8JHgFVrJJfecnFHGPc.woff2" as="font" type="font/woff2" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400&display=optional" rel="stylesheet">
 
-    <!-- Schema.org Organization Structured Data -->
+    <!-- Schema.org Structured Data (@graph: WebSite, Organization, LocalBusiness) -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
-      "@type": "Organization",
-      "name": "Uzhavar Connect",
-      "url": "https://uzhavarconnect.com/",
-      "logo": "https://uzhavarconnect.com/assets/logo.jpeg",
-      "image": "https://uzhavarconnect.com/assets/logo.jpeg",
-      "description": "Uzhavar Connect provides agricultural land development, farm layout planning, farm house development, irrigation and plantation services across Tamil Nadu.",
-      "knowsAbout": "Agricultural land development and farm services",
-      "telephone": ["+918220111722", "+917550119994"],
-      "email": "vineshprasanth@uzhavarconnect.com",
-      "address": {
-        "@type": "PostalAddress",
-        "streetAddress": "No. 263/1B, SENTAMIL NAGAR PHASE 2, PAPPAMPATTI, EDAYARPALAYAM",
-        "addressLocality": "Coimbatore",
-        "addressRegion": "Tamil Nadu",
-        "postalCode": "641016",
-        "addressCountry": "IN"
-      },
-      "contactPoint": [
+      "@graph": [
         {
-          "@type": "ContactPoint",
-          "telephone": "+918220111722",
-          "contactType": "customer service",
-          "areaServed": "IN",
-          "availableLanguage": ["English", "Tamil"]
+          "@type": "WebSite",
+          "@id": "https://uzhavarconnect.com/#website",
+          "url": "https://uzhavarconnect.com/",
+          "name": "Uzhavar Connect",
+          "description": "Agricultural Land Development and Farm Services in Tamil Nadu",
+          "publisher": {
+            "@id": "https://uzhavarconnect.com/#organization"
+          },
+          "inLanguage": "en-US"
         },
         {
-          "@type": "ContactPoint",
-          "telephone": "+917550119994",
-          "contactType": "customer service",
-          "areaServed": "IN",
-          "availableLanguage": ["English", "Tamil"]
+          "@type": "Organization",
+          "@id": "https://uzhavarconnect.com/#organization",
+          "name": "Uzhavar Connect",
+          "url": "https://uzhavarconnect.com/",
+          "logo": {
+            "@type": "ImageObject",
+            "url": "https://uzhavarconnect.com/assets/logo.webp",
+            "width": 256,
+            "height": 256
+          },
+          "image": "https://uzhavarconnect.com/assets/logo.webp",
+          "description": "Uzhavar Connect provides agricultural land development, farm layout planning, farm house development, irrigation and plantation services across Tamil Nadu.",
+          "knowsAbout": [
+            "Agricultural Land Development",
+            "Farm Layout Planning",
+            "Farm House Construction",
+            "Drip Irrigation Systems",
+            "Commercial Tree Plantation",
+            "Annual Maintenance Contracts for Farms"
+          ],
+          "telephone": ["+918220111722", "+917550119994"],
+          "email": "vineshprasanth@uzhavarconnect.com",
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "No. 263/1B, SENTAMIL NAGAR PHASE 2, PAPPAMPATTI, EDAYARPALAYAM",
+            "addressLocality": "Coimbatore",
+            "addressRegion": "Tamil Nadu",
+            "postalCode": "641016",
+            "addressCountry": "IN"
+          },
+          "contactPoint": [
+            {
+              "@type": "ContactPoint",
+              "telephone": "+918220111722",
+              "contactType": "customer service",
+              "areaServed": "IN",
+              "availableLanguage": ["English", "Tamil"]
+            },
+            {
+              "@type": "ContactPoint",
+              "telephone": "+917550119994",
+              "contactType": "customer service",
+              "areaServed": "IN",
+              "availableLanguage": ["English", "Tamil"]
+            }
+          ]
+        },
+        {
+          "@type": "ProfessionalService",
+          "@id": "https://uzhavarconnect.com/#localbusiness",
+          "name": "Uzhavar Connect",
+          "url": "https://uzhavarconnect.com/",
+          "telephone": "+918220111722",
+          "priceRange": "$$",
+          "image": "https://uzhavarconnect.com/assets/logo.webp",
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "No. 263/1B, SENTAMIL NAGAR PHASE 2, PAPPAMPATTI, EDAYARPALAYAM",
+            "addressLocality": "Coimbatore",
+            "addressRegion": "Tamil Nadu",
+            "postalCode": "641016",
+            "addressCountry": "IN"
+          },
+          "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": 10.9575,
+            "longitude": 77.0658
+          },
+          "areaServed": {
+            "@type": "State",
+            "name": "Tamil Nadu"
+          },
+          "openingHoursSpecification": [
+            {
+              "@type": "OpeningHoursSpecification",
+              "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+              "opens": "09:00",
+              "closes": "18:30"
+            }
+          ]
         }
       ]
     }

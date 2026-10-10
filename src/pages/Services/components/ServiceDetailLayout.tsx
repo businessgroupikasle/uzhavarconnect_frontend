@@ -37,11 +37,18 @@ export const ServiceDetailLayout: React.FC<ServiceDetailLayoutProps> = ({ servic
          ================================================== */}
       <section className="relative overflow-hidden w-full bg-[#072415] text-white py-10 sm:py-12 lg:py-14 flex items-center">
         {/* Background Farmland Landscape */}
-        <img
-          src="/assets/hero-farm.png"
-          alt="Agricultural Farmland Landscape"
-          className="absolute inset-0 w-full h-full object-cover object-[center_35%] pointer-events-none select-none opacity-40"
-        />
+        <picture className="absolute inset-0 w-full h-full pointer-events-none select-none opacity-40">
+          <source srcSet="/assets/hero-farm.webp" type="image/webp" />
+          <img
+            src="/assets/hero-farm.png"
+            alt="Agricultural Farmland Landscape"
+            width={1600}
+            height={900}
+            loading="eager"
+            decoding="async"
+            className="w-full h-full object-cover object-[center_35%]"
+          />
+        </picture>
 
         {/* Dark-Green Overlay for Text Legibility */}
         <div
@@ -106,16 +113,23 @@ export const ServiceDetailLayout: React.FC<ServiceDetailLayoutProps> = ({ servic
                 </p>
 
                 {/* Decorative Leaf on Right */}
-                <img
-                  src="/assets/f0428fe6-7a9d-4007-b7c9-37234cc039e6.png"
-                  alt=""
-                  aria-hidden="true"
-                  className="absolute right-0 top-1/2 -translate-y-1/2 w-16 sm:w-20 h-auto opacity-35 pointer-events-none select-none z-0"
-                />
+                <picture className="absolute right-0 top-1/2 -translate-y-1/2 pointer-events-none select-none z-0">
+                  <source srcSet="/assets/f0428fe6-7a9d-4007-b7c9-37234cc039e6.webp" type="image/webp" />
+                  <img
+                    src="/assets/f0428fe6-7a9d-4007-b7c9-37234cc039e6.png"
+                    alt=""
+                    aria-hidden="true"
+                    width={80}
+                    height={80}
+                    loading="lazy"
+                    decoding="async"
+                    className="w-16 sm:w-20 h-auto opacity-35"
+                  />
+                </picture>
               </div>
 
               {/* Subtle Divider Line */}
-              <div className="w-12 sm:w-16 h-[1.5px] bg-[#15803d]/40" aria-hidden="true" />
+              <div className="w-12 sm:w-16 h-[1.5px] bg-[#166534]/40" aria-hidden="true" />
 
               {/* Scope of Work */}
               <div className="relative">
@@ -137,12 +151,19 @@ export const ServiceDetailLayout: React.FC<ServiceDetailLayoutProps> = ({ servic
                 </div>
 
                 {/* Decorative Leaf on Right */}
-                <img
-                  src="/assets/f0428fe6-7a9d-4007-b7c9-37234cc039e6.png"
-                  alt=""
-                  aria-hidden="true"
-                  className="absolute right-2 top-1/2 -translate-y-1/2 w-16 sm:w-22 h-auto opacity-35 pointer-events-none select-none z-0"
-                />
+                <picture className="absolute right-2 top-1/2 -translate-y-1/2 pointer-events-none select-none z-0">
+                  <source srcSet="/assets/f0428fe6-7a9d-4007-b7c9-37234cc039e6.webp" type="image/webp" />
+                  <img
+                    src="/assets/f0428fe6-7a9d-4007-b7c9-37234cc039e6.png"
+                    alt=""
+                    aria-hidden="true"
+                    width={88}
+                    height={88}
+                    loading="lazy"
+                    decoding="async"
+                    className="w-16 sm:w-22 h-auto opacity-35"
+                  />
+                </picture>
               </div>
 
               {/* Why Choose / Why Prepare Your Land */}
@@ -165,12 +186,19 @@ export const ServiceDetailLayout: React.FC<ServiceDetailLayoutProps> = ({ servic
                 </div>
 
                 {/* Decorative Leaf on Right */}
-                <img
-                  src="/assets/f0428fe6-7a9d-4007-b7c9-37234cc039e6.png"
-                  alt=""
-                  aria-hidden="true"
-                  className="absolute right-2 top-1/2 -translate-y-1/2 w-16 sm:w-22 h-auto opacity-35 pointer-events-none select-none z-0"
-                />
+                <picture className="absolute right-2 top-1/2 -translate-y-1/2 pointer-events-none select-none z-0">
+                  <source srcSet="/assets/f0428fe6-7a9d-4007-b7c9-37234cc039e6.webp" type="image/webp" />
+                  <img
+                    src="/assets/f0428fe6-7a9d-4007-b7c9-37234cc039e6.png"
+                    alt=""
+                    aria-hidden="true"
+                    width={88}
+                    height={88}
+                    loading="lazy"
+                    decoding="async"
+                    className="w-16 sm:w-22 h-auto opacity-35"
+                  />
+                </picture>
               </div>
 
             </div>
@@ -182,18 +210,32 @@ export const ServiceDetailLayout: React.FC<ServiceDetailLayoutProps> = ({ servic
            ================================================== */}
           <section className="relative overflow-hidden bg-[#eef5eb] border border-[#dce8d9] rounded-2xl sm:rounded-3xl p-6 sm:p-8 lg:p-10 my-8 sm:my-10 shadow-xs">
             {/* Decorative Leaves Flanking Left and Right */}
-            <img
-              src="/assets/f0428fe6-7a9d-4007-b7c9-37234cc039e6.png"
-              alt=""
-              aria-hidden="true"
-              className="absolute -left-4 sm:-left-2 top-2 sm:top-4 w-20 sm:w-28 h-auto opacity-30 pointer-events-none select-none -scale-x-100 z-0"
-            />
-            <img
-              src="/assets/f0428fe6-7a9d-4007-b7c9-37234cc039e6.png"
-              alt=""
-              aria-hidden="true"
-              className="absolute -right-4 sm:-right-2 top-2 sm:top-4 w-20 sm:w-28 h-auto opacity-30 pointer-events-none select-none z-0"
-            />
+            <picture className="absolute -left-4 sm:-left-2 top-2 sm:top-4 pointer-events-none select-none z-0">
+              <source srcSet="/assets/f0428fe6-7a9d-4007-b7c9-37234cc039e6.webp" type="image/webp" />
+              <img
+                src="/assets/f0428fe6-7a9d-4007-b7c9-37234cc039e6.png"
+                alt=""
+                aria-hidden="true"
+                width={112}
+                height={112}
+                loading="lazy"
+                decoding="async"
+                className="w-20 sm:w-28 h-auto opacity-30 -scale-x-100"
+              />
+            </picture>
+            <picture className="absolute -right-4 sm:-right-2 top-2 sm:top-4 pointer-events-none select-none z-0">
+              <source srcSet="/assets/f0428fe6-7a9d-4007-b7c9-37234cc039e6.webp" type="image/webp" />
+              <img
+                src="/assets/f0428fe6-7a9d-4007-b7c9-37234cc039e6.png"
+                alt=""
+                aria-hidden="true"
+                width={112}
+                height={112}
+                loading="lazy"
+                decoding="async"
+                className="w-20 sm:w-28 h-auto opacity-30"
+              />
+            </picture>
 
             <div className="relative z-10">
               {/* Header */}

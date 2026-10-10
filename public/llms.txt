@@ -1,0 +1,31 @@
+# Uzhavar Connect
+
+> Agricultural Land Development, Farm Layout Planning, Farmhouse Construction, and Farm Management Services across Tamil Nadu, India.
+
+Uzhavar Connect transforms raw agricultural land into productive, sustainable, and high-value farms and farmhouse properties. We provide end-to-end solutions from land clearing and soil preparation to drip irrigation, commercial tree plantations, farmhouse construction, and annual farm maintenance (AMC).
+
+## Key Information
+- Location: Coimbatore, Tamil Nadu, India
+- Phone: +91 82201 11722 / +91 75501 19994
+- Email: vineshprasanth@uzhavarconnect.com
+- Coverage: Across all districts in Tamil Nadu (Coimbatore, Tiruppur, Erode, Salem, Madurai, Trichy, Dindigul, Theni, Karur, etc.)
+- Website: https://uzhavarconnect.com/
+
+## Core Services
+- [Land Preparation & Development](https://uzhavarconnect.com/services/land-preparation-and-development): Land clearing, leveling, boundary setting, soil conditioning, access pathways.
+- [Farm Layout & Planning](https://uzhavarconnect.com/services/farm-layout-and-planning): Topographical assessment, zone planning, road network design, crop and orchard zoning.
+- [Farm House Development](https://uzhavarconnect.com/services/farm-house): Eco-friendly farmhouse design, cottages, outdoor gazebos, swimming pools, rainwater harvesting.
+- [Fencing & Security Solutions](https://uzhavarconnect.com/services/fencing-and-security): Chain-link, barbed wire, solar power fencing, solar CCTV and perimeter security.
+- [Water Management & Irrigation](https://uzhavarconnect.com/services/water-management): Borewell assessment, farm ponds, drip and sprinkler automation, filtration systems.
+- [Commercial Plantation](https://uzhavarconnect.com/services/plantation): Timber plantations (Mahogany, Sandalwood, Teak), fruit orchards (Mango, Guava, Coconut), organic intercropping.
+- [Native & Organic Farming](https://uzhavarconnect.com/services/native-and-organic-farming): Traditional cow-based farming, organic pest management, soil bio-enrichment.
+- [Buyback Assistance](https://uzhavarconnect.com/services/buyback-assistance): Market linkage for timber and produce, post-harvest handling, buyback tie-ups.
+- [Government Subsidy Assistance](https://uzhavarconnect.com/services/subsidy-assistance): TNAU and horticulture department subsidies, micro-irrigation subsidies, documentation and processing.
+- [End-to-End Farm Management](https://uzhavarconnect.com/services/end-to-end-farm-management): Complete turnkey execution from barren land to running agricultural estate.
+- [Annual Maintenance Contract (AMC)](https://uzhavarconnect.com/services/amc): Periodic weeding, pest management, drip flushing, supervisor visits, WhatsApp reporting.
+
+## User Actions & Inquiries
+- Service Booking: https://uzhavarconnect.com/book-a-service
+- Consultation & Inquiries: https://uzhavarconnect.com/contact
+- Project Portfolio / Gallery: https://uzhavarconnect.com/gallery
+- Machine-readable catalog: https://uzhavarconnect.com/ai-catalog.json

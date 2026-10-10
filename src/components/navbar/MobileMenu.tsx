@@ -44,11 +44,16 @@ export const MobileMenu: React.FC<MobileMenuProps> = ({ isOpen, onClose }) => {
           {/* Drawer Header */}
           <div className="flex items-center justify-between pb-5 border-b border-slate-100">
             <Link to="/" onClick={onClose} className="flex items-center">
-              <img
-                src="/assets/logo.jpeg"
-                alt="Uzhavar Connect"
-                className="h-12 w-auto object-contain"
-              />
+              <picture>
+                <source srcSet="/assets/logo.webp" type="image/webp" />
+                <img
+                  src="/assets/logo.jpeg"
+                  alt="Uzhavar Connect"
+                  width={150}
+                  height={48}
+                  className="h-12 w-auto object-contain"
+                />
+              </picture>
             </Link>
             <button
               type="button"
@@ -98,7 +103,7 @@ export const MobileMenu: React.FC<MobileMenuProps> = ({ isOpen, onClose }) => {
           <Link
             to="/contact"
             onClick={onClose}
-            className="flex items-center justify-center gap-2 w-full py-3.5 px-5 rounded-full bg-[#b87d2b] hover:bg-[#a26b20] text-white font-semibold text-base shadow-sm transition-colors text-center"
+            className="flex items-center justify-center gap-2 w-full py-3.5 px-5 rounded-full bg-[#946116] hover:bg-[#7e510e] text-white font-semibold text-base shadow-sm transition-colors text-center"
           >
             <span>Book a Service</span>
             <ArrowRight className="w-4 h-4" />

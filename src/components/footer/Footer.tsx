@@ -11,12 +11,19 @@ export const Footer: React.FC = () => {
       
       {/* Decorative Leaf Background Watermark on Right */}
       <div className="absolute right-0 bottom-0 pointer-events-none select-none z-0 overflow-hidden">
-        <img
-          src="/assets/f0428fe6-7a9d-4007-b7c9-37234cc039e6.png"
-          alt=""
-          aria-hidden="true"
-          className="w-48 sm:w-56 md:w-64 lg:w-72 xl:w-80 h-auto object-contain opacity-35 sm:opacity-45 translate-x-8 translate-y-8"
-        />
+        <picture>
+          <source srcSet="/assets/f0428fe6-7a9d-4007-b7c9-37234cc039e6.webp" type="image/webp" />
+          <img
+            src="/assets/f0428fe6-7a9d-4007-b7c9-37234cc039e6.png"
+            alt=""
+            aria-hidden="true"
+            loading="lazy"
+            decoding="async"
+            width={320}
+            height={320}
+            className="w-48 sm:w-56 md:w-64 lg:w-72 xl:w-80 aspect-square object-contain opacity-35 sm:opacity-45 translate-x-8 translate-y-8"
+          />
+        </picture>
       </div>
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 xl:px-10">
@@ -29,11 +36,18 @@ export const Footer: React.FC = () => {
             <div className="flex items-center gap-3.5">
               {/* Logo */}
               <Link to="/" className="shrink-0 focus:outline-none focus:ring-2 focus:ring-[#f0ad25] rounded-xl">
-                <img
-                  src="/assets/logo.jpeg"
-                  alt="Uzhavar Connect Logo"
-                  className="h-16 sm:h-18 w-auto object-contain drop-shadow-md rounded-lg"
-                />
+                <picture>
+                  <source srcSet="/assets/logo.webp" type="image/webp" />
+                  <img
+                    src="/assets/logo.jpeg"
+                    alt="Uzhavar Connect Logo"
+                    loading="lazy"
+                    decoding="async"
+                    width={180}
+                    height={72}
+                    className="h-16 sm:h-18 w-auto object-contain drop-shadow-md rounded-lg"
+                  />
+                </picture>
               </Link>
 
               {/* Brand Titles */}

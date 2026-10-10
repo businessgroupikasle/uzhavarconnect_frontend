@@ -11,21 +11,35 @@ export const ServicesOverview: React.FC = () => {
   return (
     <section className="relative overflow-hidden bg-[#f7faf5] pt-10 sm:pt-14 lg:pt-16 pb-12 sm:pb-16 lg:pb-20 border-b border-[#e9efe8]">
 
-      {/* 1. Left Decorative Leaf - Flanking Upper Left (Preserved PNG Asset) */}
-      <img
-        src="/assets/f0428fe6-7a9d-4007-b7c9-37234cc039e6.png"
-        alt=""
-        aria-hidden="true"
-        className="absolute -top-3 -left-6 sm:top-2 sm:left-2 md:left-4 lg:left-6 w-24 sm:w-32 md:w-40 lg:w-48 h-auto pointer-events-none select-none z-0 -scale-x-100 rotate-12 opacity-85"
-      />
+      {/* 1. Left Decorative Leaf - Flanking Upper Left (Preserved PNG Asset with WebP Source) */}
+      <picture>
+        <source srcSet="/assets/f0428fe6-7a9d-4007-b7c9-37234cc039e6.webp" type="image/webp" />
+        <img
+          src="/assets/f0428fe6-7a9d-4007-b7c9-37234cc039e6.png"
+          alt=""
+          aria-hidden="true"
+          loading="lazy"
+          decoding="async"
+          width={192}
+          height={192}
+          className="absolute -top-3 -left-6 sm:top-2 sm:left-2 md:left-4 lg:left-6 w-24 sm:w-32 md:w-40 lg:w-48 h-auto pointer-events-none select-none z-0 -scale-x-100 rotate-12 opacity-85"
+        />
+      </picture>
 
-      {/* 2. Right Decorative Leaf - Flanking Upper Right (Preserved PNG Asset) */}
-      <img
-        src="/assets/f0428fe6-7a9d-4007-b7c9-37234cc039e6.png"
-        alt=""
-        aria-hidden="true"
-        className="absolute -top-3 -right-6 sm:top-2 sm:right-2 md:right-4 lg:right-6 w-24 sm:w-32 md:w-40 lg:w-48 h-auto pointer-events-none select-none z-0 -rotate-12 opacity-85"
-      />
+      {/* 2. Right Decorative Leaf - Flanking Upper Right (Preserved PNG Asset with WebP Source) */}
+      <picture>
+        <source srcSet="/assets/f0428fe6-7a9d-4007-b7c9-37234cc039e6.webp" type="image/webp" />
+        <img
+          src="/assets/f0428fe6-7a9d-4007-b7c9-37234cc039e6.png"
+          alt=""
+          aria-hidden="true"
+          loading="lazy"
+          decoding="async"
+          width={192}
+          height={192}
+          className="absolute -top-3 -right-6 sm:top-2 sm:right-2 md:right-4 lg:right-6 w-24 sm:w-32 md:w-40 lg:w-48 h-auto pointer-events-none select-none z-0 -rotate-12 opacity-85"
+        />
+      </picture>
 
       {/* 3. Main Container - Positioned strictly above background leaves */}
       <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">

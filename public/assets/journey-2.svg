@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" width="100%" height="100%">
+  <defs>
+    <linearGradient id="j2Sky" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#93c5fd"/><stop offset="100%" stop-color="#e0f2fe"/></linearGradient>
+    <linearGradient id="j2Soil" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#a16207"/><stop offset="100%" stop-color="#713f12"/></linearGradient>
+  </defs>
+  <rect width="400" height="400" fill="url(#j2Sky)"/>
+  <path d="M0 220 Q200 200 400 220 L400 400 L0 400 Z" fill="url(#j2Soil)"/>
+  <!-- Furrows -->
+  <g stroke="#451a03" stroke-width="4" fill="none">
+    <path d="M20 250 Q200 240 380 270"/>
+    <path d="M10 290 Q200 280 390 320"/>
+    <path d="M0 340 Q200 320 400 370"/>
+  </g>
+  <!-- Heavy Tractor -->
+  <g transform="translate(100, 140)">
+    <!-- Cabin -->
+    <rect x="60" y="30" width="65" height="60" rx="6" fill="#15803d"/>
+    <rect x="70" y="40" width="45" height="35" rx="3" fill="#bae6fd"/>
+    <rect x="120" y="55" width="80" height="35" rx="4" fill="#16a34a"/>
+    <!-- Exhaust pipe -->
+    <rect x="175" y="25" width="8" height="30" fill="#334155"/>
+    <!-- Big Rear Wheel -->
+    <circle cx="65" cy="110" r="38" fill="#1e293b"/>
+    <circle cx="65" cy="110" r="24" fill="#cbd5e1" stroke="#eab308" stroke-width="4"/>
+    <!-- Small Front Wheel -->
+    <circle cx="170" cy="120" r="25" fill="#1e293b"/>
+    <circle cx="170" cy="120" r="14" fill="#cbd5e1" stroke="#eab308" stroke-width="3"/>
+    <!-- Tillage Implement attached -->
+    <path d="M20 110 L50 110 M25 125 L10 145 M35 125 L20 145" stroke="#475569" stroke-width="5"/>
+  </g>
+</svg>
