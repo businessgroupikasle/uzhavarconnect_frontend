@@ -118,7 +118,7 @@ export const ContactInfo: React.FC = () => {
 
         {/* Card 4: Office Address */}
         <div className="flex items-start gap-3.5 p-3 sm:p-3.5 rounded-2xl bg-[#f0f6ef] border border-[#dce8da] shadow-2xs">
-          <div className="w-11 h-11 rounded-full bg-[#16a34a] text-white flex items-center justify-center shrink-0 shadow-xs mt-0.5">
+          <div className="w-11 h-11 rounded-full bg-[#0e3922] text-white flex items-center justify-center shrink-0 shadow-xs mt-0.5">
             <MapPin className="w-5 h-5" />
           </div>
           <div className="min-w-0">
