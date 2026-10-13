@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Phone, Mail, MapPin, Clock } from 'lucide-react';
+import { Phone, Mail, MapPin } from 'lucide-react';
 import { CONTACT_DETAILS } from '../../utils/constants';
 
 export const Footer: React.FC = () => {
@@ -68,9 +68,51 @@ export const Footer: React.FC = () => {
               End-to-end agricultural farm land development across Tamil Nadu. We specialize in soil enhancement, drip irrigation, plantations, farmhouses, and fencing to transform lands into productive agro-assets.
             </p>
 
-            <div className="flex items-center gap-2 text-xs text-emerald-200/80 pt-1">
-              <Clock className="w-3.5 h-3.5 text-[#f0ad25] shrink-0" />
-              <span>Working Hours: {CONTACT_DETAILS.workingHours}</span>
+            {/* Social Media Icons - Perfectly balanced outline style */}
+            <div className="pt-2 flex items-center gap-2.5 sm:gap-3">
+              {/* Facebook */}
+              <a
+                href={CONTACT_DETAILS.facebook}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-9 h-9 rounded-full bg-white/[0.08] hover:bg-white/[0.18] border border-white/10 hover:border-white/20 flex items-center justify-center text-white transition-all duration-200 hover:scale-105 focus:outline-none focus:ring-2 focus:ring-white/40 shadow-xs"
+                aria-label="Facebook (opens in new tab)"
+                title="Facebook"
+              >
+                <svg viewBox="0 0 24 24" className="w-4 h-4 fill-white" aria-hidden="true">
+                  <path d="M13.3 12.2h2.2l.35-2.8h-2.55V7.8c0-.75.35-1.2 1.4-1.2h1.2V4.2s-1.1-.15-2.1-.15c-2.2 0-3.65 1.3-3.65 3.75v1.6H7.8v2.8h2.35v7.6h3.15v-7.6z" />
+                </svg>
+              </a>
+
+              {/* Instagram */}
+              <a
+                href={CONTACT_DETAILS.instagram}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-9 h-9 rounded-full bg-white/[0.08] hover:bg-white/[0.18] border border-white/10 hover:border-white/20 flex items-center justify-center text-white transition-all duration-200 hover:scale-105 focus:outline-none focus:ring-2 focus:ring-white/40 shadow-xs"
+                aria-label="Instagram (opens in new tab)"
+                title="Instagram"
+              >
+                <svg viewBox="0 0 24 24" className="w-4 h-4 stroke-white fill-none" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                  <rect x="4.5" y="4.5" width="15" height="15" rx="4" />
+                  <circle cx="12" cy="12" r="3.2" />
+                  <circle cx="15.8" cy="8.2" r="0.6" fill="white" stroke="none" />
+                </svg>
+              </a>
+              {/* YouTube */}
+              <a
+                href={CONTACT_DETAILS.youtube}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-9 h-9 rounded-full bg-white/[0.08] hover:bg-white/[0.18] border border-white/10 hover:border-white/20 flex items-center justify-center text-white transition-all duration-200 hover:scale-105 focus:outline-none focus:ring-2 focus:ring-white/40 shadow-xs"
+                aria-label="YouTube (opens in new tab)"
+                title="YouTube"
+              >
+                <svg viewBox="0 0 24 24" className="w-4 h-4 stroke-white fill-none" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                  <path d="M19 7.8c-.1-.7-.6-1.2-1.3-1.3-1.1-.3-5.7-.3-5.7-.3s-4.6 0-5.7.3c-.7.1-1.2.6-1.3 1.3-.3 1.1-.3 4.2-.3 4.2s0 3.1.3 4.2c.1.7.6 1.2 1.3 1.3 1.1.3 5.7.3 5.7.3s4.6 0 5.7-.3c.7-.1 1.2-.6 1.3-1.3.3-1.1.3-4.2.3-4.2s0-3.1-.3-4.2z" />
+                  <polygon points="10.8 14 14.5 12 10.8 10" fill="white" stroke="none" />
+                </svg>
+              </a>
             </div>
           </div>
 
@@ -79,7 +121,7 @@ export const Footer: React.FC = () => {
             
             {/* Quick Links */}
             <div className="md:pl-2 lg:pl-6">
-              <h3 className="text-[#f0ad25] text-sm sm:text-base lg:text-lg font-bold tracking-wide font-serif">
+              <h3 className="text-[#f0ad25] text-sm sm:text-base lg:text-lg font-medium tracking-wide font-serif">
                 Quick Links
               </h3>
               {/* Gold Underline */}
@@ -143,7 +185,7 @@ export const Footer: React.FC = () => {
                     </div>
                     <div>
                       <span className="block text-[10px] sm:text-[11px] text-white/60 font-medium leading-none mb-0.5">Call Us:</span>
-                      <div className="flex flex-wrap items-center gap-x-2 gap-y-0.5 font-semibold text-white text-[11px] sm:text-sm">
+                      <div className="flex flex-wrap items-center gap-x-2 gap-y-0.5 font-normal text-white/90 text-[11px] sm:text-sm">
                         <a href={`tel:${CONTACT_DETAILS.phone}`} className="hover:text-[#f0ad25] transition-colors">
                           {CONTACT_DETAILS.phoneDisplay}
                         </a>
@@ -170,7 +212,7 @@ export const Footer: React.FC = () => {
                     </div>
                     <div>
                       <span className="block text-[10px] sm:text-[11px] text-white/60 font-medium leading-none mb-0.5">WhatsApp:</span>
-                      <div className="flex flex-wrap items-center gap-x-2 gap-y-0.5 font-semibold text-white text-[11px] sm:text-sm">
+                      <div className="flex flex-wrap items-center gap-x-2 gap-y-0.5 font-normal text-white/90 text-[11px] sm:text-sm">
                         <a
                           href={`https://wa.me/${CONTACT_DETAILS.whatsapp.replace(/\D/g, '')}?text=${encodeURIComponent(
                             CONTACT_DETAILS.whatsappMessage
@@ -212,7 +254,7 @@ export const Footer: React.FC = () => {
                     </div>
                     <div className="min-w-0">
                       <span className="block text-[10px] sm:text-[11px] text-white/60 font-medium leading-none mb-0.5">Email Us:</span>
-                      <span className="font-semibold text-white text-[10.5px] sm:text-sm break-all group-hover:text-[#f0ad25] transition-colors">
+                      <span className="font-normal text-white/90 text-[10.5px] sm:text-sm break-all group-hover:text-[#f0ad25] transition-colors">
                         {CONTACT_DETAILS.email}
                       </span>
                     </div>
@@ -224,9 +266,9 @@ export const Footer: React.FC = () => {
                   <div className="w-6 h-6 sm:w-8 sm:h-8 rounded-full bg-emerald-900/60 border border-emerald-700/60 flex items-center justify-center shrink-0 text-[#f0ad25] mt-0.5">
                     <MapPin className="w-3 h-3 sm:w-4 sm:h-4" />
                   </div>
-                  <div className="text-white/90 text-[10px] sm:text-[13px] leading-tight sm:leading-relaxed">
+                  <div className="text-white/90 text-[10px] sm:text-[13px] leading-tight sm:leading-relaxed font-normal">
                     <span className="block text-[10px] sm:text-[11px] text-white/60 font-medium mb-0.5">Office Address:</span>
-                    <p className="font-semibold text-white">
+                    <p className="text-white/90">
                       No. 263/1B, SENTAMIL NAGAR PHASE 2, PAPPAMPATTI,
                     </p>
                     <p className="text-white/85">

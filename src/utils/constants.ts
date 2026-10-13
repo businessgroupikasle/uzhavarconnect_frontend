@@ -22,7 +22,28 @@ export const CONTACT_DETAILS: ContactInfo = {
   address: "No. 263/1B, SENTAMIL NAGAR PHASE 2, PAPPAMPATTI, EDAYARPALAYAM, Coimbatore, Tamil Nadu - 641016",
   fullAddress: "No. 263/1B, SENTAMIL NAGAR PHASE 2, PAPPAMPATTI, EDAYARPALAYAM, Coimbatore, Tamil Nadu - 641016",
   workingHours: "Mon - Sat: 8:00 AM - 7:00 PM",
+  facebook: "https://www.facebook.com/uzhavarconnect",
+  instagram: "https://www.instagram.com/uzhavarconnect",
+  youtube: "https://www.youtube.com/@%E0%AE%89%E0%AE%B4%E0%AE%B5%E0%AE%B0%E0%AF%8DConnect",
 };
+
+export const SOCIAL_LINKS = [
+  {
+    name: 'Facebook',
+    href: CONTACT_DETAILS.facebook || 'https://www.facebook.com/uzhavarconnect',
+    label: 'Follow Uzhavar Connect on Facebook',
+  },
+  {
+    name: 'Instagram',
+    href: CONTACT_DETAILS.instagram || 'https://www.instagram.com/uzhavarconnect',
+    label: 'Follow Uzhavar Connect on Instagram',
+  },
+  {
+    name: 'YouTube',
+    href: CONTACT_DETAILS.youtube || 'https://www.youtube.com/@%E0%AE%89%E0%AE%B4%E0%AE%B5%E0%AE%B0%E0%AF%8DConnect',
+    label: 'Subscribe to Uzhavar Connect on YouTube',
+  },
+];
 
 export const NAV_LINKS = [
   { name: 'Home', path: '/' },

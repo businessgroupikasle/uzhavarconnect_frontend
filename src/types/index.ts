@@ -92,5 +92,8 @@ export interface ContactInfo {
   pincode?: string;
   fullAddress?: string;
   workingHours: string;
+  facebook?: string;
+  instagram?: string;
+  youtube?: string;
 }
 
