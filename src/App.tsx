@@ -11,8 +11,6 @@ const About = React.lazy(() => import('./pages/About/About'));
 const Services = React.lazy(() => import('./pages/Services/Services'));
 const ServiceDetail = React.lazy(() => import('./pages/Services/ServiceDetail'));
 const Gallery = React.lazy(() => import('./pages/Gallery/Gallery'));
-const Blog = React.lazy(() => import('./pages/Blog/Blog'));
-const BlogDetail = React.lazy(() => import('./pages/Blog/BlogDetail'));
 const Contact = React.lazy(() => import('./pages/Contact/Contact'));
 const BookService = React.lazy(() => import('./pages/BookService/BookService'));
 const PrivacyPolicy = React.lazy(() => import('./pages/Legal/PrivacyPolicy'));
@@ -61,8 +59,6 @@ export const App: React.FC = () => {
               <Route path="/services" element={<Services />} />
               <Route path="/services/:slug" element={<ServiceDetail />} />
               <Route path="/gallery" element={<Gallery />} />
-              <Route path="/blog" element={<Blog />} />
-              <Route path="/blog/:slug" element={<BlogDetail />} />
               <Route path="/contact" element={<Contact />} />
               <Route path="/book-a-service" element={<BookService />} />
               <Route path="/privacy-policy" element={<PrivacyPolicy />} />
@@ -70,6 +66,8 @@ export const App: React.FC = () => {
               <Route path="/sitemap" element={<Sitemap />} />
 
               {/* Legacy & Alias Route Redirects */}
+              <Route path="/blog" element={<Navigate to="/" replace />} />
+              <Route path="/blog/*" element={<Navigate to="/" replace />} />
               <Route path="/join" element={<Navigate to="/contact" replace />} />
               <Route path="/construction" element={<Navigate to="/services/farm-house" replace />} />
               <Route path="/book-team" element={<Navigate to="/contact" replace />} />

@@ -67,12 +67,6 @@ export const Sitemap: React.FC = () => {
                 </Link>
               </li>
               <li>
-                <Link to="/blog" className="flex items-center justify-between py-1 hover:text-[#1b5e20] hover:translate-x-1 transition-all">
-                  <span>Agri Insights & Blog</span>
-                  <ArrowRight className="w-4 h-4 opacity-50" />
-                </Link>
-              </li>
-              <li>
                 <Link to="/contact" className="flex items-center justify-between py-1 hover:text-[#1b5e20] hover:translate-x-1 transition-all">
                   <span>Book Farm Consultation</span>
                   <ArrowRight className="w-4 h-4 opacity-50" />
