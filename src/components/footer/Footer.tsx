@@ -264,10 +264,10 @@ export const Footer: React.FC = () => {
                   <div className="text-white/90 text-[10px] sm:text-[13px] leading-tight sm:leading-relaxed font-normal">
                     <span className="block text-[10px] sm:text-[11px] text-white/60 font-medium mb-0.5">Office Address:</span>
                     <p className="text-white/90">
-                      No. 263/1B, SENTAMIL NAGAR PHASE 2, PAPPAMPATTI,
+                      No. 263/1B, Sentamil Nagar Phase 2, Pappampatti,
                     </p>
                     <p className="text-white/85">
-                      EDAYARPALAYAM, Coimbatore, Tamil Nadu - 641016
+                      Edayarpalayam, Coimbatore, Tamil Nadu - 641016
                     </p>
                   </div>
                 </li>
