@@ -29,6 +29,11 @@ export const MobileMenu: React.FC<MobileMenuProps> = ({ isOpen, onClose }) => {
 
   if (!isOpen) return null;
 
+  const handleLinkClick = () => {
+    onClose();
+    window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
+  };
+
   return (
     <div className="fixed inset-0 z-50 lg:hidden" role="dialog" aria-modal="true">
       {/* 1. Backdrop Overlay */}
@@ -43,7 +48,7 @@ export const MobileMenu: React.FC<MobileMenuProps> = ({ isOpen, onClose }) => {
         <div>
           {/* Drawer Header */}
           <div className="flex items-center justify-between pb-5 border-b border-slate-100">
-            <Link to="/" onClick={onClose} className="flex items-center">
+            <Link to="/" onClick={handleLinkClick} className="flex items-center">
               <picture>
                 <source srcSet="/assets/logo.webp" type="image/webp" />
                 <img
@@ -72,7 +77,7 @@ export const MobileMenu: React.FC<MobileMenuProps> = ({ isOpen, onClose }) => {
                 key={link.name}
                 to={link.path}
                 end={link.path === '/'}
-                onClick={onClose}
+                onClick={handleLinkClick}
                 className={({ isActive }) =>
                   `px-4 py-3 rounded-xl text-base font-semibold transition-all flex items-center justify-between ${
                     isActive

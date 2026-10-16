@@ -23,6 +23,10 @@ export const Navbar: React.FC = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
+  };
+
   return (
     <>
       <header
@@ -37,6 +41,7 @@ export const Navbar: React.FC = () => {
             <div className="flex-shrink-0 flex items-center">
               <Link
                 to="/"
+                onClick={scrollToTop}
                 className="flex items-center group focus:outline-none"
                 aria-label="Uzhavar Connect Homepage"
               >
@@ -63,6 +68,7 @@ export const Navbar: React.FC = () => {
                   key={link.name}
                   to={link.path}
                   end={link.path === '/'}
+                  onClick={scrollToTop}
                   className={({ isActive }) =>
                     `relative py-1 text-[15px] xl:text-[16px] transition-colors duration-150 focus:outline-none ${
                       isActive

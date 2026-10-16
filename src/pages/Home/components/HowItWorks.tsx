@@ -58,7 +58,7 @@ export const HowItWorks: React.FC = () => {
         </div>
 
         {/* Desktop Layout: 4 Compact Cards in 1 Row with Connecting Arrows (>= 1024px) */}
-        <div className="hidden lg:flex items-center justify-between gap-3 xl:gap-4">
+        <div className="hidden lg:flex items-stretch justify-between gap-3 xl:gap-4">
           {PROCESS_STEPS.map((step, index) => (
             <React.Fragment key={step.number}>
               {/* Process Card */}
@@ -86,7 +86,7 @@ export const HowItWorks: React.FC = () => {
 
               {/* Connecting Green Arrow between cards */}
               {index < PROCESS_STEPS.length - 1 && (
-                <div className="shrink-0 text-[#15803d] px-1" aria-hidden="true">
+                <div className="shrink-0 text-[#15803d] px-1 self-center" aria-hidden="true">
                   <ArrowRight className="w-5 h-5 stroke-[2.5]" />
                 </div>
               )}

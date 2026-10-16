@@ -5,8 +5,9 @@ import { Navbar } from './components/navbar/Navbar';
 import { Footer } from './components/footer/Footer';
 import { FloatingActions } from './components/common/FloatingActions';
 
-// Lazy-loaded page components for optimal route-based code splitting
-const Home = React.lazy(() => import('./pages/Home/Home'));
+import Home from './pages/Home/Home';
+
+// Lazy-loaded secondary page components for optimal route-based code splitting
 const About = React.lazy(() => import('./pages/About/About'));
 const Services = React.lazy(() => import('./pages/Services/Services'));
 const ServiceDetail = React.lazy(() => import('./pages/Services/ServiceDetail'));
@@ -31,13 +32,24 @@ const PageLoader: React.FC = () => (
   </div>
 );
 
-// Automatically scrolls to top on route change
+// Automatically scrolls to top on route change or to hash element if present
 const ScrollToTop: React.FC = () => {
-  const { pathname } = useLocation();
+  const { pathname, hash } = useLocation();
 
   useEffect(() => {
-    window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
-  }, [pathname]);
+    if (hash) {
+      const id = hash.replace('#', '');
+      const timer = setTimeout(() => {
+        const element = document.getElementById(id);
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth' });
+        }
+      }, 100);
+      return () => clearTimeout(timer);
+    } else {
+      window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
+    }
+  }, [pathname, hash]);
 
   return null;
 };

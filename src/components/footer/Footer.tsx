@@ -6,6 +6,10 @@ import { CONTACT_DETAILS } from '../../utils/constants';
 export const Footer: React.FC = () => {
   const currentYear = new Date().getFullYear();
 
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
+  };
+
   return (
     <footer className="relative overflow-hidden bg-[#062413] text-white pt-12 sm:pt-14 pb-6 sm:pb-8 border-t border-[#041a0d]">
       
@@ -35,7 +39,7 @@ export const Footer: React.FC = () => {
           <div className="md:col-span-5 lg:col-span-4 space-y-4">
             <div className="flex items-center gap-3.5">
               {/* Logo */}
-              <Link to="/" className="shrink-0 focus:outline-none focus:ring-2 focus:ring-[#f0ad25] rounded-xl">
+              <Link to="/" onClick={scrollToTop} className="shrink-0 focus:outline-none focus:ring-2 focus:ring-[#f0ad25] rounded-xl">
                 <picture>
                   <source srcSet="/assets/logo.webp" type="image/webp" />
                   <img
@@ -129,32 +133,41 @@ export const Footer: React.FC = () => {
               
               <ul className="space-y-2 sm:space-y-2.5 text-xs sm:text-sm font-normal text-white/85">
                 <li>
-                  <Link to="/" className="hover:text-[#f0ad25] hover:translate-x-1 inline-block transition-all duration-200">
+                  <Link to="/" onClick={scrollToTop} className="hover:text-[#f0ad25] hover:translate-x-1 inline-block transition-all duration-200">
                     Home
                   </Link>
                 </li>
                 <li>
-                  <Link to="/about" className="hover:text-[#f0ad25] hover:translate-x-1 inline-block transition-all duration-200">
+                  <Link to="/about" onClick={scrollToTop} className="hover:text-[#f0ad25] hover:translate-x-1 inline-block transition-all duration-200">
                     About Us
                   </Link>
                 </li>
                 <li>
-                  <Link to="/services" className="hover:text-[#f0ad25] hover:translate-x-1 inline-block transition-all duration-200">
+                  <Link to="/services" onClick={scrollToTop} className="hover:text-[#f0ad25] hover:translate-x-1 inline-block transition-all duration-200">
                     Our Services
                   </Link>
                 </li>
                 <li>
-                  <Link to="/gallery" className="hover:text-[#f0ad25] hover:translate-x-1 inline-block transition-all duration-200">
+                  <Link to="/gallery" onClick={scrollToTop} className="hover:text-[#f0ad25] hover:translate-x-1 inline-block transition-all duration-200">
                     Project Gallery
                   </Link>
                 </li>
                 <li>
-                  <Link to="/contact" className="hover:text-[#f0ad25] hover:translate-x-1 inline-block transition-all duration-200">
+                  <Link
+                    to="/contact#enquiry-form"
+                    onClick={() => {
+                      const el = document.getElementById('enquiry-form');
+                      if (el) {
+                        el.scrollIntoView({ behavior: 'smooth' });
+                      }
+                    }}
+                    className="hover:text-[#f0ad25] hover:translate-x-1 inline-block transition-all duration-200"
+                  >
                     Book a Consultation
                   </Link>
                 </li>
                 <li>
-                  <Link to="/contact" className="hover:text-[#f0ad25] hover:translate-x-1 inline-block transition-all duration-200">
+                  <Link to="/contact" onClick={scrollToTop} className="hover:text-[#f0ad25] hover:translate-x-1 inline-block transition-all duration-200">
                     Contact Us
                   </Link>
                 </li>
@@ -306,15 +319,15 @@ export const Footer: React.FC = () => {
             <span className="hidden sm:inline text-white/30" aria-hidden="true">|</span>
 
             <div className="flex items-center gap-3">
-              <Link to="/privacy-policy" className="hover:text-white transition-colors">
+              <Link to="/privacy-policy" onClick={scrollToTop} className="hover:text-white transition-colors">
                 Privacy Policy
               </Link>
               <span className="text-white/40">•</span>
-              <Link to="/terms-and-conditions" className="hover:text-white transition-colors">
+              <Link to="/terms-and-conditions" onClick={scrollToTop} className="hover:text-white transition-colors">
                 Terms & Conditions
               </Link>
               <span className="text-white/40">•</span>
-              <Link to="/sitemap" className="hover:text-white transition-colors">
+              <Link to="/sitemap" onClick={scrollToTop} className="hover:text-white transition-colors">
                 Site Map
               </Link>
             </div>

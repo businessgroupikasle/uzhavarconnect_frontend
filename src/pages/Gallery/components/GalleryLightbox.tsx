@@ -15,14 +15,26 @@ export const GalleryLightbox: React.FC<GalleryLightboxProps> = ({
   onClose,
   onNavigate,
 }) => {
+  // Prevent background scrolling while popup is open
   useEffect(() => {
     if (!item) return;
 
-    // Prevent background scrolling
-    const originalStyle = window.getComputedStyle(document.body).overflow;
-    document.body.style.overflow = 'hidden';
+    const originalBodyOverflow = document.body.style.overflow;
+    const originalHtmlOverflow = document.documentElement.style.overflow;
 
-    // Keyboard handlers
+    document.body.style.overflow = 'hidden';
+    document.documentElement.style.overflow = 'hidden';
+
+    return () => {
+      document.body.style.overflow = originalBodyOverflow;
+      document.documentElement.style.overflow = originalHtmlOverflow;
+    };
+  }, [Boolean(item)]);
+
+  // Keyboard navigation handlers
+  useEffect(() => {
+    if (!item) return;
+
     const handleKeyDown = (e: KeyboardEvent) => {
       if (e.key === 'Escape') {
         onClose();
@@ -39,7 +51,6 @@ export const GalleryLightbox: React.FC<GalleryLightboxProps> = ({
 
     window.addEventListener('keydown', handleKeyDown);
     return () => {
-      document.body.style.overflow = originalStyle;
       window.removeEventListener('keydown', handleKeyDown);
     };
   }, [item, allItems, onClose, onNavigate]);
@@ -63,19 +74,21 @@ export const GalleryLightbox: React.FC<GalleryLightboxProps> = ({
   return (
     <div
       onClick={onClose}
-      className="fixed inset-0 z-50 bg-black/92 backdrop-blur-md flex items-center justify-center p-3 sm:p-6 transition-all duration-300"
+      className="fixed inset-0 z-50 bg-black/92 backdrop-blur-md flex items-center justify-center p-3 sm:p-6 transition-all duration-300 overscroll-contain select-none"
+      onWheel={(e) => e.preventDefault()}
+      onTouchMove={(e) => e.preventDefault()}
     >
       {/* Top Bar with Title and Close button */}
       <div
         className="absolute top-4 inset-x-4 sm:inset-x-8 flex items-center justify-between z-20"
         onClick={(e) => e.stopPropagation()}
       >
-        <div className="flex items-center gap-2.5">
-          <span className="text-[11px] sm:text-xs font-semibold px-2.5 py-1 rounded-full bg-[#15803d] text-white">
+        <div className="flex items-center gap-3 sm:gap-3.5">
+          <span className="text-[11px] sm:text-xs font-semibold px-3 py-1 rounded-full bg-[#15803d] text-white shadow-md border border-[#22c55e]/30 tracking-wide">
             {item.category}
           </span>
-          <span className="text-white/60 text-xs sm:text-sm">
-            {currentIndex + 1} of {allItems.length}
+          <span className="text-xs sm:text-sm font-medium px-3 py-1 rounded-full bg-black/70 backdrop-blur-md border border-white/20 text-white shadow-md tracking-wide">
+            Image <span className="font-semibold text-white">{currentIndex + 1}</span> of <span className="font-semibold text-white">{allItems.length}</span>
           </span>
         </div>
 
@@ -83,9 +96,9 @@ export const GalleryLightbox: React.FC<GalleryLightboxProps> = ({
           onClick={onClose}
           type="button"
           aria-label="Close lightbox"
-          className="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-white/10 hover:bg-white/20 text-white flex items-center justify-center transition-colors cursor-pointer"
+          className="w-10 h-10 sm:w-11 sm:h-11 rounded-full bg-black/75 hover:bg-black text-white border border-white/25 shadow-xl backdrop-blur-sm flex items-center justify-center transition-all duration-200 cursor-pointer hover:scale-105 active:scale-95 group focus:outline-none focus:ring-2 focus:ring-white/50"
         >
-          <X className="w-5 h-5" />
+          <X className="w-5 h-5 sm:w-6 sm:h-6 stroke-[2.5] transition-transform duration-200 group-hover:rotate-90" />
         </button>
       </div>
 
@@ -94,18 +107,18 @@ export const GalleryLightbox: React.FC<GalleryLightboxProps> = ({
         onClick={handlePrev}
         type="button"
         aria-label="Previous image"
-        className="absolute left-2 sm:left-6 top-1/2 -translate-y-1/2 z-20 w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-black/50 hover:bg-black/80 text-white flex items-center justify-center transition-colors cursor-pointer shadow-md"
+        className="absolute left-2 sm:left-6 top-1/2 -translate-y-1/2 z-20 w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-black/65 hover:bg-black text-white border border-white/20 backdrop-blur-sm flex items-center justify-center transition-all duration-200 cursor-pointer shadow-xl hover:scale-105 active:scale-95 focus:outline-none focus:ring-2 focus:ring-white/50"
       >
-        <ChevronLeft className="w-6 h-6" />
+        <ChevronLeft className="w-6 h-6 stroke-[2.2]" />
       </button>
 
       <button
         onClick={handleNext}
         type="button"
         aria-label="Next image"
-        className="absolute right-2 sm:right-6 top-1/2 -translate-y-1/2 z-20 w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-black/50 hover:bg-black/80 text-white flex items-center justify-center transition-colors cursor-pointer shadow-md"
+        className="absolute right-2 sm:right-6 top-1/2 -translate-y-1/2 z-20 w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-black/65 hover:bg-black text-white border border-white/20 backdrop-blur-sm flex items-center justify-center transition-all duration-200 cursor-pointer shadow-xl hover:scale-105 active:scale-95 focus:outline-none focus:ring-2 focus:ring-white/50"
       >
-        <ChevronRight className="w-6 h-6" />
+        <ChevronRight className="w-6 h-6 stroke-[2.2]" />
       </button>
 
       {/* Main Image Container */}

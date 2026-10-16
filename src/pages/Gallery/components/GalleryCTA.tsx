@@ -45,7 +45,7 @@ export const GalleryCTA: React.FC = () => {
           </Link>
 
           {/* Sprouting Plant Visual on Far Right */}
-          <div className="hidden lg:block w-20 h-20 xl:w-24 xl:h-24 rounded-full overflow-hidden border-2 border-white/20 shadow-lg shrink-0">
+          <div className="hidden lg:block w-20 h-20 xl:w-24 xl:h-24 rounded-full overflow-hidden border-2 border-white/20 bg-[#082b17] shadow-lg shrink-0">
             <picture>
               <source srcSet="/assets/gallery/gallery-cta-sprout.webp" type="image/webp" />
               <img
@@ -55,7 +55,7 @@ export const GalleryCTA: React.FC = () => {
                 height={96}
                 loading="lazy"
                 decoding="async"
-                className="w-full h-full object-cover scale-110"
+                className="w-full h-full object-cover"
               />
             </picture>
           </div>

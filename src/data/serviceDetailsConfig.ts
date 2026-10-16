@@ -219,7 +219,7 @@ export const SERVICE_DETAILS_MAP: Record<string, ServiceDetailExtended> = {
     visuals: [
       { title: 'Mechanized Pit Digging & Alignment', image: '/assets/illustrations/land-preparation.webp' },
       { title: 'Certified Grafted Saplings Ready for Planting', image: '/assets/gallery/gallery-plantation-grafted-sapling.webp' },
-      { title: 'Thriving Commercial Fruit Orchard', image: '/assets/services/premium-farm-orchard.webp' },
+      { title: 'Thriving Commercial Fruit Orchard', image: '/assets/gallery/gallery-land-dev-aerial.webp' },
     ],
     faqs: [
       {
@@ -346,7 +346,7 @@ export const SERVICE_DETAILS_MAP: Record<string, ServiceDetailExtended> = {
   'labour-house': {
     slug: 'labour-house',
     title: 'Labour House Construction',
-    image: '/assets/gallery/project-3.svg',
+    image: '/assets/gallery/gallery-farmhouse-cottage.webp',
     overview: 'Uzhavar Connect builds durable, cost-effective on-site farm worker quarters, caretaker houses, and tool rooms. Having resident caretakers or farm workers on site is crucial for security, livestock management, and daily irrigation operations. We construct durable brick/block masonry or quick pre-fabricated units complete with basic plumbing, electrical wiring, and solar lighting integration.',
     scopeOfWork: [
       'Site elevation selection and foundation earthwork',
@@ -380,7 +380,7 @@ export const SERVICE_DETAILS_MAP: Record<string, ServiceDetailExtended> = {
   'farm-house': {
     slug: 'farm-house',
     title: 'Farm House Development',
-    image: '/assets/featured-farmhouse.svg',
+    image: '/assets/gallery/gallery-farmhouse-palms.webp',
     overview: 'Uzhavar Connect designs and constructs beautiful custom weekend farmhouses, country villas, and eco-retreats integrated into your farmland landscape. We combine traditional South Indian architectural elements—such as spacious verandas, natural stone paving, brick facades, and large windows—with modern interior amenities. Our turnkey service handles everything from architectural design to structural execution and surrounding landscape gardens.',
     scopeOfWork: [
       'Architectural planning, 3D elevation design, and floor layouts',
@@ -401,7 +401,7 @@ export const SERVICE_DETAILS_MAP: Record<string, ServiceDetailExtended> = {
     visuals: [
       { title: 'Site Planning & Landscape Integration', image: '/assets/who-we-are.webp' },
       { title: 'Country Veranda & Architectural Elevation', image: '/assets/hero-farm.webp' },
-      { title: 'Integrated Farmhouse & Fruit Orchard', image: '/assets/services/premium-farm-orchard.webp' },
+      { title: 'Integrated Farmhouse & Fruit Orchard', image: '/assets/gallery/gallery-farmhouse-grounds.webp' },
     ],
     faqs: [
       {
@@ -414,7 +414,7 @@ export const SERVICE_DETAILS_MAP: Record<string, ServiceDetailExtended> = {
   'end-to-end-farm-management': {
     slug: 'end-to-end-farm-management',
     title: 'End-to-End Farm Management Services',
-    image: '/assets/services/premium-farm-orchard.webp',
+    image: '/assets/gallery/gallery-land-dev-aerial.webp',
     overview: 'Uzhavar Connect offers flagship Turnkey End-to-End Farm Management services for absentee landowners, NRI investors, and commercial farm developers across Tamil Nadu. We take full responsibility for transforming raw land into a thriving, revenue-generating agricultural estate. From initial land survey, clearing, and levelling to farm layout design, drip installation, high-density tree planting, ongoing maintenance, and harvest marketing—our agronomists handle every single aspect under one accountable umbrella.',
     scopeOfWork: [
       'Complete single-window farm setup from raw land to mature harvest',
@@ -437,7 +437,7 @@ export const SERVICE_DETAILS_MAP: Record<string, ServiceDetailExtended> = {
     visuals: [
       { title: 'Phase 1: Groundwork & Land Levelling', image: '/assets/services/visuals/visual-land-levelling.webp' },
       { title: 'Phase 2: Drip Irrigation & Orchard Planting', image: '/assets/illustrations/tree-plantation.webp' },
-      { title: 'Phase 3: Mature Productive Revenue Farmland', image: '/assets/services/premium-farm-orchard.webp' },
+      { title: 'Phase 3: Mature Productive Revenue Farmland', image: '/assets/gallery/gallery-land-dev-aerial.webp' },
     ],
     faqs: [
       {

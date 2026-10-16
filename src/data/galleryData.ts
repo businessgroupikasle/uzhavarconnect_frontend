@@ -356,7 +356,7 @@ export const ADDITIONAL_GALLERY_ITEMS: GalleryItem[] = [
     id: '13',
     title: 'High-Density Mango Orchard',
     category: 'Plantation',
-    image: '/assets/services/premium-farm-orchard.webp',
+    image: '/assets/gallery/gallery-tree-planting-field.webp',
     description: 'Lush fruit orchard rows under active management and drip watering.',
   },
   {

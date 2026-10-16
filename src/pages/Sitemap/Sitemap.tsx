@@ -31,7 +31,7 @@ export const Sitemap: React.FC = () => {
         </div>
 
         {/* Sitemap Sections Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 items-start">
           
           {/* Main Pages */}
           <div className="bg-white rounded-2xl p-6 border border-[#e2ece0] shadow-2xs hover:shadow-xs transition-shadow">
@@ -67,7 +67,7 @@ export const Sitemap: React.FC = () => {
                 </Link>
               </li>
               <li>
-                <Link to="/contact" className="flex items-center justify-between py-1 hover:text-[#1b5e20] hover:translate-x-1 transition-all">
+                <Link to="/contact#enquiry-form" className="flex items-center justify-between py-1 hover:text-[#1b5e20] hover:translate-x-1 transition-all">
                   <span>Book Farm Consultation</span>
                   <ArrowRight className="w-4 h-4 opacity-50" />
                 </Link>
@@ -94,10 +94,10 @@ export const Sitemap: React.FC = () => {
                 <li key={service.id}>
                   <Link
                     to={`/services/${service.slug}`}
-                    className="flex items-center justify-between py-1 hover:text-[#1b5e20] hover:translate-x-1 transition-all"
+                    className="flex items-start justify-between gap-3 py-1 hover:text-[#1b5e20] hover:translate-x-1 transition-all"
                   >
-                    <span className="truncate pr-2">{service.title}</span>
-                    <ArrowRight className="w-3.5 h-3.5 opacity-50 shrink-0" />
+                    <span className="leading-snug">{service.title}</span>
+                    <ArrowRight className="w-3.5 h-3.5 opacity-50 shrink-0 mt-0.5" />
                   </Link>
                 </li>
               ))}

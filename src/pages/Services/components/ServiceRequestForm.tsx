@@ -42,10 +42,16 @@ export const ServiceRequestForm: React.FC<ServiceRequestFormProps> = ({ currentS
   const validate = (): boolean => {
     const errs: Record<string, string> = {};
 
-    if (!formData.fullName.trim()) {
+    const nameTrimmed = formData.fullName.trim();
+    const nameRegex = /^[a-zA-Z\u00C0-\u024F\s'-]+$/;
+    if (!nameTrimmed) {
       errs.fullName = 'Full Name is required';
-    } else if (formData.fullName.trim().length < 2) {
-      errs.fullName = 'Please enter a valid name';
+    } else if (nameTrimmed.length < 2) {
+      errs.fullName = 'Please enter a valid name (at least 2 characters)';
+    } else if (/\d/.test(formData.fullName)) {
+      errs.fullName = 'Full Name cannot contain numbers. Only letters, spaces, hyphens, and apostrophes are allowed';
+    } else if (!nameRegex.test(nameTrimmed)) {
+      errs.fullName = 'Full Name should only contain alphabetic characters and spaces (including hyphens or apostrophes)';
     }
 
     const cleanMobile = formData.mobile.replace(/\D/g, '');
@@ -67,6 +73,26 @@ export const ServiceRequestForm: React.FC<ServiceRequestFormProps> = ({ currentS
 
     setErrors(errs);
     return Object.keys(errs).length === 0;
+  };
+
+  const handleNameBlur = () => {
+    const nameTrimmed = formData.fullName.trim();
+    const nameRegex = /^[a-zA-Z\u00C0-\u024F\s'-]+$/;
+    if (!nameTrimmed) {
+      setErrors((prev) => ({ ...prev, fullName: 'Full Name is required' }));
+    } else if (nameTrimmed.length < 2) {
+      setErrors((prev) => ({ ...prev, fullName: 'Please enter a valid name (at least 2 characters)' }));
+    } else if (/\d/.test(formData.fullName)) {
+      setErrors((prev) => ({
+        ...prev,
+        fullName: 'Full Name cannot contain numbers. Only letters, spaces, hyphens, and apostrophes are allowed',
+      }));
+    } else if (!nameRegex.test(nameTrimmed)) {
+      setErrors((prev) => ({
+        ...prev,
+        fullName: 'Full Name should only contain alphabetic characters and spaces (including hyphens or apostrophes)',
+      }));
+    }
   };
 
   const handleInputChange = (
@@ -251,6 +277,7 @@ export const ServiceRequestForm: React.FC<ServiceRequestFormProps> = ({ currentS
               name="fullName"
               value={formData.fullName}
               onChange={handleInputChange}
+              onBlur={handleNameBlur}
               placeholder="Enter your full name"
               className={`w-full rounded-lg border ${errors.fullName ? 'border-red-400 bg-red-50/20' : 'border-slate-300'
                 } focus:border-[#15803d] focus:ring-1 focus:ring-[#15803d] px-3.5 py-2 text-xs sm:text-sm outline-none placeholder:text-slate-400 transition-colors`}

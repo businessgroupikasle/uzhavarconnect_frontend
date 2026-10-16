@@ -27,7 +27,7 @@ export const Contact: React.FC = () => {
             </div>
 
             {/* Right Column: Send Us Your Enquiry Card */}
-            <div className="lg:col-span-7">
+            <div id="enquiry-form" className="lg:col-span-7 scroll-mt-24 sm:scroll-mt-28">
               <EnquiryForm />
             </div>
 

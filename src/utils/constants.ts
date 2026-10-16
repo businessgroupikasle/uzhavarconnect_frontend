@@ -3,6 +3,7 @@ import { ContactInfo } from '../types';
 export const COMPANY_NAME = "Uzhavar Connect";
 export const COMPANY_TAGLINE = "Agriculture Farm Land Developer";
 export const COMPANY_MOTTO = "Grow Your Land. Grow Your Future.";
+export const LEGAL_LAST_UPDATED = "October 16, 2026";
 
 export const CONTACT_DETAILS: ContactInfo = {
   phone: "+917550119994",

@@ -1,3 +1,6 @@
+# Custom 404 Error Document
+ErrorDocument 404 /404.html
+
 <IfModule mod_rewrite.c>
   RewriteEngine On
   RewriteBase /
@@ -10,13 +13,18 @@
   RewriteRule ^farm-details/?$ /services/farm-layout-and-planning [R=301,L]
   RewriteRule ^buy-inputs/?$ /services [R=301,L]
   RewriteRule ^sell-produce/?$ /services/buyback-assistance [R=301,L]
+  RewriteRule ^blog/?.*$ / [R=301,L]
 
-  # Standard SPA Routing Fallback
-  RewriteRule ^index\.html$ - [L]
-  RewriteCond %{REQUEST_FILENAME} !-f
-  RewriteCond %{REQUEST_FILENAME} !-d
-  RewriteCond %{REQUEST_FILENAME} !-l
-  RewriteRule . /index.html [L]
+  # Existing files and directories serve directly
+  RewriteCond %{REQUEST_FILENAME} -f [OR]
+  RewriteCond %{REQUEST_FILENAME} -d
+  RewriteRule ^ - [L]
+
+  # Known SPA Routes -> Serve index.html with 200 OK
+  RewriteRule ^(about|services|services/[a-zA-Z0-9_-]+|gallery|contact|book-a-service|privacy-policy|terms-and-conditions|sitemap)/?$ /index.html [L]
+
+  # All other non-existent paths return HTTP 404
+  RewriteRule ^ - [R=404,L]
 </IfModule>
 
 # Browser Caching

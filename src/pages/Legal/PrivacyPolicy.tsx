@@ -1,7 +1,7 @@
 import React from 'react';
 import { usePageSeo } from '../../utils/seo';
 import { Link } from 'react-router-dom';
-import { COMPANY_NAME, CONTACT_DETAILS } from '../../utils/constants';
+import { COMPANY_NAME, CONTACT_DETAILS, LEGAL_LAST_UPDATED } from '../../utils/constants';
 
 export const PrivacyPolicy: React.FC = () => {
   usePageSeo({
@@ -22,7 +22,7 @@ export const PrivacyPolicy: React.FC = () => {
             Privacy Policy
           </h1>
           <p className="text-xs text-slate-500 mt-2">
-            Last Updated: January 1, 2025
+            Last Updated: {LEGAL_LAST_UPDATED}
           </p>
         </div>
 

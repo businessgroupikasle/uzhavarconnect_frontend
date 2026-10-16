@@ -1,8 +1,10 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { SERVICES_DATA } from '../../../data/services';
 import { CompactServiceCard } from './Services/CompactServiceCard';
 
 export const ServicesOverview: React.FC = () => {
+  const [selectedSlug, setSelectedSlug] = useState<string>('farm-maintenance-amc');
+
   // First 8 services for Rows 1 & 2 (4 + 4)
   const firstEight = SERVICES_DATA.slice(0, 8);
   // Last 3 services for Row 3 (3 cards centered)
@@ -69,7 +71,12 @@ export const ServicesOverview: React.FC = () => {
           {/* Rows 1 & 2: 8 Cards in a 4-Column Grid */}
           <div className="grid grid-cols-4 gap-5 lg:gap-6">
             {firstEight.map((service) => (
-              <CompactServiceCard key={service.id} service={service} />
+              <CompactServiceCard
+                key={service.id}
+                service={service}
+                isSelected={service.slug === selectedSlug}
+                onSelect={() => setSelectedSlug(service.slug)}
+              />
             ))}
           </div>
 
@@ -77,7 +84,11 @@ export const ServicesOverview: React.FC = () => {
           <div className="flex justify-center gap-5 lg:gap-6">
             {lastThree.map((service) => (
               <div key={service.id} className="w-[calc((100%-3*1.5rem)/4)]">
-                <CompactServiceCard service={service} />
+                <CompactServiceCard
+                  service={service}
+                  isSelected={service.slug === selectedSlug}
+                  onSelect={() => setSelectedSlug(service.slug)}
+                />
               </div>
             ))}
           </div>
@@ -86,7 +97,12 @@ export const ServicesOverview: React.FC = () => {
         {/* Tablet & Mobile View (< 1024px): Responsive 2-col on mobile, 3-col on md */}
         <div className="lg:hidden grid grid-cols-2 md:grid-cols-3 gap-3 sm:gap-4 md:gap-5">
           {SERVICES_DATA.map((service) => (
-            <CompactServiceCard key={service.id} service={service} />
+            <CompactServiceCard
+              key={service.id}
+              service={service}
+              isSelected={service.slug === selectedSlug}
+              onSelect={() => setSelectedSlug(service.slug)}
+            />
           ))}
         </div>
 
